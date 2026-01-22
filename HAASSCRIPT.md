@@ -161,7 +161,7 @@ end
 
 ## Command Index
 
-HaasScript provides **773 commands** organized into **6 logical domains**:
+HaasScript provides **774 commands** organized into **6 logical domains**:
 
 ### Advanced Features (97 commands)
 
@@ -462,7 +462,7 @@ HaasScript provides **773 commands** organized into **6 logical domains**:
 
 **[View full technical analysis documentation →](haasscript/technical-analysis.md)**
 
-### Trading & Positions (139 commands)
+### Trading & Positions (140 commands)
 
 **Easy Insurances** (14)
 - `AbsolutePriceChange([amount], [targetPrice], [positionId])` - Compares the average entry price to current price, absolu...
@@ -512,13 +512,13 @@ HaasScript provides **773 commands** organized into **6 logical domains**:
 - `LastExitShortPrice()` - Gets the last used exit short price.
 - ... and 6 more
 
-**Signal Helpers** (24)
+**Signal Helpers** (25)
 - `BoolToSignal([isLong], [isShort], [isExit], [isNone])` - Converts 4 boolean values to a signal.
 - `ConvertSignal(signal, signalToCovert, convertedSignal)` - Converts the signal if its matches the defined one.
 - `DelaySignal(signal, minutes)` - Saves and delays a signal by a number of minutes.
 - `GetAboveBelowSignal(fast, slow)` - Returns a continuous signal when values are above/below o...
 - `GetBuySellLevelSignal(value, buyLevel, sellLevel)` - Determines the signal from a result with a buy and sell l...
-- ... and 19 more
+- ... and 20 more
 
 **Trade Actions (Managed)** (5)
 - `DoExitPosition([note], [count])` - Sends out a sell signal on spot or an exit positions sign...

@@ -1,6 +1,6 @@
 # Trading & Positions
 
-139 commands across 11 categories.
+140 commands across 11 categories.
 
 ## Categories
 
@@ -10,7 +10,7 @@
 - [Order Information](#order-information) (8 commands)
 - [Position Information](#position-information) (14 commands)
 - [Position Prices](#position-prices) (11 commands)
-- [Signal Helpers](#signal-helpers) (24 commands)
+- [Signal Helpers](#signal-helpers) (25 commands)
 - [Trade Actions (Managed)](#trade-actions-managed) (5 commands)
 - [Trade Actions (Unmanaged)](#trade-actions-unmanaged) (8 commands)
 - [Trade Bot](#trade-bot) (4 commands)
@@ -1708,6 +1708,31 @@ Gets the remote signal which is published by SaveRemoteSignal()
 **Returns:** `enum`
 
 Returns a trade signal enumeration. For example SignalLong(), SignalShort(), SignalExitPosition(), SignalNone() or SignalError().
+
+---
+
+## GetWebHookSignal
+
+```lua
+GetWebHookSignal(id, secret, [ttl], [customParameter1], [customParameter2], ...)
+```
+
+Gets the latest WebHook signal of a specific key.
+
+**Parameters:**
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| `id` | `string` | Yes | Unique identifier for the webhook signal. |
+| `secret` | `string` | Yes | Secret key for authentication. |
+| `ttl` | `number` | No | Time-to-live in seconds. Default is 300. |
+| `[customParameters]` | `any` | No | Any additional custom parameters that will be passed to the Bot. |
+
+**Returns:** `dynamic`
+
+Returns the latest signal object stored by an incoming WebHook. The user can specify any additional custom parameter names and values beyond the required and optional parameters, which will be passed along to the Bot for processing.
+
+> **Warning:** Once a signal has been processed, it will be removed from the system. It is recommended to use a different signal ID for each bot to avoid conflicts.
 
 ---
 
