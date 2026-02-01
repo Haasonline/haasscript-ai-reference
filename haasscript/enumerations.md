@@ -2177,7 +2177,7 @@ Returns the WMA Type enum.
 LimitOrderType()
 ```
 
-Standard limit order type enum with a default timeout of 10 minutes. Used by SetOrderType() or PlaceOrders commands.
+Standard limit order type enum with a default timeout of 10 minutes. Used by SetOrderType() or order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder.
 
 **Returns:** `enum`
 
@@ -2191,7 +2191,7 @@ Returns the LimitOrderType enum.
 MakerOrCancelOrderType()
 ```
 
-MakerOrCancel order type enum with a standard timeout of 10 minutes. When the exchange does not support this type, a normal limit order will be executed. Used by SetOrderType() or PlaceOrders commands.
+MakerOrCancel order type enum with a standard timeout of 10 minutes. When the exchange does not support this type, a normal limit order will be executed. Used by SetOrderType() or order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder.
 
 **Returns:** `enum`
 
@@ -2205,7 +2205,7 @@ Returns the MakerOrCancelOrderType enum.
 MarketOrderType()
 ```
 
-Standard market order type. Used by SetOrderType() or PlaceOrders commands.
+Standard market order type. Used by SetOrderType() or order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder.
 
 **Returns:** `enum`
 
@@ -2219,7 +2219,7 @@ Returns the MarketOrderType enum.
 NoTimeOutOrderType()
 ```
 
-Enumeration, returns an order type enum. Used by SetOrderType() or PlaceOrders commands.
+Enumeration, returns an order type enum. Used by SetOrderType() or order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder.
 
 **Returns:** `enum`
 
@@ -2233,7 +2233,7 @@ Returns the NoTimeOutOrderType enum.
 StopLimitOrderType()
 ```
 
-Stop-Limit order type enum with a standard timeout of 10 minutes. When the exchange does not support this type, an error will be thrown and bot execution is stopped. Used by SetOrderType() or PlaceOrders commands.
+Stop-Limit order type enum with a standard timeout of 10 minutes. When the exchange does not support this type, an error will be thrown and bot execution is stopped. Used by SetOrderType() or order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder.
 
 **Returns:** `enum`
 
@@ -2247,7 +2247,7 @@ Returns the StopLimitOrderType enum.
 StopMarketOrderType()
 ```
 
-Stop-Market order type enum. When the exchange does not support this type, an error will be thrown and bot execution is stopped. Used by SetOrderType() or PlaceOrders commands.
+Stop-Market order type enum. When the exchange does not support this type, an error will be thrown and bot execution is stopped. Used by SetOrderType() or order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder.
 
 **Returns:** `enum`
 
@@ -2261,7 +2261,7 @@ Returns the StopMarketOrderType enum.
 TakeProfitLimitOrderType()
 ```
 
-Take-profit limit order type enum with a standard timeout of 10 minutes. When the exchange does not support this type, an error will be thrown and bot execution is stopped. Used by SetOrderType() or PlaceOrders commands.
+Take-profit limit order type enum with a standard timeout of 10 minutes. When the exchange does not support this type, an error will be thrown and bot execution is stopped. Used by SetOrderType() or order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder.
 
 **Returns:** `enum`
 
@@ -2275,7 +2275,7 @@ Returns the TakeProfitLimitOrderType enum.
 TakeProfitMarketOrderType()
 ```
 
-Take-Profit-Market order type enum. When the exchange does not support this type, an error will be thrown and bot execution is stopped. Used by SetOrderType() or PlaceOrders commands.
+Take-Profit-Market order type enum. When the exchange does not support this type, an error will be thrown and bot execution is stopped. Used by SetOrderType() or order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder.
 
 **Returns:** `enum`
 
@@ -2289,7 +2289,7 @@ Returns the TakeProfitMarketOrderType enum.
 TrailingStopMarketOrderType()
 ```
 
-Trailing-Stop order type enum. When the exchange does not support this type, an error will be thrown and bot execution is stopped. Used by SetOrderType() or PlaceOrders commands.
+Trailing-Stop order type enum. When the exchange does not support this type, an error will be thrown and bot execution is stopped. Used by SetOrderType() or order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder.
 
 **Returns:** `enum`
 

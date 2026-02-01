@@ -766,7 +766,7 @@ Sends out a cancel order for the given order identifier.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `orderId` | `string` | Yes | Unique order identifier provided by the PlaceOrder commands. |
+| `orderId` | `string` | Yes | Unique order identifier provided by the order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder. |
 
 **Returns:** `void`
 
@@ -824,7 +824,7 @@ Checks if the given order is a buy order.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `orderId` | `string` | Yes | Unique order identifier provided by the PlaceOrder commands. |
+| `orderId` | `string` | Yes | Unique order identifier provided by the order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder. |
 
 **Returns:** `boolean`
 
@@ -844,7 +844,7 @@ Checks if the given order is filled.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `orderId` | `string` | Yes | Unique order identifier provided by the PlaceOrder commands. |
+| `orderId` | `string` | Yes | Unique order identifier provided by the order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder. |
 
 **Returns:** `boolean`
 
@@ -864,7 +864,7 @@ Checks if the given order is still open.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `orderId` | `string` | Yes | Unique order identifier provided by the PlaceOrder commands. |
+| `orderId` | `string` | Yes | Unique order identifier provided by the order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder. |
 
 **Returns:** `boolean`
 
@@ -884,7 +884,7 @@ Checks if the given order is a sell order.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `orderId` | `string` | Yes | Unique order identifier provided by the PlaceOrder commands. |
+| `orderId` | `string` | Yes | Unique order identifier provided by the order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder. |
 
 **Returns:** `boolean`
 
@@ -947,7 +947,7 @@ The reason for the order failure.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `orderId` | `string` | Yes | Unique order identifier provided by the PlaceOrder commands. |
+| `orderId` | `string` | Yes | Unique order identifier provided by the order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder. |
 
 **Returns:** `string`
 
@@ -967,7 +967,7 @@ Calculates the cancelled amount if the order is completed/cancelled.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `orderId` | `string` | Yes | Unique order identifier provided by the PlaceOrder commands. |
+| `orderId` | `string` | Yes | Unique order identifier provided by the order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder. |
 
 **Returns:** `number`
 
@@ -987,7 +987,7 @@ Calculates the amount filled for a specific order.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `orderId` | `string` | Yes | Unique order identifier provided by the PlaceOrder commands. |
+| `orderId` | `string` | Yes | Unique order identifier provided by the order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder. |
 | `afterFees` | `boolean` | No | If true, the fee cost are subtracted from the total amount if they are paid in the base currency. |
 
 **Returns:** `number`
@@ -1008,7 +1008,7 @@ Calculates how long an order is or has been open in minutes.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `orderId` | `string` | Yes | Unique order identifier provided by the PlaceOrder commands. |
+| `orderId` | `string` | Yes | Unique order identifier provided by the order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder. |
 | `inSeconds` | `boolean` | No | If set on true, the timespan will be in seconds. |
 
 **Returns:** `number`
@@ -1029,7 +1029,7 @@ Calculates the realized profits of the order.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `orderId` | `string` | Yes | Unique order identifier provided by the PlaceOrder commands. |
+| `orderId` | `string` | Yes | Unique order identifier provided by the order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder. |
 
 **Returns:** `number`
 
@@ -1049,7 +1049,7 @@ Gets all the information from an specific order.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `orderId` | `string` | Yes | Unique order identifier provided by the PlaceOrder commands. |
+| `orderId` | `string` | Yes | Unique order identifier provided by the order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder. |
 
 **Returns:** `dynamic`
 
@@ -2222,7 +2222,7 @@ Executes the remaining amount of a canceled order.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `orderId` | `string` | Yes | Unique order identifier. Returned by the PlaceOrder commands. |
+| `orderId` | `string` | Yes | Unique order identifier. Returned by the order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder. |
 | `price` | `number` | No | The price on which to execute. Be defaults the best ask or bid price is used. |
 
 **Returns:** `string`
