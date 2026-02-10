@@ -1530,7 +1530,7 @@ Disables IndicatorContainer log messages.
 ## EnableHighSpeedUpdates
 
 ```lua
-EnableHighSpeedUpdates([updateOnFilledOrders])
+EnableHighSpeedUpdates([updateOnFilledOrders], [guaranteeInterval])
 ```
 
 Enables high-speed script execution.
@@ -1540,6 +1540,7 @@ Enables high-speed script execution.
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | `updateOnFilledOrders` | `boolean` | No | Executes an update right after an order has finished (canceled or filled). |
+| `guaranteeInterval` | `boolean` | No | Guarantees execution at least once every 10 seconds even if no price ticks arrive. |
 
 **Returns:** `void`
 

@@ -204,7 +204,7 @@ HaasScript provides **774 commands** organized into **6 logical domains**:
 **Settings** (24)
 - `DeactivateBot([reason], [cancelOpenOrders])` - Deactivates the bot. Once the bot is deactivated, it can ...
 - `DisableIndicatorContainerLogs()` - Disables IndicatorContainer log messages.
-- `EnableHighSpeedUpdates([updateOnFilledOrders])` - Enables high-speed script execution.
+- `EnableHighSpeedUpdates([updateOnFilledOrders], [guaranteeInterval])` - Enables high-speed script execution.
 - `EnableOrderPersistence()` - Enables order persistence for managed trading.
 - `Finalize([callback])` - Only executes on the last update cycle of a backtest. Sav...
 - ... and 19 more
