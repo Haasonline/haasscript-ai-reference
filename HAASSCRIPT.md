@@ -217,7 +217,7 @@ HaasScript provides **774 commands** organized into **6 logical domains**:
 
 **[View full advanced features documentation →](haasscript/advanced.md)**
 
-### Data & Prices (62 commands)
+### Data & Prices (63 commands)
 
 **Price Data** (16)
 - `BuyPrices([interval], [fullCandles], [market], [hlcStyle])` - Gets the buy/ask prices.
@@ -243,12 +243,13 @@ HaasScript provides **774 commands** organized into **6 logical domains**:
 - `GetTradingReport([market])` - Gets the trading report container with many useful values...
 - ... and 1 more
 
-**Time Information** (18)
+**Time Information** (19)
 - `AdjustTimestamp([unix], [addSeconds], [addMinutes], [addHours], [addDays], [addMonths], [addYears])` - Adjusts an Unix timestamp.
 - `CloseTime(unix, interval)` - Converts a timestamps to the close timestamp of the candle.
 - `CreateTimestamp([year], [month], [day], [hour], [minute], [second])` - Creates an Unix timestamp from the specified value.
 - `CurrentDate([unix])` - Gets the date of the month of the current time or request...
 - `CurrentDay([unix])` - Gets the day of the week of the current time or requested...
+- `Sleep(milliseconds)` - Pauses script execution (max 10 seconds).
 - ... and 13 more
 
 **Wallet** (10)

@@ -1101,6 +1101,42 @@ Starts a timer.
 
 ---
 
+## Sleep
+
+```lua
+Sleep(milliseconds)
+```
+
+Pauses script execution for a specified number of milliseconds. Useful for adding random delays to avoid predictable order timing patterns.
+
+**Parameters:**
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| `milliseconds` | `number` | Yes | Number of milliseconds to sleep (e.g., 100 = 100ms, 5000 = 5 seconds). Maximum 10000ms (10 seconds). |
+
+**Returns:** `number`
+
+Returns the actual time slept in milliseconds.
+
+**Note:** Sleep time does not count toward script execution timeout, allowing multiple Sleep() calls without triggering warnings.
+
+**Example - Anti-Detection Order Timing:**
+
+```lua
+-- Add random delay to avoid predictable patterns
+local rsi = RSI(GetClosePrices(), 14)
+
+if rsi.Value < 30 then
+    local delayMs = Random(0, 9000).Value  -- 0-9 seconds
+    Log("Delaying order by " .. delayMs .. "ms")
+    Sleep(delayMs)
+    DoLong()
+end
+```
+
+---
+
 ## StopTimer
 
 ```lua
