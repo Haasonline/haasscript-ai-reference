@@ -1711,31 +1711,6 @@ Returns a trade signal enumeration. For example SignalLong(), SignalShort(), Sig
 
 ---
 
-## GetWebHookSignal
-
-```lua
-GetWebHookSignal(id, secret, [ttl], [customParameter1], [customParameter2], ...)
-```
-
-Gets the latest WebHook signal of a specific key.
-
-**Parameters:**
-
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| `id` | `string` | Yes | Unique identifier for the webhook signal. |
-| `secret` | `string` | Yes | Secret key for authentication. |
-| `ttl` | `number` | No | Time-to-live in seconds. Default is 300. |
-| `[customParameters]` | `any` | No | Any additional custom parameters that will be passed to the Bot. |
-
-**Returns:** `dynamic`
-
-Returns the latest signal object stored by an incoming WebHook. The user can specify any additional custom parameter names and values beyond the required and optional parameters, which will be passed along to the Bot for processing.
-
-> **Warning:** Once a signal has been processed, it will be removed from the system. It is recommended to use a different signal ID for each bot to avoid conflicts.
-
----
-
 ## GetSuperSignal
 
 ```lua
@@ -1819,7 +1794,18 @@ Gets the latest WebHook signal of a specific key.
 
 **Returns:** `dynamic`
 
-Returns the latest signal object stored by an incoming WebHook.
+Returns the latest signal object stored by an incoming WebHook. The returned object always contains `webhook_received_at` (a Unix timestamp set by the server when the signal was received). All other fields are whatever was included in the incoming webhook payload.
+
+```lua
+{
+  webhook_received_at = 1711800000,  -- always present
+  action = "buy",                    -- user-defined
+  price = 42000,                     -- user-defined
+  symbol = "BTCUSDT"                 -- user-defined
+}
+```
+
+> **Warning:** Once a signal has been processed, it will be removed from the system. It is recommended to use a different signal ID for each bot to avoid conflicts.
 
 ---
 
