@@ -2184,10 +2184,26 @@ Creates an item in the bots custom reports.
 |------|------|----------|-------------|
 | `key` | `string` | Yes | The name of the item. |
 | `value` | `dynamic` | Yes | The value of the item. |
-| `group` | `string` | No | The name of the report. By default its 'Custom Report'. |
+| `group` | `string` | No | The name of the report. By default its 'Custom Report'. Pass `"Override"` to override a built-in report field (see below). |
 | `displayValue` | `boolean` | No | When set on true, this value will be visible on the bot list in the UI.'. |
 
 **Returns:** `void`
+
+**Overriding built-in report values:**
+
+When `group` is `"Override"` and `key` matches a supported built-in field, the bot's report displays the custom `value` instead of the calculated value. Overrides also appear under an **Override** group in the Custom Report section for visibility. Pass `nil` as the value to clear an override.
+
+Supported keys: `GrossProfit`, `FeeCosts`, `RealizedProfit`, `UnrealizedProfit`, `ROI`, `BuyAndHodl`, `ClosedPositions`, `WinningPositions`, `AvgProfit`, `AvgPositionSize`, `AvgPositionMargin`, `FilledOrders`, `PartiallyFilledOrders`, `CancelledOrders`, `FailedOrders`, `BiggestWin`, `BiggestLoss`, `SharpeRatio`, `SortinoRatio`, `WinPercentage`, `ProfitFactor`
+
+```lua
+-- Override profit section values
+CustomReport("RealizedProfit", myNetPnL, "Override")
+CustomReport("ROI", myROI, "Override")
+CustomReport("FeeCosts", myTotalFees, "Override")
+
+-- Clear an override
+CustomReport("ROI", nil, "Override")
+```
 
 ---
 

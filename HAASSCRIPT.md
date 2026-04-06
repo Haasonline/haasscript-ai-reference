@@ -420,7 +420,7 @@ HaasScript provides **774 commands** organized into **6 logical domains**:
 **Miscellaneous** (9)
 - `Comment(value)` - Creates a text area block for comments.
 - `ConvertNull(input, [value])` - Converts any null value(s) to a specified value. By defau...
-- `CustomReport(key, value, [group], [displayValue])` - Creates an item in the bots custom reports.
+- `CustomReport(key, value, [group], [displayValue])` - Creates an item in the bots custom reports. Use `group = "Override"` to override a built-in report field (e.g. `ROI`, `RealizedProfit`); pass `nil` as value to clear.
 - `GetCommand(name)` - Gets a command by name.
 - `GetType(value)` - Gets the data type of the input.
 - ... and 4 more
