@@ -1,7 +1,7 @@
 # HaasScript Reference
 
-> **For AI agent guidance and best practices, see [AGENT.md](AGENT.md)**
-> This document is a technical command reference. For help with common patterns, debugging, and interaction guidelines, start with AGENT.md.
+> **For AI agent guidance and best practices, see [AGENTS.md](AGENTS.md)**
+> This document is a technical command reference. For help with common patterns, debugging, and interaction guidelines, start with AGENTS.md.
 
 Complete reference documentation for HaasScript, the Lua-based scripting language for automated cryptocurrency trading on Haasonline TradeServer.
 

@@ -22,7 +22,7 @@ This repository contains **AI-optimized documentation** for HaasScript, specific
 
 ```
 ├── MCP.md                      # AI assistant guide for MCP-connected sessions (HTS live server)
-├── AGENT.md                    # AI assistant guidance & best practices (non-MCP sessions)
+├── AGENTS.md                    # AI assistant guidance & best practices (non-MCP sessions)
 ├── HAASSCRIPT.md              # Technical reference overview
 └── haasscript/
     ├── technical-analysis.md  # 157 indicator commands
@@ -40,7 +40,7 @@ If connected to a live HaasOnline Trade Server via MCP, start with **MCP.md** fo
 - Backtesting, lab execution, and live bot monitoring patterns
 - All core HaasScript language guidance
 
-Otherwise, start with **AGENT.md** for:
+Otherwise, start with **AGENTS.md** for:
 - Best practices and common patterns
 - Language-specific gotchas (1-based indexing, `Log()` vs `print()`, etc.)
 - Trading approach guidance (managed vs unmanaged)
@@ -112,4 +112,4 @@ This documentation is provided for reference purposes. For licensing information
 
 ---
 
-*For AI assistants: This repository is optimized for your consumption. If connected to a live HTS via MCP, start with MCP.md. Otherwise, start with AGENT.md.*
+*For AI assistants: This repository is optimized for your consumption. If connected to a live HTS via MCP, start with MCP.md. Otherwise, start with AGENTS.md.*

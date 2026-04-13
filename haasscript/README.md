@@ -4,7 +4,7 @@ Complete reference documentation for HaasScript commands and API.
 
 ## Quick Start
 
-- **Start Here**: See [`AGENT.md`](../AGENT.md) for AI agent guidance, best practices, and common patterns
+- **Start Here**: See [`AGENTS.md`](../AGENTS.md) for AI agent guidance, best practices, and common patterns
 - **Technical Reference**: See [`HAASSCRIPT.md`](../HAASSCRIPT.md) for type system, execution model, and command index
 - **Detailed Commands**: Browse domain files below for complete command documentation
 
@@ -27,7 +27,7 @@ Documentation is organized into logical domains for easy navigation:
 
 **8 files total** (optimized for AI tool limits like Gemini's 8-file maximum):
 
-1. `AGENT.md` - AI agent guidance and best practices (entry point)
+1. `AGENTS.md` - AI agent guidance and best practices (entry point)
 2. `HAASSCRIPT.md` - Technical reference with overview and quick reference
 3. `advanced.md` - Advanced Features
 4. `data-and-prices.md` - Data & Prices

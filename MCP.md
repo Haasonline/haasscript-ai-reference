@@ -6,9 +6,47 @@ You have direct access to a running HaasOnline Trade Server (HTS) via the HTS MC
 
 > **v0.9 update:** Full parameter audit against the live HTS MCP server. All tool signatures have been verified by live calls. Key breaking changes from v0.8: (1) `execute_backtest` interface completely replaced — caller must supply a generated `backtestid` UUID and all trading params go inside a `settings` JSON string; it returns a `serviceid` string, not a backtest ID. (2) `get_backtest_status` and `cancel_backtest` now require a `serviceid` param (always `"LocalService-ENT"` on self-hosted). (3) `add_script` params are `script`/`description`/`type`, not `code`; trading params go inside `settings` JSON. (4) `edit_script_source` param is `sourcecode` not `code`; `settings` JSON string is now required. (5) `compile_script` param is `sourcecode` (not `code`); now fully functional — returns `isValid`, `errors`, `log`, `inputs` (discovered Input() fields), and strategy capability flags. (6) `check_market_data` and `sync_market_data` use `market` not `market_tag`; `check_market_data` requires `interval`. (7) `create_lab` uses `market` not `market_tag` and requires `style=301`. (8) `update_lab` requires full `config`/`settings`/`parameters` blobs — always call `get_lab_details` first. (9) `start_lab_execution` requires `sendemail=false`. (10) `get_bot_profits` uses `startdate`/`enddate` not `start_unix`/`end_unix`, and has no functional bot filter. (11) `get_balance` requires `currency` and `aggregatecurrencies` params. (12) `get_portfolio` requires `accountids`, `coins`, `currency`, and `timestamp` params.
 
-> **MCP Architecture note:** The HTS MCP server registers all tools with empty JSON schemas. A Node.js proxy (`hts-mcp-proxy.mjs`) sits between Claude and HTS and intentionally strips all parameter schemas. This means no parameter validation exists at the MCP layer — wrong parameter names produce runtime errors from HTS, not schema errors. Both `snake_case` and `nounderscores` variants are accepted for most ID fields (e.g. `script_id`/`scriptid`, `backtest_id`/`backtestid`, `lab_id`/`labid`, `bot_id`/`botid`). Snake_case is the canonical form used throughout these instructions.
+> **MCP Architecture note:** The HTS MCP server registers all tools with empty JSON schemas, so no parameter validation exists at the MCP layer — wrong parameter names produce runtime errors from HTS, not schema errors. Both `snake_case` and `nounderscores` variants are accepted for most ID fields (e.g. `script_id`/`scriptid`, `backtest_id`/`backtestid`, `lab_id`/`labid`, `bot_id`/`botid`). Snake_case is the canonical form used throughout these instructions.
 
-> **v0.8 carry-over:** Migrated to native HTS MCP endpoint (`http://127.0.0.1:8096/mcp`, Bearer token auth). `get_backtest_history` does not support `script_filter` or `market_filter` — browse all pages and match by script name manually. The following tools remain unavailable: `batch_backtest`, `compare_backtests`, `validate_backtest_params`, `get_script_inputs`, `clone_script`, `list_accounts_from_db`, `get_lab_backtest_analysis`, `wait_for_backtest`, `bulk_delete_backtests`, and `delete_backtests_for_script`; see Standard Workflows for manual equivalents.
+> **v0.8 carry-over:** Native HTS MCP endpoint is `http://127.0.0.1:8080/mcp`, Bearer token auth. `get_backtest_history` does not support `script_filter` or `market_filter` — browse all pages and match by script name manually. The following tools remain unavailable: `batch_backtest`, `compare_backtests`, `validate_backtest_params`, `get_script_inputs`, `clone_script`, `list_accounts_from_db`, `get_lab_backtest_analysis`, `wait_for_backtest`, `bulk_delete_backtests`, and `delete_backtests_for_script`; see Standard Workflows for manual equivalents.
+
+## MCP Setup
+
+The HTS MCP server is built into HaasOnline Trade Server and runs at `http://127.0.0.1:8080/mcp`. Access requires a Bearer token from your HTS installation (find it in the HTS web interface under Settings).
+
+### Claude Code (CLI)
+
+```bash
+claude mcp add-json haasonline '{"type":"http","url":"http://127.0.0.1:8080/mcp","headers":{"Authorization":"Bearer <your-hts-bearer-token>"}}'
+```
+
+### Claude Desktop
+
+Add to `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS):
+
+```json
+{
+  "mcpServers": {
+    "haasonline": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "http://127.0.0.1:8080/mcp",
+        "--header",
+        "Authorization: Bearer <your-hts-bearer-token>"
+      ]
+    }
+  }
+}
+```
+
+### Project-level (Claude Code, auto-discovered)
+
+Copy `.mcp.json.example` to `.mcp.json` in this repo root and fill in your token. Claude Code picks this up automatically.
+
+### Verify
+
+Once configured, call `health_check` — a successful response confirms HTS connectivity.
 
 ## Guiding Principles
 These are mandatory defaults. Deviate only with explicit user override.
