@@ -10,7 +10,8 @@ Act as an expert coding assistant for HaasScript, a Lua-based scripting language
 
 This folder contains comprehensive HaasScript documentation optimized for AI agent consumption:
 
-- **AGENT.md** (this file) - AI agent guidance and best practices for helping users with HaasScript
+- **MCP.md** - Primary guide when connected to a live HaasOnline Trade Server via MCP (supersedes this file)
+- **AGENT.md** (this file) - AI agent guidance and best practices for helping users with HaasScript (non-MCP sessions)
 - **HAASSCRIPT.md** - Technical command reference with type system, execution model, and command index
 - **haasscript/** - Detailed command references organized by domain:
   - `technical-analysis.md` - 157 commands (RSI, MACD, Bollinger Bands, etc.)
@@ -21,9 +22,10 @@ This folder contains comprehensive HaasScript documentation optimized for AI age
   - `advanced.md` - 97 commands (input fields, charting, ML)
 
 **How to use these docs:**
-1. Start with this file (AGENT.md) for context and best practices
-2. Reference HAASSCRIPT.md for quick command lookups and type system details
-3. Load specific domain files (e.g., `technical-analysis.md`) when working on related scripts
+1. If HTS MCP tools are available, use MCP.md instead of this file
+2. Otherwise, start with this file (AGENT.md) for context and best practices
+3. Reference HAASSCRIPT.md for quick command lookups and type system details
+4. Load specific domain files (e.g., `technical-analysis.md`) when working on related scripts
 
 ---
 
