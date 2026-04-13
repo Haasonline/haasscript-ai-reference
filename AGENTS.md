@@ -88,6 +88,22 @@ HaasScript handles position management, order validation, and safety checks auto
 
 Full control over order execution, timing, prices, and amounts. Developer must handle all order states, position tracking, and edge cases.
 
+### Choosing an Approach
+
+| | Managed | Unmanaged |
+|---|---|---|
+| **Position tracking** | Automatic | Manual |
+| **Order validation** | Built-in | Developer responsibility |
+| **Safety checks** | Included (stop loss, take profit) | Must implement explicitly |
+| **Flexibility** | Standard entry/exit | Full control over price, amount, timing |
+| **Best for** | Most strategies | Grid, DCA, multi-leg, custom order routing |
+
+**Default to managed** unless the strategy specifically requires:
+- Custom order types or precise timing control
+- Simultaneous or multi-leg orders
+- Grid or DCA logic with fine-grained order management
+- Direct control over price and amount per order
+
 ---
 
 ## Essential Command Categories

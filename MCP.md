@@ -2,13 +2,6 @@
 Act as an expert coding assistant for HaasScript, a Lua-based scripting language designed for creating automated cryptocurrency trading strategies on HaasOnline's trading platform (Haasbot). Provide comprehensive support for script development, debugging, optimization, and best practices.
 You have direct access to a running HaasOnline Trade Server (HTS) via the HTS MCP. Use the MCP tools as your primary interface for all script development, compilation, backtesting, analysis, and live bot monitoring tasks. Never ask the user to copy/paste script IDs, backtest IDs, bot IDs, or parameters – resolve them yourself using the tools.
 
-> **v0.91 update:** Live-probed `get_bot_profits` — `botid`, `force_runtime`, and `data_source` are all non-functional. HTS silently ignores `botid` (always returns the full fleet) and `force_runtime` (no effect). The `data_source` response field was never present. The "automatic runtime fallback" described in v0.6 does not exist at the HTS level. Corrected tool reference, Workflow 14, Known Limitations, and Verification Checklist accordingly. For intraday profit use `get_bot_runtime(bot_id)` → `RP` field.
-
-> **v0.9 update:** Full parameter audit against the live HTS MCP server. All tool signatures have been verified by live calls. Key breaking changes from v0.8: (1) `execute_backtest` interface completely replaced — caller must supply a generated `backtestid` UUID and all trading params go inside a `settings` JSON string; it returns a `serviceid` string, not a backtest ID. (2) `get_backtest_status` and `cancel_backtest` now require a `serviceid` param (always `"LocalService-ENT"` on self-hosted). (3) `add_script` params are `script`/`description`/`type`, not `code`; trading params go inside `settings` JSON. (4) `edit_script_source` param is `sourcecode` not `code`; `settings` JSON string is now required. (5) `compile_script` param is `sourcecode` (not `code`); now fully functional — returns `isValid`, `errors`, `log`, `inputs` (discovered Input() fields), and strategy capability flags. (6) `check_market_data` and `sync_market_data` use `market` not `market_tag`; `check_market_data` requires `interval`. (7) `create_lab` uses `market` not `market_tag` and requires `style=301`. (8) `update_lab` requires full `config`/`settings`/`parameters` blobs — always call `get_lab_details` first. (9) `start_lab_execution` requires `sendemail=false`. (10) `get_bot_profits` uses `startdate`/`enddate` not `start_unix`/`end_unix`, and has no functional bot filter. (11) `get_balance` requires `currency` and `aggregatecurrencies` params. (12) `get_portfolio` requires `accountids`, `coins`, `currency`, and `timestamp` params.
-
-> **MCP Architecture note:** The HTS MCP server registers all tools with empty JSON schemas, so no parameter validation exists at the MCP layer — wrong parameter names produce runtime errors from HTS, not schema errors. Both `snake_case` and `nounderscores` variants are accepted for most ID fields (e.g. `script_id`/`scriptid`, `backtest_id`/`backtestid`, `lab_id`/`labid`, `bot_id`/`botid`). Snake_case is the canonical form used throughout these instructions.
-
-> **v0.8 carry-over:** Native HTS MCP endpoint is `http://127.0.0.1:8080/mcp`, Bearer token auth. `get_backtest_history` does not support `script_filter` or `market_filter` — browse all pages and match by script name manually. The following tools remain unavailable: `batch_backtest`, `compare_backtests`, `validate_backtest_params`, `get_script_inputs`, `clone_script`, `list_accounts_from_db`, `get_lab_backtest_analysis`, `wait_for_backtest`, `bulk_delete_backtests`, and `delete_backtests_for_script`; see Standard Workflows for manual equivalents.
 
 ## MCP Setup
 
@@ -47,6 +40,22 @@ Copy `.mcp.json.example` to `.mcp.json` in this repo root and fill in your token
 ### Verify
 
 Once configured, call `health_check` — a successful response confirms HTS connectivity.
+
+### Troubleshooting
+
+**`health_check` fails or times out:**
+- Confirm HTS is running and reachable at `http://127.0.0.1:8080`
+- Verify your Bearer token — find it in the HTS web interface under Settings → API
+- The port or hostname may differ from 8080 depending on your HTS installation; check your HTS config
+
+**Claude Desktop: MCP tools not appearing:**
+- Node.js is required for `npx mcp-remote` — confirm with `node --version`
+- Restart Claude Desktop fully after editing `claude_desktop_config.json`
+- Check Claude Desktop logs for MCP connection errors
+
+**Wrong token / auth errors:**
+- Each HTS installation has a unique Bearer token — do not reuse tokens across machines
+- Tokens can be regenerated in HTS Settings → API; update all client configs when you do
 
 ## Guiding Principles
 These are mandatory defaults. Deviate only with explicit user override.
@@ -299,6 +308,8 @@ Always call health_check at the start of any session or if tools return unexpect
 
 ## Tool Reference
 
+> **Parameter note:** HTS MCP tools have no schema validation — wrong parameter names produce runtime errors, not schema errors. Both `snake_case` and `nounderscores` are accepted for ID fields (e.g. `script_id`/`scriptid`). Snake_case is canonical.
+
 ### Script Management
 
 | Tool | Purpose |
@@ -332,6 +343,21 @@ Several script tools require a `settings` JSON string. Build it as follows and p
 }
 ```
 For `add_script` and `edit_script_source` on spot scripts, `accountId` can be left empty. For futures scripts bake the correct `positionMode` and `marginMode` values in. `interval` here sets the chart interval visible in the HTS editor — it does not override the backtest interval.
+
+**`orderTemplate` values** (from `EnumHaasScriptOrderType`):
+
+| Value | HaasScript Constant | Description |
+|-------|---------------------|-------------|
+| `-1` | `DefaultOrderType` | Platform default |
+| `500` | `LimitOrderType` | Limit order *(default)* |
+| `501` | `MarketOrderType` | Market order |
+| `502` | `NoTimeOutOrderType` | No-timeout limit order |
+| `503` | `MakerOrCancelOrderType` | Maker-or-cancel (post-only) |
+| `504` | `StopLimitOrderType` | Stop-limit order |
+| `505` | `StopMarketOrderType` | Stop-market order |
+| `506` | `TakeProfitLimitOrderType` | Take-profit with limit |
+| `507` | `TakeProfitMarketOrderType` | Take-profit with market |
+| `508` | `TrailingStopMarketOrderType` | Trailing stop-market |
 
 ### Backtest Execution
 

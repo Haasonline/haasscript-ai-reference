@@ -80,7 +80,24 @@ Gets all the price data from the current candle.
 
 **Returns:** `dynamic`
 
-Returns the price data in an array.
+Returns a container with 7 named properties (also accessible by 1-based index):
+
+| Index | Property | Description |
+|-------|----------|-------------|
+| 1 | `open` | Open price of the current candle |
+| 2 | `high` | High price of the current candle |
+| 3 | `low` | Low price of the current candle |
+| 4 | `close` | Close price of the current candle |
+| 5 | `volume` | Volume of the current candle |
+| 6 | `ask` | Current ask (buy) price |
+| 7 | `bid` | Current bid (sell) price |
+
+```lua
+local cp = CurrentPrice()
+Log(cp.ask)    -- ask price (named access)
+Log(cp[6])     -- same value (index access)
+Log(cp.close)  -- close price of current candle
+```
 
 ---
 
