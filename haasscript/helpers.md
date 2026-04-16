@@ -1,6 +1,6 @@
 # Helpers & Utilities
 
-121 commands across 7 categories.
+121 functions across 7 categories.
 
 ## Categories
 
@@ -520,6 +520,14 @@ Checks if input1 is below, equal to or above input2.
 
 Returns a list with booleans.
 
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `isAbove` | `boolean` | Is true when input1 is above input2. |
+| 2 | `isEqual` | `boolean` | Is true when input1 is equals input2. |
+| 3 | `isBelow` | `boolean` | Is true when input1 is below input2. |
+
 ---
 
 ## Equals
@@ -823,6 +831,13 @@ Validates the input boolean and sets the output result accordingly. This block c
 **Returns:** `boolean`
 
 Returns a list of boolean results.
+
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `isTrue` | `boolean` | Set on true if the input is true. |
+| 2 | `isFalse` | `boolean` | Set on true if the input is false. |
 
 ---
 
@@ -2176,7 +2191,7 @@ Returns the value/array without nulls.
 CustomReport(key, value, [group], [displayValue])
 ```
 
-Creates an item in the bots custom reports.
+Creates an item in the bot's custom reports. Use group="Override" to override standard bot report fields (e.g. RealizedProfit, UnrealizedProfit) for both live bots and backtest results.
 
 **Parameters:**
 
@@ -2184,7 +2199,7 @@ Creates an item in the bots custom reports.
 |------|------|----------|-------------|
 | `key` | `string` | Yes | The name of the item. |
 | `value` | `dynamic` | Yes | The value of the item. |
-| `group` | `string` | No | The name of the report. By default its 'Custom Report'. Pass `"Override"` to override a built-in report field (see below). |
+| `group` | `string` | No | The report group name. Defaults to 'Custom Report'. Use 'Override' to override a standard bot report field (e.g. CustomReport("RealizedProfit", myValue, "Override")). |
 | `displayValue` | `boolean` | No | When set on true, this value will be visible on the bot list in the UI.'. |
 
 **Returns:** `void`

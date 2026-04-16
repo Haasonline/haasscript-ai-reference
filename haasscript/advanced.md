@@ -1,6 +1,6 @@
 # Advanced Features
 
-97 commands across 7 categories.
+98 functions across 7 categories.
 
 ## Categories
 
@@ -10,7 +10,7 @@
 - [Input Settings](#input-settings) (6 commands)
 - [MAchine Learning](#machine-learning) (2 commands)
 - [Settings](#settings) (24 commands)
-- [Social Media](#social-media) (4 commands)
+- [Social Media](#social-media) (5 commands)
 
 ---
 
@@ -720,6 +720,13 @@ Defines the chartIndex and interval parameter.
 **Returns:** `dynamic`
 
 Returns a list with values.
+
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `chartIndex` | `number` | Index on which to plot. |
+| 2 | `interval` | `number` | The interval of the indicator. |
 
 ---
 
@@ -1533,7 +1540,7 @@ Disables IndicatorContainer log messages.
 EnableHighSpeedUpdates([updateOnFilledOrders], [guaranteeInterval])
 ```
 
-Enables high-speed script execution.
+Enables high-speed script execution, running the script on every price tick instead of once per minute. With guaranteeInterval enabled, the script will execute at least once every 10 seconds even if no price ticks arrive.
 
 **Parameters:**
 
@@ -1982,6 +1989,25 @@ Sends a new post to your twitter timeline.
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | `message` | `string` | Yes | The content of the message |
+
+**Returns:** `void`
+
+---
+
+## SendNotification
+
+```lua
+SendNotification(title, message)
+```
+
+Sends a notification to your browser and configured push channels (Discord, Telegram). Has no effect during backtests.
+
+**Parameters:**
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| `title` | `string` | Yes | The notification title |
+| `message` | `string` | Yes | The notification message |
 
 **Returns:** `void`
 

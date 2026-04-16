@@ -1,6 +1,6 @@
 # Technical Analysis
 
-157 commands across 3 categories.
+157 functions across 3 categories.
 
 ## Categories
 
@@ -1138,6 +1138,14 @@ Acceleration Bands (ABANDS) created by Price Headley.
 
 Returns an array with 3 results arrays. Upper on index 1, middle on index 2 and lower on index 3.
 
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `upper` | `HaasNumberCollection` | Upper bands of the ABands. |
+| 2 | `middle` | `HaasNumberCollection` | Middle bands of the ABands. |
+| 3 | `lower` | `HaasNumberCollection` | Lower bands of the ABands. |
+
 ---
 
 ## AD
@@ -1319,6 +1327,13 @@ as the quality and type of the trend: up-trend, down-trend or sideways moving ma
 
 Returns an array with 2 results arrays. Aroon down on index 1 & Aroon up on index 2.
 
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `aroonDn` | `HaasNumberCollection` | Aroon Down. |
+| 2 | `aroonUp` | `HaasNumberCollection` | Aroon Up. |
+
 ---
 
 ## AROONOSC
@@ -1440,6 +1455,14 @@ The Bollinger Band (BBANDS) study created
 **Returns:** `dynamic`
 
 Returns an array with 3 results arrays. Upper on index 1, middle on index 2 and lower on index 3.
+
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `upper` | `HaasNumberCollection` | Upper band of the BBands. |
+| 2 | `middle` | `HaasNumberCollection` | Middle band of the BBands. |
+| 3 | `lower` | `HaasNumberCollection` | Lower band of the BBands. |
 
 ---
 
@@ -1766,6 +1789,14 @@ The area between the high and the low is the channel for the period chosen. This
 
 Returns an array with 3 results arrays. Upper on index 1, middle on index 2 and lower on index 3.
 
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `upper` | `HaasNumberCollection` | Upper band of the channel. |
+| 2 | `middle` | `HaasNumberCollection` | Middle band of the channel. |
+| 3 | `lower` | `HaasNumberCollection` | Lower band of the channel. |
+
 ---
 
 ## DPO
@@ -1864,6 +1895,13 @@ The FastRSI is a custom implementation from Haasonline. It uses a custom RSI and
 
 Returns the FastRSI result.
 
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `rsi` | `HaasNumberCollection` | Normal RSI result. |
+| 2 | `fastRsi` | `HaasNumberCollection` | Fast RSI result. |
+
 ---
 
 ## HT_DCPERIOD
@@ -1940,6 +1978,13 @@ Quadrature is the Hilbert Transform generated Quadrature component of the input 
 
 Returns the HT_PHASOR result.
 
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `inPhaseOut` | `HaasNumberCollection` | In-Phase component. |
+| 2 | `quadratureOut` | `HaasNumberCollection` | Quadrature component. |
+
 ---
 
 ## HT_SINE
@@ -1966,6 +2011,13 @@ The Hilbert Transform Lead Sine is just the sine of the DC Phase advanced by 45 
 **Returns:** `dynamic`
 
 Returns the HT_SINE result.
+
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `sine` | `HaasNumberCollection` | Sine of the DC Phase. |
+| 2 | `leadSine` | `HaasNumberCollection` | Lead Sine of the DC Phase advanced by 45 degrees. |
 
 ---
 
@@ -2040,6 +2092,15 @@ straightforward indicator; the concepts are easy to understand and the signals a
 **Returns:** `dynamic`
 
 Returns the ICHIMOKU result.
+
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `conversion` | `HaasNumberCollection` | The conversion line of the Ichimoku. |
+| 2 | `base` | `HaasNumberCollection` | The base line of the Ichimoku. |
+| 3 | `spanA` | `HaasNumberCollection` | The leading span  of the Ichimoku. |
+| 4 | `spanB` | `HaasNumberCollection` | The leading span B of the Ichimoku. |
 
 ---
 
@@ -2151,6 +2212,14 @@ overbought and oversold levels when the market is ranging. This indicator is usu
 
 Returns the KELTNER result.
 
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `upper` | `HaasNumberCollection` | Upper bands of the KELTNER. |
+| 2 | `middle` | `HaasNumberCollection` | Middle bands of the KELTNER. |
+| 3 | `lower` | `HaasNumberCollection` | Lower bands of the KELTNER. |
+
 ---
 
 ## KRI
@@ -2207,6 +2276,13 @@ often, Pring notes that such breaks reinforce signal line crossovers. This indic
 **Returns:** `dynamic`
 
 Returns the KST result.
+
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `kst` | `HaasNumberCollection` | KST result. |
+| 2 | `signal` | `HaasNumberCollection` | Signal result. |
 
 ---
 
@@ -2283,6 +2359,14 @@ The MACD is calculated by subtracting the longer-period Exponential Moving Avera
 
 Returns the MACD result.
 
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `macd` | `HaasNumberCollection` | MACD result. |
+| 2 | `signal` | `HaasNumberCollection` | Signal result. |
+| 3 | `hist` | `HaasNumberCollection` | Histogram result. |
+
 ---
 
 ## MACDEXT
@@ -2310,6 +2394,14 @@ the same as MACD, but provides more parameters to fiddle with.
 
 Returns the MACDEXT result.
 
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `macd` | `HaasNumberCollection` | MACD result. |
+| 2 | `signal` | `HaasNumberCollection` | Signal result. |
+| 3 | `hist` | `HaasNumberCollection` | Histogram result. |
+
 ---
 
 ## MACDFIX
@@ -2331,6 +2423,14 @@ the same as MACD, but uses fixed periods for the fast (12) and slow (26) EMAs.
 **Returns:** `dynamic`
 
 Returns the MACDFIX result.
+
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `macd` | `HaasNumberCollection` | MACD result. |
+| 2 | `signal` | `HaasNumberCollection` | Signal result. |
+| 3 | `hist` | `HaasNumberCollection` | Histogram result. |
 
 ---
 
@@ -2359,6 +2459,13 @@ NOTE: The FastLimit and SlowLimit parameters should be between 0.01 and 0.99.
 **Returns:** `dynamic`
 
 Returns the MAMA result.
+
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `mama` | `HaasNumberCollection` | The MESA Adaptive Moving Average values. |
+| 2 | `fama` | `HaasNumberCollection` | The Following Adaptive Moving Average values. |
 
 ---
 
@@ -2962,6 +3069,13 @@ The SlowRSI is a custom implementation from Haasonline. It uses a custom RSI and
 
 Returns the SlowRSI result.
 
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `rsi` | `HaasNumberCollection` | Normal RSI result. |
+| 2 | `slowRsi` | `HaasNumberCollection` | Slow RSI result. |
+
 ---
 
 ## SMA
@@ -3084,6 +3198,13 @@ refers to the point of a current price in relation to its price range over a per
 
 Returns the STOCH result.
 
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `slowK` | `HaasNumberCollection` | The %K line. |
+| 2 | `slowD` | `HaasNumberCollection` | The %D line. |
+
 ---
 
 ## STOCHF
@@ -3108,6 +3229,13 @@ The Stochastic Oscillator [Fast] (STOCHF).
 **Returns:** `dynamic`
 
 Returns the STOCHF result.
+
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `fastK` | `HaasNumberCollection` | The %K line. |
+| 2 | `fastD` | `HaasNumberCollection` | The %D line. |
 
 ---
 
@@ -3135,6 +3263,13 @@ This indicator is usually plotted on its own chart.
 **Returns:** `dynamic`
 
 Returns the STOCHRSI result.
+
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `fastK` | `HaasNumberCollection` | The %K line. |
+| 2 | `fastD` | `HaasNumberCollection` | The %D line. |
 
 ---
 
@@ -3589,6 +3724,13 @@ cumulative effect of the moving average.
 **Returns:** `dynamic`
 
 Returns the ZLMA result in an array.
+
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `ma1` | `HaasNumberCollection` | MA1 result. |
+| 2 | `ma2` | `HaasNumberCollection` | MA2 result. |
 
 ---
 

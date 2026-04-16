@@ -1,13 +1,13 @@
 # Data & Prices
 
-62 commands across 5 categories.
+63 functions across 5 categories.
 
 ## Categories
 
 - [Price Data](#price-data) (16 commands)
 - [Price Market Information](#price-market-information) (12 commands)
 - [Profit Information](#profit-information) (6 commands)
-- [Time Information](#time-information) (18 commands)
+- [Time Information](#time-information) (19 commands)
 - [Wallet](#wallet) (10 commands)
 
 ---
@@ -80,17 +80,19 @@ Gets all the price data from the current candle.
 
 **Returns:** `dynamic`
 
-Returns a container with 7 named properties (also accessible by 1-based index):
+Returns a container with named fields (also accessible by 1-based index).
 
-| Index | Property | Description |
-|-------|----------|-------------|
-| 1 | `open` | Open price of the current candle |
-| 2 | `high` | High price of the current candle |
-| 3 | `low` | Low price of the current candle |
-| 4 | `close` | Close price of the current candle |
-| 5 | `volume` | Volume of the current candle |
-| 6 | `ask` | Current ask (buy) price |
-| 7 | `bid` | Current bid (sell) price |
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `open` | `number` | The open price of the current candle. |
+| 2 | `high` | `number` | The high price of the current candle. |
+| 3 | `low` | `number` | The low price of the current candle. |
+| 4 | `close` | `number` | The close price of the current candle. |
+| 5 | `volume` | `number` | The volume of the current candle. |
+| 6 | `ask` | `number` | The ask/buy price of the current candle. |
+| 7 | `bid` | `number` | The bid/sell price of the current candle. |
 
 ```lua
 local cp = CurrentPrice()
@@ -509,6 +511,15 @@ Gets the orderbook on a specific market.
 
 Returns a collection with 4 arrays.
 
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `askPrices` | `HaasNumberCollection` | Ask/buy prices. Sorted from low to high. |
+| 2 | `askAmounts` | `HaasNumberCollection` | Ask/buy amounts. Sorted on price from low to high. |
+| 3 | `bidPrices` | `HaasNumberCollection` | Bid/sell prices. Sorted from low to high. |
+| 4 | `bidAmounts` | `HaasNumberCollection` | Bid/sell amounts. Sorted on price from low to high. |
+
 ---
 
 ## GetOrderbookAsk
@@ -756,6 +767,36 @@ Gets the trading report container with many useful values to help properly evalu
 **Returns:** `dynamic`
 
 The trading report container.
+
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `maxDrawDownPrc` | `number` | Max. DrawDown in percentages. |
+| 2 | `maxDrawDown` | `number` | Max. DrawDown in underlying asset. |
+| 3 | `sharpeRatio` | `number` | Sharpe Ratio. |
+| 4 | `sortinoRatio` | `number` | Sortino Ratio. |
+| 5 | `winPercentage` | `number` | Win percentage. |
+| 6 | `profitRatio` | `number` | Profit Ratio. |
+| 7 | `profitFactor` | `number` | Profit Factor. |
+| 8 | `cpcIndex` | `number` | CPC Index. |
+| 9 | `tailRatio` | `number` | Tail Ratio. |
+| 10 | `commonSenseRatio` | `number` | Common Sense Ratio. |
+| 11 | `outlierWinRatio` | `number` | Outlier Win Ratio. |
+| 12 | `outlierLossRatio` | `number` | Outlier Loss Ratio. |
+| 13 | `profitMarginRatio` | `number` | Profit Margin Ratio (Gain / Total Used Margin). |
+| 14 | `biggestWin` | `number` | Biggest Winner. |
+| 15 | `biggestLoss` | `number` | Biggest Loser. |
+| 16 | `highestPointInProfit` | `number` | Highest Point in total PNL. |
+| 17 | `lowestPointInProfit` | `number` | Lowest Point in total PNL. |
+| 18 | `totalMarginUsed` | `number` | Total Margin Used. |
+| 19 | `averageMargin` | `number` | Average Margin used per position. |
+| 20 | `averageProfit` | `number` | Average Profit per position. |
+| 21 | `closedPositions` | `number` | Closed Positions count. |
+| 22 | `profitablePositions` | `number` | Profitable Positions count. |
+| 23 | `losingPositions` | `number` | Losing Positions count. |
+| 24 | `executedOrders` | `number` | Executed Orders count. |
+| 25 | `completedOrders` | `number` | Completed Orders count. |
 
 ---
 
@@ -1100,6 +1141,26 @@ Returns the open timestamp of the candle.
 
 ---
 
+## Sleep
+
+```lua
+Sleep(milliseconds)
+```
+
+Pauses script execution for a specified number of milliseconds. Useful for adding random delays to avoid predictable order timing patterns.
+
+**Parameters:**
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| `milliseconds` | `number` | Yes | Number of milliseconds to sleep (e.g., 100 = 100ms, 5000 = 5 seconds). Maximum 10000ms (10 seconds) recommended. |
+
+**Returns:** `number`
+
+Returns the actual time slept in milliseconds.
+
+---
+
 ## StartTimer
 
 ```lua
@@ -1115,42 +1176,6 @@ Starts a timer.
 | `key` | `string` | No | Optional key if using multiple timers. |
 
 **Returns:** `void`
-
----
-
-## Sleep
-
-```lua
-Sleep(milliseconds)
-```
-
-Pauses script execution for a specified number of milliseconds. Useful for adding random delays to avoid predictable order timing patterns.
-
-**Parameters:**
-
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| `milliseconds` | `number` | Yes | Number of milliseconds to sleep (e.g., 100 = 100ms, 5000 = 5 seconds). Maximum 10000ms (10 seconds). |
-
-**Returns:** `number`
-
-Returns the actual time slept in milliseconds.
-
-**Note:** Sleep time does not count toward script execution timeout, allowing multiple Sleep() calls without triggering warnings.
-
-**Example - Anti-Detection Order Timing:**
-
-```lua
--- Add random delay to avoid predictable patterns
-local rsi = RSI(GetClosePrices(), 14)
-
-if rsi.Value < 30 then
-    local delayMs = Random(0, 9000).Value  -- 0-9 seconds
-    Log("Delaying order by " .. delayMs .. "ms")
-    Sleep(delayMs)
-    DoLong()
-end
-```
 
 ---
 
@@ -1210,6 +1235,14 @@ Total balance specifications of a specific currency. Available, locked and total
 **Returns:** `dynamic`
 
 Returns a result object with the available, locked and total balance.
+
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `available` | `number` | The available balance. |
+| 2 | `locked` | `number` | The locked balance for orders and/or position margin among others. |
+| 3 | `total` | `number` | The total balance. Available and locked. |
 
 ---
 
@@ -1358,6 +1391,18 @@ Gets all the information from the open user position.
 **Returns:** `dynamic`
 
 Returns an array with position information.
+
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `market` | `string` | The market of the position. |
+| 2 | `isLong` | `boolean` | Set on true when the direction is long. |
+| 3 | `isShort` | `boolean` | Set on true when the direction is short. |
+| 4 | `enterPrice` | `number` | The average enter price. |
+| 5 | `amount` | `number` | The amount open in the position. |
+| 6 | `profit` | `number` | The realized + unrealized profits. |
+| 7 | `roi` | `number` | The ROI based on the used margin and realized + unrealized profits. |
 
 ---
 

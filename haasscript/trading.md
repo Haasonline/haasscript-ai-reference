@@ -1,6 +1,6 @@
 # Trading & Positions
 
-140 commands across 11 categories.
+140 functions across 11 categories.
 
 ## Categories
 
@@ -10,11 +10,11 @@
 - [Order Information](#order-information) (8 commands)
 - [Position Information](#position-information) (14 commands)
 - [Position Prices](#position-prices) (11 commands)
-- [Signal Helpers](#signal-helpers) (25 commands)
+- [Signal Helpers](#signal-helpers) (24 commands)
 - [Trade Actions (Managed)](#trade-actions-managed) (5 commands)
 - [Trade Actions (Unmanaged)](#trade-actions-unmanaged) (8 commands)
 - [Trade Bot](#trade-bot) (4 commands)
-- [Trade Market Information](#trade-market-information) (24 commands)
+- [Trade Market Information](#trade-market-information) (25 commands)
 
 ---
 
@@ -766,7 +766,7 @@ Sends out a cancel order for the given order identifier.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `orderId` | `string` | Yes | Unique order identifier provided by the order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder. |
+| `orderId` | `string` | Yes | Unique order identifier provided by the PlaceOrder commands. |
 
 **Returns:** `void`
 
@@ -824,7 +824,7 @@ Checks if the given order is a buy order.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `orderId` | `string` | Yes | Unique order identifier provided by the order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder. |
+| `orderId` | `string` | Yes | Unique order identifier provided by the PlaceOrder commands. |
 
 **Returns:** `boolean`
 
@@ -844,7 +844,7 @@ Checks if the given order is filled.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `orderId` | `string` | Yes | Unique order identifier provided by the order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder. |
+| `orderId` | `string` | Yes | Unique order identifier provided by the PlaceOrder commands. |
 
 **Returns:** `boolean`
 
@@ -864,7 +864,7 @@ Checks if the given order is still open.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `orderId` | `string` | Yes | Unique order identifier provided by the order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder. |
+| `orderId` | `string` | Yes | Unique order identifier provided by the PlaceOrder commands. |
 
 **Returns:** `boolean`
 
@@ -884,7 +884,7 @@ Checks if the given order is a sell order.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `orderId` | `string` | Yes | Unique order identifier provided by the order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder. |
+| `orderId` | `string` | Yes | Unique order identifier provided by the PlaceOrder commands. |
 
 **Returns:** `boolean`
 
@@ -947,7 +947,7 @@ The reason for the order failure.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `orderId` | `string` | Yes | Unique order identifier provided by the order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder. |
+| `orderId` | `string` | Yes | Unique order identifier provided by the PlaceOrder commands. |
 
 **Returns:** `string`
 
@@ -967,7 +967,7 @@ Calculates the cancelled amount if the order is completed/cancelled.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `orderId` | `string` | Yes | Unique order identifier provided by the order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder. |
+| `orderId` | `string` | Yes | Unique order identifier provided by the PlaceOrder commands. |
 
 **Returns:** `number`
 
@@ -987,7 +987,7 @@ Calculates the amount filled for a specific order.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `orderId` | `string` | Yes | Unique order identifier provided by the order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder. |
+| `orderId` | `string` | Yes | Unique order identifier provided by the PlaceOrder commands. |
 | `afterFees` | `boolean` | No | If true, the fee cost are subtracted from the total amount if they are paid in the base currency. |
 
 **Returns:** `number`
@@ -1008,7 +1008,7 @@ Calculates how long an order is or has been open in minutes.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `orderId` | `string` | Yes | Unique order identifier provided by the order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder. |
+| `orderId` | `string` | Yes | Unique order identifier provided by the PlaceOrder commands. |
 | `inSeconds` | `boolean` | No | If set on true, the timespan will be in seconds. |
 
 **Returns:** `number`
@@ -1029,7 +1029,7 @@ Calculates the realized profits of the order.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `orderId` | `string` | Yes | Unique order identifier provided by the order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder. |
+| `orderId` | `string` | Yes | Unique order identifier provided by the PlaceOrder commands. |
 
 **Returns:** `number`
 
@@ -1049,11 +1049,32 @@ Gets all the information from an specific order.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `orderId` | `string` | Yes | Unique order identifier provided by the order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder. |
+| `orderId` | `string` | Yes | Unique order identifier provided by the PlaceOrder commands. |
 
 **Returns:** `dynamic`
 
 Returns an array with order information.
+
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `price` | `number` | The price on which the order is filled or executed. |
+| 2 | `executedAmount` | `number` | The executed amount. |
+| 3 | `filledAmount` | `number` | The filled amount. |
+| 4 | `isOpen` | `boolean` | If true, the order is open. |
+| 5 | `isFilled` | `boolean` | If true, the order is filled 100%. |
+| 6 | `isCancelled` | `boolean` | If true, the order is cancelled but might be filled partially. |
+| 7 | `feeCosts` | `number` | The total fee costs. |
+| 8 | `feeCurrency` | `number` | The currency of the fee costs. |
+| 9 | `openTime` | `number` | The time the order is or has been open for in minutes. |
+| 10 | `positionId` | `string` | The position identifier related to the order. |
+| 11 | `orderId` | `string` | The unique order identifier. |
+| 12 | `isEnterOrder` | `boolean` | If true, the order is an enter order. |
+| 13 | `isExitOrder` | `boolean` | If true, the order is an exit order. |
+| 14 | `triggerPrice` | `number` | The trigger-price of a conditional order. |
+| 15 | `isBuyOrder` | `boolean` | If true, the order is a buy order. |
+| 16 | `isSellOrder` | `boolean` | If true, the order is a sell order. |
 
 ---
 
@@ -1319,6 +1340,22 @@ Gets all the information from the open bot position.
 **Returns:** `dynamic`
 
 Returns an array with position information.
+
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `positionId` | `string` | The position identifier. |
+| 2 | `market` | `string` | The market of the position. |
+| 3 | `isLong` | `boolean` | Set on true when the direction is long. |
+| 4 | `isShort` | `boolean` | Set on true when the direction is short. |
+| 5 | `enterPrice` | `number` | The average enter price. |
+| 6 | `amount` | `number` | The amount open in the position. |
+| 7 | `profit` | `number` | The realized + unrealized profits. |
+| 8 | `roi` | `number` | The ROI based on the used margin and realized + unrealized profits. |
+| 9 | `openTime` | `number` | Timestamp (in unix) when the position was opened. |
+| 10 | `updatedTime` | `number` | Timestamp (in unix) when the position was last updated. |
+| 11 | `closeTime` | `number` | Timestamp (in unix) when the position was closed. If position is still open, value will be 0 |
 
 ---
 
@@ -1784,28 +1821,17 @@ Returns SignalLong, SignalShort or SignalNone when there is unanimous decision a
 GetWebHookSignal(id)
 ```
 
-Gets the latest WebHook signal of a specific key.
+Gets the latest incoming webhook signal by ID. Triggers immediate script execution when a webhook arrives, bypassing the normal minute tick interval — use this for high-performance signal-based trading.
 
 **Parameters:**
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `id` | `string` | Yes | The unique identifier of the signal. |
+| `id` | `string` | Yes | The webhook signal ID to listen for. Must match the key used in the incoming PUSH_SIGNAL webhook request. |
 
 **Returns:** `dynamic`
 
-Returns the latest signal object stored by an incoming WebHook. The returned object always contains `webhook_received_at` (a Unix timestamp set by the server when the signal was received). All other fields are whatever was included in the incoming webhook payload.
-
-```lua
-{
-  webhook_received_at = 1711800000,  -- always present
-  action = "buy",                    -- user-defined
-  price = 42000,                     -- user-defined
-  symbol = "BTCUSDT"                 -- user-defined
-}
-```
-
-> **Warning:** Once a signal has been processed, it will be removed from the system. It is recommended to use a different signal ID for each bot to avoid conflicts.
+Returns the latest signal payload stored by the incoming webhook, or nil if no signal has been received.
 
 ---
 
@@ -1890,6 +1916,14 @@ Converts a position value to 3 boolean values.
 **Returns:** `dynamic`
 
 Three boolean values based on the position input.
+
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `isLong` | `boolean` | True when the position is Long. |
+| 2 | `isShort` | `boolean` | True when the position is Short. |
+| 3 | `isNone` | `boolean` | True when the position is NoPosition. |
 
 ---
 
@@ -2000,6 +2034,15 @@ Converts a signal value to 4 boolean values.
 **Returns:** `dynamic`
 
 Four boolean values based on the signal input.
+
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `isLong` | `boolean` | True when the signal is SignalLong. |
+| 2 | `isShort` | `boolean` | True when the signal is SignalShort. |
+| 3 | `isExit` | `boolean` | True when the signal is SignalExitPosition. |
+| 4 | `isNone` | `boolean` | True when the signal is SignalNone. |
 
 ---
 
@@ -2208,7 +2251,7 @@ Executes the remaining amount of a canceled order.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `orderId` | `string` | Yes | Unique order identifier. Returned by the order placement commands such as DoBuy, DoSell, DoLong, DoShort, DoExitPosition, DoFlipPosition, DoSignal, PlaceBuyOrder, PlaceSellOrder, PlaceGoLongOrder, PlaceGoShortOrder, PlaceExitLongOrder, PlaceExitShortOrder, PlaceExitPositionOrder, or PlaceCancelledOrder. |
+| `orderId` | `string` | Yes | Unique order identifier. Returned by the PlaceOrder commands. |
 | `price` | `number` | No | The price on which to execute. Be defaults the best ask or bid price is used. |
 
 **Returns:** `string`
@@ -2407,6 +2450,13 @@ Merges multiple signals into a single list and determines the unanimous and cons
 
 Returns a list with on index 1 the array with signals, on index 2 the unanimous and on index 3 the consensus signal.
 
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `unanimousSignal` | `enum` | The unanimous signal. |
+| 2 | `consensusSignal` | `enum` | The consensus signal. |
+
 ---
 
 ## InsuranceContainer
@@ -2572,6 +2622,26 @@ Gets the contract name of the market.
 **Returns:** `string`
 
 Returns the contract name of the market.
+
+---
+
+## ContractType
+
+```lua
+ContractType([market])
+```
+
+Gets the contract type of the market (Vanilla, Inverse, or Quanto). Returns nil for spot/margin markets without contract details.
+
+**Parameters:**
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| `market` | `string` | No | The market returned by PriceMarket(), InputAccountMarket() or InputMarket() for example. |
+
+**Returns:** `dynamic`
+
+Returns VanillaContract, InverseContract, QuantoContract, or nil.
 
 ---
 
@@ -2925,6 +2995,24 @@ Retrieves all the information on the trade market.
 **Returns:** `dynamic`
 
 Returns the market information on an array.
+
+**Container fields** (accessible by name or 1-based index):
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `baseCurrency` | `string` | The base currency of the market. For reflection, in case we are on Bitstamp BTC/USD it will return 'BTC'. |
+| 2 | `quoteCurrency` | `string` | The quote currency of the market. For reflection, in case we are on Bitstamp BTC/USD it will return 'USD'. |
+| 3 | `contractName` | `string` | The contract name of the market. Empty on spot/margin markets. |
+| 4 | `contractValue` | `number` | The value of a single contract, defined in their denomination. |
+| 5 | `makersFee` | `number` | Makers fee of the market. |
+| 6 | `takersFee` | `number` | Takers fee of the market. |
+| 7 | `underlyingAsset` | `string` | The underlying assets of the market. For reflection, in case we are on Bitstamp BTC/USD it will return 'BTC'. When we are on BitMEX XBT/USD (XBTUSD), it will return 'XBT'. |
+| 8 | `minimumTradeAmount` | `number` | The minimum trade amount on a the last price while keeping exchange specifications in consideration. |
+| 9 | `minimumTradeVolume` | `number` | The minimum trade volume. Denominated in the quote currency. |
+| 10 | `calculatedMinTradeAmount` | `number` | The minimum trade amount on a the last price while keeping exchange specifications in consideration. |
+| 11 | `profitLabel` | `string` | The profit label of the market. For reflection, in case the market is Bitstamp BTC/USD it will return 'BTC'. When we are on BitMEX XBT/USD (XBTUSD), it will return 'XBT'. |
+| 12 | `amountLabel` | `string` | The amount label of the market. For reflection, in case the market is Bitstamp BTC/USD it will return 'BTC'. When we are on BitMEX XBT/USD (XBTUSD), it will return 'contract(s)'. |
+| 13 | `marketType` | `enum` | The market type enumeration of the market. |
 
 ---
 
