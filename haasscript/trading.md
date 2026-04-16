@@ -1831,7 +1831,20 @@ Gets the latest incoming webhook signal by ID. Triggers immediate script executi
 
 **Returns:** `dynamic`
 
-Returns the latest signal payload stored by the incoming webhook, or nil if no signal has been received.
+Returns the latest signal payload stored by the incoming webhook, or nil if no signal has been received. The returned object always contains `webhook_received_at` (a Unix timestamp set by the server when the signal was received). All other fields are whatever was included in the incoming webhook payload.
+
+**Example payload:**
+
+```lua
+{
+  webhook_received_at = 1711800000,  -- always present (Unix timestamp)
+  action = "buy",                    -- user-defined
+  price = 42000,                     -- user-defined
+  symbol = "BTCUSDT"                 -- user-defined
+}
+```
+
+> **Warning:** Once a signal has been processed, it will be removed from the system. It is recommended to use a different signal ID for each bot to avoid conflicts.
 
 ---
 

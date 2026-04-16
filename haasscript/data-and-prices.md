@@ -1159,6 +1159,22 @@ Pauses script execution for a specified number of milliseconds. Useful for addin
 
 Returns the actual time slept in milliseconds.
 
+**Note:** Sleep time does not count toward script execution timeout, allowing multiple Sleep() calls without triggering warnings.
+
+**Example — Anti-Detection Order Timing:**
+
+```lua
+-- Add random delay to avoid predictable patterns
+local rsi = RSI(ClosePrices(), 14)
+
+if rsi.Value < 30 then
+    local delayMs = Random(0, 9000).Value  -- 0-9 seconds
+    Log("Delaying order by " .. delayMs .. "ms")
+    Sleep(delayMs)
+    DoLong()
+end
+```
+
 ---
 
 ## StartTimer
