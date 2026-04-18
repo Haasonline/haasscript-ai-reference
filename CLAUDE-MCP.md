@@ -256,7 +256,7 @@ Always call `health_check` at the start of any session or if tools return unexpe
 | Tool | Purpose |
 |------|---------|
 | `health_check` | Verify HTS connectivity. |
-| `list_scripts` | List all HaasScript records (Lua, Visual, Command) with IDs and validity status. |
+| `list_scripts` | List all HaasScript records (Lua, Visual, Command) with IDs and validity status. Each record includes `FID` (folder ID, `-1` = root) and `FN` (folder name, empty string at root) — filter by folder client-side after fetching. The pseudo-bucket `FID=0` with empty `FN` is a legacy/system group (mostly Command-type scripts), not a user-created folder. |
 | `get_script(script_id)` | Read full Lua source code and compile result for a script. |
 | `compile_script(source_code)` | Compile HaasScript source without saving — use to validate syntax and discover `Input()` field names before creating a script. Returns `isValid`, `errors`, `log`, `inputs` (array of discovered Input() fields with name, key, type, group, tooltip, and defaultValue), and strategy capability flags (`isSpotSupported`, `isManagedTrading`, etc.). `script_type` is optional and unnecessary — omit it. Inputs discovered only via static scan of conditional branches are registered as fallback entries and emit a warning: *"Registered fallback input '…' (discovered via static scan — likely from a conditional branch not executed during init)"*. |
 | `add_script(script, name, type)` | Create and compile a new script; returns script record including `script_id`. Required params: `script` (Lua source), `name`, `type` (`"Lua"`, `"Visual"`, or `"Command"`). Optional: `description` (HTS defaults to `""` if omitted). |
@@ -448,7 +448,7 @@ All bot tools are strictly read-only. They cannot create, modify, start, stop, o
 | `get_bot_report(bot_id)` | Performance report for a bot: Sharpe ratio, win rate, profit factor, and trading statistics. |
 | `get_bot_open_orders(bot_id)` | All currently open/pending orders placed by a bot. |
 | `get_bot_positions(bot_id, status?, next_page_id?, page_length?)` | Open or closed positions for a bot. `status="open"` for current positions; `status="closed"` for finished positions with pagination. Use `next_page_id=0` for first page. **First-page response may exceed `page_length`** because closed positions merge in-memory `FinishedPositions` (~10 most recent) with archived DB positions — bots with few closed trades get their full history on page 1. |
-| `get_bot_logs(bot_id, next_page_id, page_length)` | Execution `Log()` output from the bot's current runtime snapshot. Most calls return empty between executions — log lines are not persisted between ticks. For persistent metrics, emit values via `CustomReport()` and read them from `get_bot_runtime`'s `custom_report` field. |
+| `get_bot_logs(bot_id, next_page_id, page_length)` | Paginated `Log()` history from the bot's current runtime snapshot. For active bots this returns a rolling buffer of historical lines since activation — often tens of entries spanning days or weeks, including runtime errors — not strictly current-tick output. Inactive/stopped bots may return empty. `CustomReport()` remains the canonical pattern for **persistent strategy metrics** (ROI decomposition, fee drag, re-anchor counts) surfaced via `get_bot_runtime`'s `custom_report` field — logs are best for **error and event tracing**. |
 | `get_bot_profits(start_date, end_date)` | Daily-aggregated profit summary for every bot in the fleet over a period. `start_date` and `end_date` are required Unix timestamps. Fleet-wide only — there is no server-side bot filter. To isolate a single bot, match `BID` in the returned array client-side. Does not return intraday values — for same-day realised profit, use `get_bot_runtime(bot_id)` and read the `RP` field directly. |
 
 ### Wallet & Balance (READ-ONLY)
@@ -515,6 +515,17 @@ Always pass integer Unix timestamps (seconds). Common conversions:
 ### account_id
 Obtain from `list_accounts`. Always specify an explicit `account_id` when running backtests. An empty `account_id` causes HTS to fail at the execution engine level before the script runs, producing a misleading "Object reference not set to an instance of an object" error.
 
+### Folder Metadata
+Scripts can be organised into folders via the HTS web UI. `list_scripts` exposes folder membership on each record:
+- `FID` — Folder ID. `-1` = root (no folder). `0` with empty `FN` = legacy/system bucket (mostly Command-type scripts, not a user folder). Any positive integer with a non-empty `FN` = user-created folder (e.g. `FID=8, FN="DPO"`).
+- `FN` — Folder name as displayed in the UI. Empty string when at root or in the legacy bucket.
+
+The MCP surfaces folder metadata read-only. There are no tools to create, rename, or delete folders, nor to move a script between folders — manage folder layout through the HTS web UI.
+
+`add_script` creates new scripts at root (`FID=-1`) regardless of any related source script's folder. To keep version backups alongside the original, move them into the parent folder via the web UI after `add_script` returns.
+
+To enumerate scripts in a specific folder, call `list_scripts` (no params) and filter client-side by `FN` (human-readable) or `FID` (precise when folder names repeat). All script-level tools (`get_script`, `edit_script_source`, `execute_backtest`, etc.) reference scripts by `SID` — folder placement has no effect on script access.
+
 ### bot_id
 Obtain from `list_bots`. Use the bot GUID — not the bot name. To find a bot by name, call `list_bots` and filter the result yourself.
 
@@ -555,6 +566,8 @@ Version workflow (always follow this order):
 4. Manually compare `get_backtest_info` metrics between the old and new run — confirm behaviour preserved or intentionally changed.
 
 If the new version fails validation, revert by copying source from the backup script.
+
+Consider creating a dedicated folder per strategy in the HTS web UI (e.g. an `HFCB/` folder for all `HFCBv*-*` versions). This keeps `list_scripts` output grouped, makes it easier to spot the latest version, and reduces bare-name collisions. Because `add_script` always creates at root, remember to move freshly created backups into the parent folder via the web UI after each new version is committed.
 
 ## Pre-Compilation Lint Checklist
 Before every call to `add_script` or `edit_script_source`, verify all of the following:
@@ -641,6 +654,10 @@ For labs: set `positionMode` and `marginMode` inside the `settings` object when 
 2. get_script(script_id)                     → read current source
 3. add_script(script=<source>, name="ScriptName-vX.Y.Z-backup", type="Lua")
                                              → create named version backup
+                                             → NOTE: backup lands at root (FID=-1).
+                                               If the original lives in a folder, move the
+                                               backup into it via the HTS web UI — the MCP
+                                               has no folder-move tool.
 4. Run Pre-Compilation Lint Checklist on modified code
 5. edit_script_source(script_id, source_code=<new_code>, settings=<full_settings_object>)
                                              → preserves backtest history
@@ -830,8 +847,13 @@ All bot tools are READ-ONLY. They observe bot state but cannot modify anything.
                                               (first page may exceed page_length due
                                                to in-memory merge — see tool ref)
 8. get_bot_logs(bot_id, next_page_id=0, page_length=50)
-                                            → runtime Log() snapshot (often empty —
-                                              use CustomReport() for persistent metrics)
+                                            → rolling Log() history from the active
+                                              runtime snapshot — includes historical
+                                              lines since activation (often days/weeks
+                                              of trace). Paginate with next_page_id for
+                                              older entries. For persistent strategy
+                                              metrics use CustomReport() → custom_report
+                                              field in get_bot_runtime.
 ```
 
 ### 14. Review bot fleet performance
@@ -886,9 +908,15 @@ When a live bot is underperforming or behaving unexpectedly:
 6. get_bot_positions(bot_id, status="closed", next_page_id=0, page_length=5)
                                             → inspect recent closed positions for anomalies
 7. get_bot_logs(bot_id, next_page_id=0, page_length=50)
-                                            → check runtime Log() for error messages
-                                            → empty is normal between executions — check
-                                              custom_report field in get_bot_runtime instead
+                                            → rolling Log() history from the runtime
+                                              snapshot — scan for runtime errors,
+                                              rejected-order messages, and warning lines
+                                              accumulated since activation. Paginate
+                                              older pages with next_page_id if the
+                                              incident is further back in the buffer.
+                                            → for persistent strategy metrics (fee drag,
+                                              re-anchor counts, etc.) read the
+                                              custom_report field from get_bot_runtime
 8. If script issue suspected: get_script(script_id) → review source code
 ```
 
@@ -941,6 +969,21 @@ $now = current unix timestamp
                                             → limit to specific accounts and coins
 3. Cross-reference with get_bot_profits(start_date=..., end_date=...)
                                             → compare holdings to bot-generated P&L
+```
+
+### 20. Enumerate scripts by folder
+Folder organisation is exposed on each `list_scripts` record but there is no server-side filter. Group client-side.
+```
+1. list_scripts                          → full result (no params)
+2. For each record, inspect FID and FN:
+   - FID == -1              → root-level script (no folder)
+   - FID == 0  and FN == "" → legacy/system bucket (ignore as a user folder)
+   - FID  > 0  and FN != "" → user-created folder
+3. Group by FN to list folders and their contents.
+4. Use get_script(SID) on any entry — folder membership does not affect access.
+
+NOTE: list_scripts result is often too large for a single context window and may be
+persisted to file by the MCP client. In that case, parse the stored file and filter there.
 ```
 
 ## Multi-Period Validation Pipeline
@@ -1088,9 +1131,10 @@ When a backtest returns unexpected results, follow this structured tree instead 
 
 **Live Bot Underperforming vs Backtest**
 1. `get_bot_runtime(bot_id)` — compare live report metrics to backtest analysis.
-2. `get_bot_positions(bot_id, status="closed", next_page_id=0, page_length=20)` — inspect recent trade quality.
-3. `get_bot_open_orders(bot_id)` — check for stuck or rejected orders.
-4. Common causes: slippage (live fills at worse prices than backtest assumes), fee differences, latency (orders placed too late in fast markets), market regime shift since backtest period.
+2. `get_bot_logs(bot_id, next_page_id=0, page_length=50)` — scan the rolling log history for rejected orders, partial fills, runtime errors, or warnings accumulated since activation. Paginate with `next_page_id` if the incident is older than the first page.
+3. `get_bot_positions(bot_id, status="closed", next_page_id=0, page_length=20)` — inspect recent trade quality.
+4. `get_bot_open_orders(bot_id)` — check for stuck or rejected orders.
+5. Common causes: slippage (live fills at worse prices than backtest assumes), fee differences, latency (orders placed too late in fast markets), market regime shift since backtest period, or real exchange errors now visible in the log buffer.
 
 ## Regression Testing Protocol
 Every script modification must include a regression test:
@@ -1103,7 +1147,7 @@ Every script modification must include a regression test:
 Acceptable variance thresholds: ROI ±0.5%, trade count ±2, profit factor ±0.05. If variance exceeds these, the modification introduced unintended behaviour — investigate before proceeding.
 
 ## Custom Report Metrics
-Build strategy-specific metrics into scripts via `CustomReport()` inside `Finalize()`. These appear directly in backtest analysis and reduce post-hoc position-level analysis. CustomReport values also appear in `get_bot_runtime` under the `custom_report` field for live bots — this is the recommended pattern for persistent diagnostics, since `get_bot_logs` returns only current-tick snapshots.
+Build strategy-specific metrics into scripts via `CustomReport()` inside `Finalize()`. These appear directly in backtest analysis and reduce post-hoc position-level analysis. CustomReport values also appear in `get_bot_runtime` under the `custom_report` field for live bots — this is the recommended pattern for persistent diagnostics.
 
 Recommended metrics:
 - Fee Drag Ratio: `total_fees / gross_profit`
@@ -1143,7 +1187,7 @@ end)
 | `list_active_backtests` shows "No active backtests" when one is running | If just started, wait a few seconds and retry |
 | `list_scripts` result too large for context window | Result may be stored to a file automatically. Use file-system tools to search for specific script names or IDs in the stored file |
 | `get_bot_runtime` requires bot to be active | If bot is stopped/inactive, runtime returns an error. Use `get_bot(bot_id)` to check `is_active` status first |
-| `get_bot_logs` often returns empty snapshot | `ExecutionLog` only contains current-tick output; typically empty between executions. Use `CustomReport()` for persistent metrics |
+| `get_bot_logs` returns empty for inactive bots | Rolling `Log()` buffer lives inside the active runtime snapshot. Check `is_active` via `get_bot(bot_id)` first — stopped bots have no snapshot to read from |
 | `get_bot_profits` returns $0 / 0 trades for intraday/short windows | The period API only aggregates daily; it returns no data for same-day windows. For intraday profit use `get_bot_runtime(bot_id)` and read the `RP` field |
 | `get_bot_profits` bot filter has no effect | Full fleet is always returned. Filter client-side by matching `BID` in the response array |
 | `get_bot_positions` first page may exceed `page_length` | In-memory `FinishedPositions` (~10 most recent) merged with archived DB positions on first page — not a bug |
@@ -1156,6 +1200,10 @@ end)
 | `elseif Input()` calls in conditional branches registered as `static-scan.KEY` fallback only | Use separate `if` blocks at top level. Inputs in non-init branches get a `static-scan.` key prefix instead of a hash-prefix key, emitting a compile warning; these inputs may not behave as expected at runtime. |
 | Bot tools are strictly read-only | By design — MCP cannot create, start, stop, modify, or delete live bots. Bot management must be done through the HTS web UI |
 | `get_wallet` / `get_balance` may fail on simulated accounts | Simulated accounts may not have real exchange wallets. Use `list_accounts` to confirm account type first |
+| No folder filter on `list_scripts` | Call without params, filter client-side by `FID` or `FN` per record |
+| No folder management tools | Cannot create, rename, or delete folders, or move scripts between folders via MCP — use HTS web UI |
+| `add_script` has no folder-assignment param | New scripts land at root (`FID=-1`). Move into the target folder via web UI after creation |
+| `FID=0` with empty `FN` is not a user folder | Legacy/system bucket (mostly Command-type scripts). Treat records with non-empty `FN` as the only user-created folders |
 
 ## HaasScript Quick Reference (Lua)
 ```lua
@@ -1228,7 +1276,7 @@ end)
 
 | Setting | Value |
 |---------|-------|
-| HTS URL | `http://127.0.0.1:8096` |
+| HTS URL | `http://127.0.0.1:8080` |
 | Default market | `BINANCE_BTC_USDT_` |
 | Default candle interval | 60 minutes |
 | Default trade amount | 0.001 (override `create_lab`'s default of 100.0 in `update_lab`) |
@@ -1290,4 +1338,5 @@ After adding these instructions to the Claude Project, confirm with:
 - `check_market_data(market="<market tag derived from detected sim account>", start_unix=1727740800, end_unix=1730419200, interval=60)` → data availability check (underscored param names)
 - `get_balance(account_id=<aid>, currency="USDT", aggregate_currencies=false)` → balance check
 - `get_portfolio(account_ids="", coins="", currency="USDT", timestamp=<now_unix>)` → portfolio snapshot
-
+- `list_scripts` → each returned record includes `FID` (folder ID, `-1` for root) and `FN` (folder name, empty at root) — folder metadata exposed
+- `get_bot_logs(<active_bot_id>, next_page_id=0, page_length=50)` → returns rolling `Log()` history from the runtime snapshot with historical lines since activation (not just current-tick); inactive bots return empty
