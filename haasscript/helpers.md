@@ -1563,12 +1563,12 @@ Returns the multiplied numbers/tables.
 ## NumberMax
 
 ```lua
-NumberMax()
+NumberMax
 ```
 
-Enumeration, returns the maximum number.
+Constant value: the maximum number.
 
-**Returns:** `number`
+**Type:** `number`
 
 Returns a maximum value (2147483647).
 
@@ -1577,12 +1577,12 @@ Returns a maximum value (2147483647).
 ## NumberMin
 
 ```lua
-NumberMin()
+NumberMin
 ```
 
-Enumeration, returns the minimum number.
+Constant value: the minimum number.
 
-**Returns:** `number`
+**Type:** `number`
 
 Returns a minimum value (-2147483648).
 
@@ -1591,12 +1591,12 @@ Returns a minimum value (-2147483648).
 ## PI
 
 ```lua
-PI()
+PI
 ```
 
-Enumeration, returns the number of PI.
+Constant value: the number of PI.
 
-**Returns:** `number`
+**Type:** `number`
 
 Returns PI (3.14159265359).
 
@@ -1712,14 +1712,14 @@ Returns the rounded number.
 ## Satoshi
 
 ```lua
-Satoshi()
+Satoshi
 ```
 
 **Aliases:** `Epsilon`
 
-Enumeration, returns 1 Satoshi (=Epsilon).
+Constant value: 1 Satoshi (=Epsilon).
 
-**Returns:** `number`
+**Type:** `number`
 
 Returns 1 Satoshi (=Epsilon).
 

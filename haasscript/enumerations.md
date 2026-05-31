@@ -28,56 +28,48 @@
 ## ArrayFilterExclusiveType
 
 ```lua
-ArrayFilterExclusiveType()
+ArrayFilterExclusiveType
 ```
 
 Exclusive filter type; will exclude all matching values.
 
-**Returns:** `enum`
-
-Returns the ArrayFilterExclusiveType enum.
+**Type:** `enum`
 
 ---
 
 ## ArrayFilterGreaterThanType
 
 ```lua
-ArrayFilterGreaterThanType()
+ArrayFilterGreaterThanType
 ```
 
 GreaterThan filter type; will include all greater values.
 
-**Returns:** `enum`
-
-Returns the ArrayFilterGreaterThanType enum.
+**Type:** `enum`
 
 ---
 
 ## ArrayFilterInclusiveType
 
 ```lua
-ArrayFilterInclusiveType()
+ArrayFilterInclusiveType
 ```
 
 Inclusive filter type; will include all matching values.
 
-**Returns:** `enum`
-
-Returns the ArrayFilterInclusiveType enum.
+**Type:** `enum`
 
 ---
 
 ## ArrayFilterLessThanType
 
 ```lua
-ArrayFilterLessThanType()
+ArrayFilterLessThanType
 ```
 
 LessThan filter type; will include all lesser values.
 
-**Returns:** `enum`
-
-Returns the ArrayFilterLessThanType enum.
+**Type:** `enum`
 
 ---
 
@@ -87,910 +79,780 @@ Returns the ArrayFilterLessThanType enum.
 ## AbandonedBabyType
 
 ```lua
-AbandonedBabyType()
+AbandonedBabyType
 ```
 
-Enumeration, returns an enum for AbandonedBabyType type.
+Constant for the AbandonedBabyType enumeration.
 
-**Returns:** `enum`
-
-Returns the AbandonedBabyType enum.
+**Type:** `enum`
 
 ---
 
 ## AdvanceBlockType
 
 ```lua
-AdvanceBlockType()
+AdvanceBlockType
 ```
 
-Enumeration, returns an enum for AdvanceBlockType type.
+Constant for the AdvanceBlockType enumeration.
 
-**Returns:** `enum`
-
-Returns the AdvanceBlockType enum.
+**Type:** `enum`
 
 ---
 
 ## BeltHoldType
 
 ```lua
-BeltHoldType()
+BeltHoldType
 ```
 
-Enumeration, returns an enum for BeltHoldType type.
+Constant for the BeltHoldType enumeration.
 
-**Returns:** `enum`
-
-Returns the BeltHoldType enum.
+**Type:** `enum`
 
 ---
 
 ## BreakawayType
 
 ```lua
-BreakawayType()
+BreakawayType
 ```
 
-Enumeration, returns an enum for BreakawayType type.
+Constant for the BreakawayType enumeration.
 
-**Returns:** `enum`
-
-Returns the BreakawayType enum.
+**Type:** `enum`
 
 ---
 
 ## ClosingMarubozuType
 
 ```lua
-ClosingMarubozuType()
+ClosingMarubozuType
 ```
 
-Enumeration, returns an enum for ClosingMarubozuType type.
+Constant for the ClosingMarubozuType enumeration.
 
-**Returns:** `enum`
-
-Returns the ClosingMarubozuType enum.
+**Type:** `enum`
 
 ---
 
 ## ConcealBabysWallType
 
 ```lua
-ConcealBabysWallType()
+ConcealBabysWallType
 ```
 
-Enumeration, returns an enum for ConcealBabysWallType type.
+Constant for the ConcealBabysWallType enumeration.
 
-**Returns:** `enum`
-
-Returns the ConcealBabysWallType enum.
+**Type:** `enum`
 
 ---
 
 ## CounterAttackType
 
 ```lua
-CounterAttackType()
+CounterAttackType
 ```
 
-Enumeration, returns an enum for CounterAttackType type.
+Constant for the CounterAttackType enumeration.
 
-**Returns:** `enum`
-
-Returns the CounterAttackType enum.
+**Type:** `enum`
 
 ---
 
 ## DarkCloudCoverType
 
 ```lua
-DarkCloudCoverType()
+DarkCloudCoverType
 ```
 
-Enumeration, returns an enum for DarkCloudCoverType type.
+Constant for the DarkCloudCoverType enumeration.
 
-**Returns:** `enum`
-
-Returns the DarkCloudCoverType enum.
+**Type:** `enum`
 
 ---
 
 ## DojiStarType
 
 ```lua
-DojiStarType()
+DojiStarType
 ```
 
-Enumeration, returns an enum for DojiStarType type.
+Constant for the DojiStarType enumeration.
 
-**Returns:** `enum`
-
-Returns the DojiStarType enum.
+**Type:** `enum`
 
 ---
 
 ## DojiType
 
 ```lua
-DojiType()
+DojiType
 ```
 
-Enumeration, returns an enum for DojiType type.
+Constant for the DojiType enumeration.
 
-**Returns:** `enum`
-
-Returns the DojiType enum.
+**Type:** `enum`
 
 ---
 
 ## DragonflyDojiType
 
 ```lua
-DragonflyDojiType()
+DragonflyDojiType
 ```
 
-Enumeration, returns an enum for DragonflyDojiType type.
+Constant for the DragonflyDojiType enumeration.
 
-**Returns:** `enum`
-
-Returns the DragonflyDojiType enum.
+**Type:** `enum`
 
 ---
 
 ## EngulfingType
 
 ```lua
-EngulfingType()
+EngulfingType
 ```
 
-Enumeration, returns an enum for EngulfingType type.
+Constant for the EngulfingType enumeration.
 
-**Returns:** `enum`
-
-Returns the EngulfingType enum.
+**Type:** `enum`
 
 ---
 
 ## EveningDojiStarType
 
 ```lua
-EveningDojiStarType()
+EveningDojiStarType
 ```
 
-Enumeration, returns an enum for EveningDojiStarType type.
+Constant for the EveningDojiStarType enumeration.
 
-**Returns:** `enum`
-
-Returns the EveningDojiStarType enum.
+**Type:** `enum`
 
 ---
 
 ## EveningStarType
 
 ```lua
-EveningStarType()
+EveningStarType
 ```
 
-Enumeration, returns an enum for EveningStarType type.
+Constant for the EveningStarType enumeration.
 
-**Returns:** `enum`
-
-Returns the EveningStarType enum.
+**Type:** `enum`
 
 ---
 
 ## GapSideSideWhiteType
 
 ```lua
-GapSideSideWhiteType()
+GapSideSideWhiteType
 ```
 
-Enumeration, returns an enum for GapSideSideWhiteType type.
+Constant for the GapSideSideWhiteType enumeration.
 
-**Returns:** `enum`
-
-Returns the GapSideSideWhiteType enum.
+**Type:** `enum`
 
 ---
 
 ## GravestoneDojiType
 
 ```lua
-GravestoneDojiType()
+GravestoneDojiType
 ```
 
-Enumeration, returns an enum for GravestoneDojiType type.
+Constant for the GravestoneDojiType enumeration.
 
-**Returns:** `enum`
-
-Returns the GravestoneDojiType enum.
+**Type:** `enum`
 
 ---
 
 ## HammerType
 
 ```lua
-HammerType()
+HammerType
 ```
 
-Enumeration, returns an enum for HammerType type.
+Constant for the HammerType enumeration.
 
-**Returns:** `enum`
-
-Returns the HammerType enum.
+**Type:** `enum`
 
 ---
 
 ## HangingManType
 
 ```lua
-HangingManType()
+HangingManType
 ```
 
-Enumeration, returns an enum for HangingManType type.
+Constant for the HangingManType enumeration.
 
-**Returns:** `enum`
-
-Returns the HangingManType enum.
+**Type:** `enum`
 
 ---
 
 ## HaramiCrossType
 
 ```lua
-HaramiCrossType()
+HaramiCrossType
 ```
 
-Enumeration, returns an enum for HaramiCrossType type.
+Constant for the HaramiCrossType enumeration.
 
-**Returns:** `enum`
-
-Returns the HaramiCrossType enum.
+**Type:** `enum`
 
 ---
 
 ## HaramiType
 
 ```lua
-HaramiType()
+HaramiType
 ```
 
-Enumeration, returns an enum for HaramiType type.
+Constant for the HaramiType enumeration.
 
-**Returns:** `enum`
-
-Returns the HaramiType enum.
+**Type:** `enum`
 
 ---
 
 ## HignWaveType
 
 ```lua
-HignWaveType()
+HignWaveType
 ```
 
-Enumeration, returns an enum for HignWaveType type.
+Constant for the HignWaveType enumeration.
 
-**Returns:** `enum`
-
-Returns the HignWaveType enum.
+**Type:** `enum`
 
 ---
 
 ## HikkakeModType
 
 ```lua
-HikkakeModType()
+HikkakeModType
 ```
 
-Enumeration, returns an enum for HikkakeModType type.
+Constant for the HikkakeModType enumeration.
 
-**Returns:** `enum`
-
-Returns the HikkakeModType enum.
+**Type:** `enum`
 
 ---
 
 ## HikkakeType
 
 ```lua
-HikkakeType()
+HikkakeType
 ```
 
-Enumeration, returns an enum for HikkakeType type.
+Constant for the HikkakeType enumeration.
 
-**Returns:** `enum`
-
-Returns the HikkakeType enum.
+**Type:** `enum`
 
 ---
 
 ## HomingPigeonType
 
 ```lua
-HomingPigeonType()
+HomingPigeonType
 ```
 
-Enumeration, returns an enum for HomingPigeonType type.
+Constant for the HomingPigeonType enumeration.
 
-**Returns:** `enum`
-
-Returns the HomingPigeonType enum.
+**Type:** `enum`
 
 ---
 
 ## IdenticalThreeCrowsType
 
 ```lua
-IdenticalThreeCrowsType()
+IdenticalThreeCrowsType
 ```
 
-Enumeration, returns an enum for IdenticalThreeCrowsType type.
+Constant for the IdenticalThreeCrowsType enumeration.
 
-**Returns:** `enum`
-
-Returns the IdenticalThreeCrowsType enum.
+**Type:** `enum`
 
 ---
 
 ## InNeckType
 
 ```lua
-InNeckType()
+InNeckType
 ```
 
-Enumeration, returns an enum for InNeckType type.
+Constant for the InNeckType enumeration.
 
-**Returns:** `enum`
-
-Returns the InNeckType enum.
+**Type:** `enum`
 
 ---
 
 ## InvertedHammerType
 
 ```lua
-InvertedHammerType()
+InvertedHammerType
 ```
 
-Enumeration, returns an enum for InvertedHammerType type.
+Constant for the InvertedHammerType enumeration.
 
-**Returns:** `enum`
-
-Returns the InvertedHammerType enum.
+**Type:** `enum`
 
 ---
 
 ## KickingByLengthType
 
 ```lua
-KickingByLengthType()
+KickingByLengthType
 ```
 
-Enumeration, returns an enum for KickingByLengthType type.
+Constant for the KickingByLengthType enumeration.
 
-**Returns:** `enum`
-
-Returns the KickingByLengthType enum.
+**Type:** `enum`
 
 ---
 
 ## KickingType
 
 ```lua
-KickingType()
+KickingType
 ```
 
-Enumeration, returns an enum for KickingType type.
+Constant for the KickingType enumeration.
 
-**Returns:** `enum`
-
-Returns the KickingType enum.
+**Type:** `enum`
 
 ---
 
 ## LadderBottomType
 
 ```lua
-LadderBottomType()
+LadderBottomType
 ```
 
-Enumeration, returns an enum for LadderBottomType type.
+Constant for the LadderBottomType enumeration.
 
-**Returns:** `enum`
-
-Returns the LadderBottomType enum.
+**Type:** `enum`
 
 ---
 
 ## LongLeggedDojiType
 
 ```lua
-LongLeggedDojiType()
+LongLeggedDojiType
 ```
 
-Enumeration, returns an enum for LongLeggedDojiType type.
+Constant for the LongLeggedDojiType enumeration.
 
-**Returns:** `enum`
-
-Returns the LongLeggedDojiType enum.
+**Type:** `enum`
 
 ---
 
 ## LongLineType
 
 ```lua
-LongLineType()
+LongLineType
 ```
 
-Enumeration, returns an enum for LongLineType type.
+Constant for the LongLineType enumeration.
 
-**Returns:** `enum`
-
-Returns the LongLineType enum.
+**Type:** `enum`
 
 ---
 
 ## MarubozuType
 
 ```lua
-MarubozuType()
+MarubozuType
 ```
 
-Enumeration, returns an enum for MarubozuType type.
+Constant for the MarubozuType enumeration.
 
-**Returns:** `enum`
-
-Returns the MarubozuType enum.
+**Type:** `enum`
 
 ---
 
 ## MatchingLowType
 
 ```lua
-MatchingLowType()
+MatchingLowType
 ```
 
-Enumeration, returns an enum for MatchingLowType type.
+Constant for the MatchingLowType enumeration.
 
-**Returns:** `enum`
-
-Returns the MatchingLowType enum.
+**Type:** `enum`
 
 ---
 
 ## MatHoldType
 
 ```lua
-MatHoldType()
+MatHoldType
 ```
 
-Enumeration, returns an enum for MatHoldType type.
+Constant for the MatHoldType enumeration.
 
-**Returns:** `enum`
-
-Returns the MatHoldType enum.
+**Type:** `enum`
 
 ---
 
 ## MorningDojiStarType
 
 ```lua
-MorningDojiStarType()
+MorningDojiStarType
 ```
 
-Enumeration, returns an enum for MorningDojiStarType type.
+Constant for the MorningDojiStarType enumeration.
 
-**Returns:** `enum`
-
-Returns the MorningDojiStarType enum.
+**Type:** `enum`
 
 ---
 
 ## MorningStarType
 
 ```lua
-MorningStarType()
+MorningStarType
 ```
 
-Enumeration, returns an enum for MorningStarType type.
+Constant for the MorningStarType enumeration.
 
-**Returns:** `enum`
-
-Returns the MorningStarType enum.
+**Type:** `enum`
 
 ---
 
 ## OnNeckType
 
 ```lua
-OnNeckType()
+OnNeckType
 ```
 
-Enumeration, returns an enum for OnNeckType type.
+Constant for the OnNeckType enumeration.
 
-**Returns:** `enum`
-
-Returns the OnNeckType enum.
+**Type:** `enum`
 
 ---
 
 ## PiercingType
 
 ```lua
-PiercingType()
+PiercingType
 ```
 
-Enumeration, returns an enum for PiercingType type.
+Constant for the PiercingType enumeration.
 
-**Returns:** `enum`
-
-Returns the PiercingType enum.
+**Type:** `enum`
 
 ---
 
 ## RickshawManType
 
 ```lua
-RickshawManType()
+RickshawManType
 ```
 
-Enumeration, returns an enum for RickshawManType type.
+Constant for the RickshawManType enumeration.
 
-**Returns:** `enum`
-
-Returns the RickshawManType enum.
+**Type:** `enum`
 
 ---
 
 ## RiseFallThreeMethodsType
 
 ```lua
-RiseFallThreeMethodsType()
+RiseFallThreeMethodsType
 ```
 
-Enumeration, returns an enum for RiseFallThreeMethodsType type.
+Constant for the RiseFallThreeMethodsType enumeration.
 
-**Returns:** `enum`
-
-Returns the RiseFallThreeMethodsType enum.
+**Type:** `enum`
 
 ---
 
 ## SeparatingLinesType
 
 ```lua
-SeparatingLinesType()
+SeparatingLinesType
 ```
 
-Enumeration, returns an enum for SeparatingLinesType type.
+Constant for the SeparatingLinesType enumeration.
 
-**Returns:** `enum`
-
-Returns the SeparatingLinesType enum.
+**Type:** `enum`
 
 ---
 
 ## ShootingStarType
 
 ```lua
-ShootingStarType()
+ShootingStarType
 ```
 
-Enumeration, returns an enum for ShootingStarType type.
+Constant for the ShootingStarType enumeration.
 
-**Returns:** `enum`
-
-Returns the ShootingStarType enum.
+**Type:** `enum`
 
 ---
 
 ## ShortLineType
 
 ```lua
-ShortLineType()
+ShortLineType
 ```
 
-Enumeration, returns an enum for ShortLineType type.
+Constant for the ShortLineType enumeration.
 
-**Returns:** `enum`
-
-Returns the ShortLineType enum.
+**Type:** `enum`
 
 ---
 
 ## SimpleDoubleDownCandleType
 
 ```lua
-SimpleDoubleDownCandleType()
+SimpleDoubleDownCandleType
 ```
 
-Enumeration, returns an enum for SimpleDoubleDownCandleType type.
+Constant for the SimpleDoubleDownCandleType enumeration.
 
-**Returns:** `enum`
-
-Returns the SimpleDoubleDownCandleType enum.
+**Type:** `enum`
 
 ---
 
 ## SimpleDoubleUpCandleType
 
 ```lua
-SimpleDoubleUpCandleType()
+SimpleDoubleUpCandleType
 ```
 
-Enumeration, returns an enum for SimpleDoubleUpCandleType type.
+Constant for the SimpleDoubleUpCandleType enumeration.
 
-**Returns:** `enum`
-
-Returns the SimpleDoubleUpCandleType enum.
+**Type:** `enum`
 
 ---
 
 ## SimpleDownCandleType
 
 ```lua
-SimpleDownCandleType()
+SimpleDownCandleType
 ```
 
-Enumeration, returns an enum for SimpleDownCandleType type.
+Constant for the SimpleDownCandleType enumeration.
 
-**Returns:** `enum`
-
-Returns the SimpleDownCandleType enum.
+**Type:** `enum`
 
 ---
 
 ## SimpleUpCandleType
 
 ```lua
-SimpleUpCandleType()
+SimpleUpCandleType
 ```
 
-Enumeration, returns an enum for SimpleUpCandleType type.
+Constant for the SimpleUpCandleType enumeration.
 
-**Returns:** `enum`
-
-Returns the SimpleUpCandleType enum.
+**Type:** `enum`
 
 ---
 
 ## SpinningTopType
 
 ```lua
-SpinningTopType()
+SpinningTopType
 ```
 
-Enumeration, returns an enum for SpinningTopType type.
+Constant for the SpinningTopType enumeration.
 
-**Returns:** `enum`
-
-Returns the SpinningTopType enum.
+**Type:** `enum`
 
 ---
 
 ## StalledPatternType
 
 ```lua
-StalledPatternType()
+StalledPatternType
 ```
 
-Enumeration, returns an enum for StalledPatternType type.
+Constant for the StalledPatternType enumeration.
 
-**Returns:** `enum`
-
-Returns the StalledPatternType enum.
+**Type:** `enum`
 
 ---
 
 ## StickSandwichType
 
 ```lua
-StickSandwichType()
+StickSandwichType
 ```
 
-Enumeration, returns an enum for StickSandwichType type.
+Constant for the StickSandwichType enumeration.
 
-**Returns:** `enum`
-
-Returns the StickSandwichType enum.
+**Type:** `enum`
 
 ---
 
 ## TakuriType
 
 ```lua
-TakuriType()
+TakuriType
 ```
 
-Enumeration, returns an enum for TakuriType type.
+Constant for the TakuriType enumeration.
 
-**Returns:** `enum`
-
-Returns the TakuriType enum.
+**Type:** `enum`
 
 ---
 
 ## TasukiGapType
 
 ```lua
-TasukiGapType()
+TasukiGapType
 ```
 
-Enumeration, returns an enum for TasukiGapType type.
+Constant for the TasukiGapType enumeration.
 
-**Returns:** `enum`
-
-Returns the TasukiGapType enum.
+**Type:** `enum`
 
 ---
 
 ## ThreeBlackCrowsType
 
 ```lua
-ThreeBlackCrowsType()
+ThreeBlackCrowsType
 ```
 
-Enumeration, returns an enum for ThreeBlackCrowsType type.
+Constant for the ThreeBlackCrowsType enumeration.
 
-**Returns:** `enum`
-
-Returns the ThreeBlackCrowsType enum.
+**Type:** `enum`
 
 ---
 
 ## ThreeInsideType
 
 ```lua
-ThreeInsideType()
+ThreeInsideType
 ```
 
-Enumeration, returns an enum for ThreeInsideType type.
+Constant for the ThreeInsideType enumeration.
 
-**Returns:** `enum`
-
-Returns the ThreeInsideType enum.
+**Type:** `enum`
 
 ---
 
 ## ThreeLineStrikeType
 
 ```lua
-ThreeLineStrikeType()
+ThreeLineStrikeType
 ```
 
-Enumeration, returns an enum for ThreeLineStrikeType type.
+Constant for the ThreeLineStrikeType enumeration.
 
-**Returns:** `enum`
-
-Returns the ThreeLineStrikeType enum.
+**Type:** `enum`
 
 ---
 
 ## ThreeOutsideType
 
 ```lua
-ThreeOutsideType()
+ThreeOutsideType
 ```
 
-Enumeration, returns an enum for ThreeOutsideType type.
+Constant for the ThreeOutsideType enumeration.
 
-**Returns:** `enum`
-
-Returns the ThreeOutsideType enum.
+**Type:** `enum`
 
 ---
 
 ## ThreeStarsInSouthType
 
 ```lua
-ThreeStarsInSouthType()
+ThreeStarsInSouthType
 ```
 
-Enumeration, returns an enum for ThreeStarsInSouthType type.
+Constant for the ThreeStarsInSouthType enumeration.
 
-**Returns:** `enum`
-
-Returns the ThreeStarsInSouthType enum.
+**Type:** `enum`
 
 ---
 
 ## ThreeWhiteSoldiersType
 
 ```lua
-ThreeWhiteSoldiersType()
+ThreeWhiteSoldiersType
 ```
 
-Enumeration, returns an enum for ThreeWhiteSoldiersType type.
+Constant for the ThreeWhiteSoldiersType enumeration.
 
-**Returns:** `enum`
-
-Returns the ThreeWhiteSoldiersType enum.
+**Type:** `enum`
 
 ---
 
 ## ThrustingType
 
 ```lua
-ThrustingType()
+ThrustingType
 ```
 
-Enumeration, returns an enum for ThrustingType type.
+Constant for the ThrustingType enumeration.
 
-**Returns:** `enum`
-
-Returns the ThrustingType enum.
+**Type:** `enum`
 
 ---
 
 ## TristarType
 
 ```lua
-TristarType()
+TristarType
 ```
 
-Enumeration, returns an enum for TristarType type.
+Constant for the TristarType enumeration.
 
-**Returns:** `enum`
-
-Returns the TristarType enum.
+**Type:** `enum`
 
 ---
 
 ## TwoCrowsType
 
 ```lua
-TwoCrowsType()
+TwoCrowsType
 ```
 
-Enumeration, returns an enum for TwoCrowsType type.
+Constant for the TwoCrowsType enumeration.
 
-**Returns:** `enum`
-
-Returns the TwoCrowsType enum.
+**Type:** `enum`
 
 ---
 
 ## UniqueThreeRiverType
 
 ```lua
-UniqueThreeRiverType()
+UniqueThreeRiverType
 ```
 
-Enumeration, returns an enum for UniqueThreeRiverType type.
+Constant for the UniqueThreeRiverType enumeration.
 
-**Returns:** `enum`
-
-Returns the UniqueThreeRiverType enum.
+**Type:** `enum`
 
 ---
 
 ## UpsideGapTwoCrowsType
 
 ```lua
-UpsideGapTwoCrowsType()
+UpsideGapTwoCrowsType
 ```
 
-Enumeration, returns an enum for UpsideGapTwoCrowsType type.
+Constant for the UpsideGapTwoCrowsType enumeration.
 
-**Returns:** `enum`
-
-Returns the UpsideGapTwoCrowsType enum.
+**Type:** `enum`
 
 ---
 
 ## XSideGapThreeMethodsType
 
 ```lua
-XSideGapThreeMethodsType()
+XSideGapThreeMethodsType
 ```
 
-Enumeration, returns an enum for XSideGapThreeMethodsType type.
+Constant for the XSideGapThreeMethodsType enumeration.
 
-**Returns:** `enum`
-
-Returns the XSideGapThreeMethodsType enum.
+**Type:** `enum`
 
 ---
 
@@ -1000,434 +862,372 @@ Returns the XSideGapThreeMethodsType enum.
 ## Candlestick
 
 ```lua
-Candlestick()
+Candlestick
 ```
 
-Enumeration, return a price plot enum. Used by PlotPrice() or ChartSetOptions()
+Constant representing the price plot. Used by PlotPrice() or ChartSetOptions()
 
-**Returns:** `enum`
-
-Returns the Candlestick enum.
+**Type:** `enum`
 
 ---
 
 ## CandlestickHLC
 
 ```lua
-CandlestickHLC()
+CandlestickHLC
 ```
 
-Enumeration, return a price plot enum. Used by PlotPrice() or ChartSetOptions()
+Constant representing the price plot. Used by PlotPrice() or ChartSetOptions()
 
-**Returns:** `enum`
-
-Returns the CandlestickHLC enum.
+**Type:** `enum`
 
 ---
 
 ## CloseLine
 
 ```lua
-CloseLine()
+CloseLine
 ```
 
-Enumeration, return a price plot enum. Used by PlotPrice() or ChartSetOptions()
+Constant representing the price plot. Used by PlotPrice() or ChartSetOptions()
 
-**Returns:** `enum`
-
-Returns the CloseLine enum.
+**Type:** `enum`
 
 ---
 
 ## Dashed
 
 ```lua
-Dashed()
+Dashed
 ```
 
-Enumeration, returns a line decoration enum. Used by LineOptions() for example.
+Constant representing the line decoration. Used by LineOptions() for example.
 
-**Returns:** `enum`
-
-Returns the Dashed enum.
+**Type:** `enum`
 
 ---
 
 ## Dotted
 
 ```lua
-Dotted()
+Dotted
 ```
 
-Enumeration, returns a line decoration enum. Used by LineOptions() for example.
+Constant representing the line decoration. Used by LineOptions() for example.
 
-**Returns:** `enum`
-
-Returns the Dotted enum.
+**Type:** `enum`
 
 ---
 
 ## HeikinAshi
 
 ```lua
-HeikinAshi()
+HeikinAshi
 ```
 
-Enumeration, return a price plot enum. Used by PlotPrice() or ChartSetOptions()
+Constant representing the price plot. Used by PlotPrice() or ChartSetOptions()
 
-**Returns:** `enum`
-
-Returns the HeikinAshi enum.
+**Type:** `enum`
 
 ---
 
 ## HLC
 
 ```lua
-HLC()
+HLC
 ```
 
-Enumeration, return a price plot enum. Used by PlotPrice() or ChartSetOptions()
+Constant representing the price plot. Used by PlotPrice() or ChartSetOptions()
 
-**Returns:** `enum`
-
-Returns the HLC enum.
+**Type:** `enum`
 
 ---
 
 ## LeftAxis
 
 ```lua
-LeftAxis()
+LeftAxis
 ```
 
-Enumeration, returns the a chart axis enum. Used ChartSetAxisOptions() for example.
+Constant representing the chart axis. Used ChartSetAxisOptions() for example.
 
-**Returns:** `enum`
-
-Returns the LeftAxis enum.
+**Type:** `enum`
 
 ---
 
 ## Line
 
 ```lua
-Line()
+Line
 ```
 
-Enumeration, return a price plot enum. Used by PlotPrice() or ChartSetOptions()
+Constant representing the price plot. Used by PlotPrice() or ChartSetOptions()
 
-**Returns:** `enum`
-
-Returns the Line enum.
+**Type:** `enum`
 
 ---
 
 ## LinearAxis
 
 ```lua
-LinearAxis()
+LinearAxis
 ```
 
-Enumeration, returns the a chart axis type enum. Used ChartSetOptions() for example.
+Constant representing the chart axis type. Used ChartSetOptions() for example.
 
-**Returns:** `enum`
-
-Returns the LinearAxis enum.
+**Type:** `enum`
 
 ---
 
 ## Mountain
 
 ```lua
-Mountain()
+Mountain
 ```
 
-Enumeration, return a price plot enum. Used by PlotPrice() or ChartSetOptions()
+Constant representing the price plot. Used by PlotPrice() or ChartSetOptions()
 
-**Returns:** `enum`
-
-Returns the Mountain enum.
+**Type:** `enum`
 
 ---
 
 ## OHLC
 
 ```lua
-OHLC()
+OHLC
 ```
 
-Enumeration, return a price plot enum. Used by PlotPrice() or ChartSetOptions()
+Constant representing the price plot. Used by PlotPrice() or ChartSetOptions()
 
-**Returns:** `enum`
-
-Returns the OHLC enum.
+**Type:** `enum`
 
 ---
 
 ## PercentageAxis
 
 ```lua
-PercentageAxis()
+PercentageAxis
 ```
 
-Enumeration, returns the a chart axis type enum. Used ChartSetOptions() for example.
+Constant representing the chart axis type. Used ChartSetOptions() for example.
 
-**Returns:** `enum`
-
-Returns the PercentageAxis enum.
+**Type:** `enum`
 
 ---
 
 ## RightAxis
 
 ```lua
-RightAxis()
+RightAxis
 ```
 
-Enumeration, returns the a chart axis enum. Used ChartSetAxisOptions() for example.
+Constant representing the chart axis. Used ChartSetAxisOptions() for example.
 
-**Returns:** `enum`
-
-Returns the RightAxis enum.
+**Type:** `enum`
 
 ---
 
 ## ShapeAdd
 
 ```lua
-ShapeAdd()
+ShapeAdd
 ```
 
-Enumeration, returns the a shape type enum. Used PlotShapes().
+Constant representing the shape type. Used PlotShapes().
 
-**Returns:** `enum`
-
-Returns the ShapeAdd enum.
+**Type:** `enum`
 
 ---
 
 ## ShapeCircle
 
 ```lua
-ShapeCircle()
+ShapeCircle
 ```
 
-Enumeration, returns the a shape type enum. Used PlotShapes().
+Constant representing the shape type. Used PlotShapes().
 
-**Returns:** `enum`
-
-Returns the ShapeCircle enum.
+**Type:** `enum`
 
 ---
 
 ## ShapeCross
 
 ```lua
-ShapeCross()
+ShapeCross
 ```
 
-Enumeration, returns the a shape type enum. Used PlotShapes().
+Constant representing the shape type. Used PlotShapes().
 
-**Returns:** `enum`
-
-Returns the ShapeCross enum.
+**Type:** `enum`
 
 ---
 
 ## ShapeDash
 
 ```lua
-ShapeDash()
+ShapeDash
 ```
 
-Enumeration, returns the a shape type enum. Used PlotShapes().
+Constant representing the shape type. Used PlotShapes().
 
-**Returns:** `enum`
-
-Returns the ShapeDash enum.
+**Type:** `enum`
 
 ---
 
 ## ShapeDiamond
 
 ```lua
-ShapeDiamond()
+ShapeDiamond
 ```
 
-Enumeration, returns the a shape type enum. Used PlotShapes().
+Constant representing the shape type. Used PlotShapes().
 
-**Returns:** `enum`
-
-Returns the ShapeDiamond enum.
+**Type:** `enum`
 
 ---
 
 ## ShapeSquare
 
 ```lua
-ShapeSquare()
+ShapeSquare
 ```
 
-Enumeration, returns the a shape type enum. Used PlotShapes().
+Constant representing the shape type. Used PlotShapes().
 
-**Returns:** `enum`
-
-Returns the ShapeSquare enum.
+**Type:** `enum`
 
 ---
 
 ## ShapeText
 
 ```lua
-ShapeText()
+ShapeText
 ```
 
-Enumeration, returns the a shape type enum. Used PlotShapes().
+Constant representing the shape type. Used PlotShapes().
 
-**Returns:** `enum`
-
-Returns the ShapeText enum.
+**Type:** `enum`
 
 ---
 
 ## ShapeTriangleDown
 
 ```lua
-ShapeTriangleDown()
+ShapeTriangleDown
 ```
 
-Enumeration, returns the a shape type enum. Used PlotShapes().
+Constant representing the shape type. Used PlotShapes().
 
-**Returns:** `enum`
-
-Returns the ShapeTriangleDown enum.
+**Type:** `enum`
 
 ---
 
 ## ShapeTriangleUp
 
 ```lua
-ShapeTriangleUp()
+ShapeTriangleUp
 ```
 
-Enumeration, returns the a shape type enum. Used PlotShapes().
+Constant representing the shape type. Used PlotShapes().
 
-**Returns:** `enum`
-
-Returns the ShapeTriangleUp enum.
+**Type:** `enum`
 
 ---
 
 ## Smooth
 
 ```lua
-Smooth()
+Smooth
 ```
 
-Enumeration, returns a line style enum. Used by LineOptions() for example.
+Constant representing the line style. Used by LineOptions() for example.
 
-**Returns:** `enum`
-
-Returns the Smooth enum.
+**Type:** `enum`
 
 ---
 
 ## Solid
 
 ```lua
-Solid()
+Solid
 ```
 
-Enumeration, returns a line decoration enum. Used by LineOptions() for example.
+Constant representing the line decoration. Used by LineOptions() for example.
 
-**Returns:** `enum`
-
-Returns the Solid enum.
+**Type:** `enum`
 
 ---
 
 ## Spiked
 
 ```lua
-Spiked()
+Spiked
 ```
 
-Enumeration, returns a line style enum. Used by LineOptions() for example.
+Constant representing the line style. Used by LineOptions() for example.
 
-**Returns:** `enum`
-
-Returns the Spiked enum.
+**Type:** `enum`
 
 ---
 
 ## Spread
 
 ```lua
-Spread()
+Spread
 ```
 
-Enumeration, return a price plot enum. Used by PlotPrice() or ChartSetOptions()
+Constant representing the price plot. Used by PlotPrice() or ChartSetOptions()
 
-**Returns:** `enum`
-
-Returns the Spread enum.
+**Type:** `enum`
 
 ---
 
 ## SpreadCandle
 
 ```lua
-SpreadCandle()
+SpreadCandle
 ```
 
-Enumeration, return a price plot enum. Used by PlotPrice() or ChartSetOptions()
+Constant representing the price plot. Used by PlotPrice() or ChartSetOptions()
 
-**Returns:** `enum`
-
-Returns the SpreadCandle enum.
+**Type:** `enum`
 
 ---
 
 ## Step
 
 ```lua
-Step()
+Step
 ```
 
-Enumeration, returns a line style enum. Used by LineOptions() for example.
+Constant representing the line style. Used by LineOptions() for example.
 
-**Returns:** `enum`
-
-Returns the Step enum.
+**Type:** `enum`
 
 ---
 
 ## StepAfter
 
 ```lua
-StepAfter()
+StepAfter
 ```
 
-Enumeration, returns a line style enum. Used by LineOptions() for example.
+Constant representing the line style. Used by LineOptions() for example.
 
-**Returns:** `enum`
-
-Returns the StepAfter enum.
+**Type:** `enum`
 
 ---
 
 ## StepBefore
 
 ```lua
-StepBefore()
+StepBefore
 ```
 
-Enumeration, returns a line style enum. Used by LineOptions() for example.
+Constant representing the line style. Used by LineOptions() for example.
 
-**Returns:** `enum`
-
-Returns the StepBefore enum.
+**Type:** `enum`
 
 ---
 
@@ -1843,168 +1643,144 @@ Returns hex string of yellow (#FFFF00)
 ## ArrayDataType
 
 ```lua
-ArrayDataType()
+ArrayDataType
 ```
 
-Enumeration, returns a data type enum.
+Constant representing the data type.
 
-**Returns:** `enum`
-
-Returns the ArrayDataType enum.
+**Type:** `enum`
 
 ---
 
 ## BoolDataType
 
 ```lua
-BoolDataType()
+BoolDataType
 ```
 
-Enumeration, returns a data type enum.
+Constant representing the data type.
 
-**Returns:** `enum`
-
-Returns the BoolDataType enum.
+**Type:** `enum`
 
 ---
 
 ## CommandDataType
 
 ```lua
-CommandDataType()
+CommandDataType
 ```
 
-Enumeration, returns a data type enum.
+Constant representing the data type.
 
-**Returns:** `enum`
-
-Returns the CommandDataType enum.
+**Type:** `enum`
 
 ---
 
 ## FunctionDataType
 
 ```lua
-FunctionDataType()
+FunctionDataType
 ```
 
-Enumeration, returns a data type enum.
+Constant representing the data type.
 
-**Returns:** `enum`
-
-Returns the FunctionDataType enum.
+**Type:** `enum`
 
 ---
 
 ## HncDataType
 
 ```lua
-HncDataType()
+HncDataType
 ```
 
-Enumeration, returns a data type enum.
+Constant representing the data type.
 
-**Returns:** `enum`
-
-Returns the HncDataType enum.
+**Type:** `enum`
 
 ---
 
 ## NilDataType
 
 ```lua
-NilDataType()
+NilDataType
 ```
 
-Enumeration, returns a data type enum.
+Constant representing the data type.
 
-**Returns:** `enum`
-
-Returns the NilDataType enum.
+**Type:** `enum`
 
 ---
 
 ## NumberDataType
 
 ```lua
-NumberDataType()
+NumberDataType
 ```
 
-Enumeration, returns a data type enum.
+Constant representing the data type.
 
-**Returns:** `enum`
-
-Returns the NumberDataType enum.
+**Type:** `enum`
 
 ---
 
 ## TextDataType
 
 ```lua
-TextDataType()
+TextDataType
 ```
 
-Enumeration, returns a data type enum.
+Constant representing the data type.
 
-**Returns:** `enum`
-
-Returns the TextDataType enum.
+**Type:** `enum`
 
 ---
 
 ## TupleDataType
 
 ```lua
-TupleDataType()
+TupleDataType
 ```
 
-Enumeration, returns a data type enum.
+Constant representing the data type.
 
-**Returns:** `enum`
-
-Returns the TupleDataType enum.
+**Type:** `enum`
 
 ---
 
 ## UnknownDataType
 
 ```lua
-UnknownDataType()
+UnknownDataType
 ```
 
-Enumeration, returns a data type enum.
+Constant representing the data type.
 
-**Returns:** `enum`
-
-Returns the UnknownDataType enum.
+**Type:** `enum`
 
 ---
 
 ## UserDataDataType
 
 ```lua
-UserDataDataType()
+UserDataDataType
 ```
 
-Enumeration, returns a data type enum.
+Constant representing the data type.
 
-**Returns:** `enum`
-
-Returns the UserDataDataType enum.
+**Type:** `enum`
 
 ---
 
 ## VoidDataType
 
 ```lua
-VoidDataType()
+VoidDataType
 ```
 
-Enumeration, returns a data type enum.
+Constant representing the data type.
 
-**Returns:** `enum`
-
-Returns the VoidDataType enum.
+**Type:** `enum`
 
 ---
 
@@ -2014,28 +1790,24 @@ Returns the VoidDataType enum.
 ## CrossMarginMode
 
 ```lua
-CrossMarginMode()
+CrossMarginMode
 ```
 
-Enumeration, returns a cross-margin mode enum. Used with Get-/SetMarginMode() and IsMarginModeSupported()
+Constant representing the cross-margin mode. Used with Get-/SetMarginMode() and IsMarginModeSupported()
 
-**Returns:** `enum`
-
-Returns the cross-margin mode enum.
+**Type:** `enum`
 
 ---
 
 ## IsolatedMarginMode
 
 ```lua
-IsolatedMarginMode()
+IsolatedMarginMode
 ```
 
-Enumeration, returns isolated margin mode enum. Used with Get-/SetMarginMode() and IsMarginModeSupported()
+Constant representing the isolated margin mode. Used with Get-/SetMarginMode() and IsMarginModeSupported()
 
-**Returns:** `enum`
-
-Returns the isolated-margin mode enum.
+**Type:** `enum`
 
 ---
 
@@ -2045,26 +1817,24 @@ Returns the isolated-margin mode enum.
 ## DemaType
 
 ```lua
-DemaType()
+DemaType
 ```
 
-Enumeration, returns an enum for DEMA type.
+Constant for the DEMA enumeration.
 
-**Returns:** `enum`
-
-Returns the DEMA Type enum.
+**Type:** `enum`
 
 ---
 
 ## EmaType
 
 ```lua
-EmaType()
+EmaType
 ```
 
-Enumeration, returns an enum for EMA type.
+Constant for the EMA enumeration.
 
-**Returns:** `enum`
+**Type:** `enum`
 
 Returns theDEMA Type enum.
 
@@ -2073,98 +1843,84 @@ Returns theDEMA Type enum.
 ## KamaType
 
 ```lua
-KamaType()
+KamaType
 ```
 
-Enumeration, returns an enum for KAMA type.
+Constant for the KAMA enumeration.
 
-**Returns:** `enum`
-
-Returns the KAMA Type enum.
+**Type:** `enum`
 
 ---
 
 ## MamaType
 
 ```lua
-MamaType()
+MamaType
 ```
 
-Enumeration, returns an enum for MAMA type.
+Constant for the MAMA enumeration.
 
-**Returns:** `enum`
-
-Returns the MAMA Type enum.
+**Type:** `enum`
 
 ---
 
 ## SmaType
 
 ```lua
-SmaType()
+SmaType
 ```
 
-Enumeration, returns an enum for SMA type.
+Constant for the SMA enumeration.
 
-**Returns:** `enum`
-
-Returns the SMA Type enum.
+**Type:** `enum`
 
 ---
 
 ## T3Type
 
 ```lua
-T3Type()
+T3Type
 ```
 
-Enumeration, returns an enum for T3 type.
+Constant for the T3 enumeration.
 
-**Returns:** `enum`
-
-Returns the T3 Type enum.
+**Type:** `enum`
 
 ---
 
 ## TemaType
 
 ```lua
-TemaType()
+TemaType
 ```
 
-Enumeration, returns an enum for TEMA type.
+Constant for the TEMA enumeration.
 
-**Returns:** `enum`
-
-Returns the TEMA Type enum.
+**Type:** `enum`
 
 ---
 
 ## TrimaType
 
 ```lua
-TrimaType()
+TrimaType
 ```
 
-Enumeration, returns an enum for TRIMA type.
+Constant for the TRIMA enumeration.
 
-**Returns:** `enum`
-
-Returns the TRIMA Type enum.
+**Type:** `enum`
 
 ---
 
 ## WmaType
 
 ```lua
-WmaType()
+WmaType
 ```
 
-Enumeration, returns an enum for WMA type.
+Constant for the WMA enumeration.
 
-**Returns:** `enum`
-
-Returns the WMA Type enum.
+**Type:** `enum`
 
 ---
 
@@ -2174,126 +1930,108 @@ Returns the WMA Type enum.
 ## LimitOrderType
 
 ```lua
-LimitOrderType()
+LimitOrderType
 ```
 
 Standard limit order type enum with a default timeout of 10 minutes. Used by SetOrderType() or PlaceOrders commands.
 
-**Returns:** `enum`
-
-Returns the LimitOrderType enum.
+**Type:** `enum`
 
 ---
 
 ## MakerOrCancelOrderType
 
 ```lua
-MakerOrCancelOrderType()
+MakerOrCancelOrderType
 ```
 
 MakerOrCancel order type enum with a standard timeout of 10 minutes. When the exchange does not support this type, a normal limit order will be executed. Used by SetOrderType() or PlaceOrders commands.
 
-**Returns:** `enum`
-
-Returns the MakerOrCancelOrderType enum.
+**Type:** `enum`
 
 ---
 
 ## MarketOrderType
 
 ```lua
-MarketOrderType()
+MarketOrderType
 ```
 
 Standard market order type. Used by SetOrderType() or PlaceOrders commands.
 
-**Returns:** `enum`
-
-Returns the MarketOrderType enum.
+**Type:** `enum`
 
 ---
 
 ## NoTimeOutOrderType
 
 ```lua
-NoTimeOutOrderType()
+NoTimeOutOrderType
 ```
 
-Enumeration, returns an order type enum. Used by SetOrderType() or PlaceOrders commands.
+Constant representing the order type. Used by SetOrderType() or PlaceOrders commands.
 
-**Returns:** `enum`
-
-Returns the NoTimeOutOrderType enum.
+**Type:** `enum`
 
 ---
 
 ## StopLimitOrderType
 
 ```lua
-StopLimitOrderType()
+StopLimitOrderType
 ```
 
 Stop-Limit order type enum with a standard timeout of 10 minutes. When the exchange does not support this type, an error will be thrown and bot execution is stopped. Used by SetOrderType() or PlaceOrders commands.
 
-**Returns:** `enum`
-
-Returns the StopLimitOrderType enum.
+**Type:** `enum`
 
 ---
 
 ## StopMarketOrderType
 
 ```lua
-StopMarketOrderType()
+StopMarketOrderType
 ```
 
 Stop-Market order type enum. When the exchange does not support this type, an error will be thrown and bot execution is stopped. Used by SetOrderType() or PlaceOrders commands.
 
-**Returns:** `enum`
-
-Returns the StopMarketOrderType enum.
+**Type:** `enum`
 
 ---
 
 ## TakeProfitLimitOrderType
 
 ```lua
-TakeProfitLimitOrderType()
+TakeProfitLimitOrderType
 ```
 
 Take-profit limit order type enum with a standard timeout of 10 minutes. When the exchange does not support this type, an error will be thrown and bot execution is stopped. Used by SetOrderType() or PlaceOrders commands.
 
-**Returns:** `enum`
-
-Returns the TakeProfitLimitOrderType enum.
+**Type:** `enum`
 
 ---
 
 ## TakeProfitMarketOrderType
 
 ```lua
-TakeProfitMarketOrderType()
+TakeProfitMarketOrderType
 ```
 
 Take-Profit-Market order type enum. When the exchange does not support this type, an error will be thrown and bot execution is stopped. Used by SetOrderType() or PlaceOrders commands.
 
-**Returns:** `enum`
-
-Returns the TakeProfitMarketOrderType enum.
+**Type:** `enum`
 
 ---
 
 ## TrailingStopMarketOrderType
 
 ```lua
-TrailingStopMarketOrderType()
+TrailingStopMarketOrderType
 ```
 
 Trailing-Stop order type enum. When the exchange does not support this type, an error will be thrown and bot execution is stopped. Used by SetOrderType() or PlaceOrders commands.
 
-**Returns:** `enum`
-
-Returns the TrailingStopMarketOrderType enum.
+**Type:** `enum`
 
 ---
 
@@ -2303,126 +2041,108 @@ Returns the TrailingStopMarketOrderType enum.
 ## BooleanType
 
 ```lua
-BooleanType()
+BooleanType
 ```
 
-Enumeration, returns a parameter enum. Used by DefineParameter() or DefineOutput() for example.
+Constant representing the parameter. Used by DefineParameter() or DefineOutput() for example.
 
-**Returns:** `enum`
-
-Returns the BooleanType enum.
+**Type:** `enum`
 
 ---
 
 ## CallbackType
 
 ```lua
-CallbackType()
+CallbackType
 ```
 
-Enumeration, returns a parameter enum. Used by DefineParameter() or DefineOutput() for example.
+Constant representing the parameter. Used by DefineParameter() or DefineOutput() for example.
 
-**Returns:** `enum`
-
-Returns the CallbackType enum.
+**Type:** `enum`
 
 ---
 
 ## DynamicType
 
 ```lua
-DynamicType()
+DynamicType
 ```
 
-Enumeration, returns a parameter enum. Used by DefineParameter() or DefineOutput() for example.
+Constant representing the parameter. Used by DefineParameter() or DefineOutput() for example.
 
-**Returns:** `enum`
-
-Returns the DynamicType enum.
+**Type:** `enum`
 
 ---
 
 ## EnumType
 
 ```lua
-EnumType()
+EnumType
 ```
 
-Enumeration, returns a parameter enum. Used by DefineParameter() or DefineOutput() for example.
+Constant representing the parameter. Used by DefineParameter() or DefineOutput() for example.
 
-**Returns:** `enum`
-
-Returns the EnumType enum.
+**Type:** `enum`
 
 ---
 
 ## ListDynamicType
 
 ```lua
-ListDynamicType()
+ListDynamicType
 ```
 
-Enumeration, returns a parameter enum. Used by DefineParameter() or DefineOutput() for example.
+Constant representing the parameter. Used by DefineParameter() or DefineOutput() for example.
 
-**Returns:** `enum`
-
-Returns the ListDynamicType enum.
+**Type:** `enum`
 
 ---
 
 ## ListNumberType
 
 ```lua
-ListNumberType()
+ListNumberType
 ```
 
-Enumeration, returns a parameter enum. Used by DefineParameter() or DefineOutput() for example.
+Constant representing the parameter. Used by DefineParameter() or DefineOutput() for example.
 
-**Returns:** `enum`
-
-Returns the ListNumberType enum.
+**Type:** `enum`
 
 ---
 
 ## NumberType
 
 ```lua
-NumberType()
+NumberType
 ```
 
-Enumeration, returns a parameter enum. Used by DefineParameter() or DefineOutput() for example.
+Constant representing the parameter. Used by DefineParameter() or DefineOutput() for example.
 
-**Returns:** `enum`
-
-Returns the NumberType enum.
+**Type:** `enum`
 
 ---
 
 ## StringType
 
 ```lua
-StringType()
+StringType
 ```
 
-Enumeration, returns a parameter enum. Used by DefineParameter() or DefineOutput() for example.
+Constant representing the parameter. Used by DefineParameter() or DefineOutput() for example.
 
-**Returns:** `enum`
-
-Returns the StringType enum.
+**Type:** `enum`
 
 ---
 
 ## VoidType
 
 ```lua
-VoidType()
+VoidType
 ```
 
-Enumeration, returns a parameter enum. Used by DefineParameter() or DefineOutput() for example.
+Constant representing the parameter. Used by DefineParameter() or DefineOutput() for example.
 
-**Returns:** `enum`
-
-Returns the VoidType enum.
+**Type:** `enum`
 
 ---
 
@@ -2432,46 +2152,40 @@ Returns the VoidType enum.
 ## NoPosition
 
 ```lua
-NoPosition()
+NoPosition
 ```
 
-Enumeration, returns a bot position enum. Used by GetPositionDirection() for example.
+Constant representing the bot position. Used by GetPositionDirection() for example.
 
-**Returns:** `enum`
-
-Returns the NoPosition enum.
+**Type:** `enum`
 
 ---
 
 ## PositionLong
 
 ```lua
-PositionLong()
+PositionLong
 ```
 
 **Aliases:** `PositionBought`
 
-Enumeration, returns a bot position enum. Used by GetPositionDirection() for example.
+Constant representing the bot position. Used by GetPositionDirection() for example.
 
-**Returns:** `enum`
-
-Returns the PositionLong enum.
+**Type:** `enum`
 
 ---
 
 ## PositionShort
 
 ```lua
-PositionShort()
+PositionShort
 ```
 
 **Aliases:** `PositionSold`
 
-Enumeration, returns a bot position enum. Used by GetPositionDirection() for example.
+Constant representing the bot position. Used by GetPositionDirection() for example.
 
-**Returns:** `enum`
-
-Returns the PositionShort enum.
+**Type:** `enum`
 
 ---
 
@@ -2481,28 +2195,24 @@ Returns the PositionShort enum.
 ## HedgePositionMode
 
 ```lua
-HedgePositionMode()
+HedgePositionMode
 ```
 
-Enumeration, returns a hedge position mode enum. Used with Get-/SetPositionMode() and IsPositionModeSupported()
+Constant representing the hedge position mode. Used with Get-/SetPositionMode() and IsPositionModeSupported()
 
-**Returns:** `enum`
-
-Returns the hedge-position mode enum.
+**Type:** `enum`
 
 ---
 
 ## OneWayPositionMode
 
 ```lua
-OneWayPositionMode()
+OneWayPositionMode
 ```
 
-Enumeration, returns a one-way position mode enum. Used with Get-/SetPositionMode() and IsPositionModeSupported()
+Constant representing the one-way position mode. Used with Get-/SetPositionMode() and IsPositionModeSupported()
 
-**Returns:** `enum`
-
-Returns the one-way-position mode enum.
+**Type:** `enum`
 
 ---
 
@@ -2512,130 +2222,112 @@ Returns the one-way-position mode enum.
 ## SignalError
 
 ```lua
-SignalError()
+SignalError
 ```
 
-Enumeration, returns a signal enum. Used by GetRemoteSignal() or custom commands for example.
+Constant representing the signal. Used by GetRemoteSignal() or custom commands for example.
 
-**Returns:** `enum`
-
-Returns the SignalError enum.
+**Type:** `enum`
 
 ---
 
 ## SignalExitLong
 
 ```lua
-SignalExitLong()
+SignalExitLong
 ```
 
-Enumeration, returns a signal enum. Used by GetRemoteSignal() or custom commands for example.
+Constant representing the signal. Used by GetRemoteSignal() or custom commands for example.
 
-**Returns:** `enum`
-
-Returns the SignalExitLong enum.
+**Type:** `enum`
 
 ---
 
 ## SignalExitPosition
 
 ```lua
-SignalExitPosition()
+SignalExitPosition
 ```
 
-Enumeration, returns a signal enum. Used by GetRemoteSignal() or custom commands for example.
+Constant representing the signal. Used by GetRemoteSignal() or custom commands for example.
 
-**Returns:** `enum`
-
-Returns the SignalExitPosition enum.
+**Type:** `enum`
 
 ---
 
 ## SignalExitShort
 
 ```lua
-SignalExitShort()
+SignalExitShort
 ```
 
-Enumeration, returns a signal enum. Used by GetRemoteSignal() or custom commands for example.
+Constant representing the signal. Used by GetRemoteSignal() or custom commands for example.
 
-**Returns:** `enum`
-
-Returns the SignalExitShort enum.
+**Type:** `enum`
 
 ---
 
 ## SignalLong
 
 ```lua
-SignalLong()
+SignalLong
 ```
 
 **Aliases:** `SignalBuy`
 
-Enumeration, returns a signal enum. Used by GetRemoteSignal() or custom commands for example.
+Constant representing the signal. Used by GetRemoteSignal() or custom commands for example.
 
-**Returns:** `enum`
-
-Returns the SignalLong enum.
+**Type:** `enum`
 
 ---
 
 ## SignalNone
 
 ```lua
-SignalNone()
+SignalNone
 ```
 
-Enumeration, returns a signal enum. Used by GetRemoteSignal() or custom commands for example.
+Constant representing the signal. Used by GetRemoteSignal() or custom commands for example.
 
-**Returns:** `enum`
-
-Returns the SignalNone enum.
+**Type:** `enum`
 
 ---
 
 ## SignalReservedA
 
 ```lua
-SignalReservedA()
+SignalReservedA
 ```
 
-Enumeration, returns a signal enum. Used by GetRemoteSignal() or custom commands for example.
+Constant representing the signal. Used by GetRemoteSignal() or custom commands for example.
 
-**Returns:** `enum`
-
-Returns the SignalReservedA enum.
+**Type:** `enum`
 
 ---
 
 ## SignalReservedB
 
 ```lua
-SignalReservedB()
+SignalReservedB
 ```
 
-Enumeration, returns a signal enum. Used by GetRemoteSignal() or custom commands for example.
+Constant representing the signal. Used by GetRemoteSignal() or custom commands for example.
 
-**Returns:** `enum`
-
-Returns the SignalReservedB enum.
+**Type:** `enum`
 
 ---
 
 ## SignalShort
 
 ```lua
-SignalShort()
+SignalShort
 ```
 
 **Aliases:** `SignalSell`
 
-Enumeration, returns a signal enum. Used by GetRemoteSignal() or custom commands for example.
+Constant representing the signal. Used by GetRemoteSignal() or custom commands for example.
 
-**Returns:** `enum`
-
-Returns the SignalShort enum.
+**Type:** `enum`
 
 ---
 
@@ -2645,98 +2337,84 @@ Returns the SignalShort enum.
 ## BothCenterCrossType
 
 ```lua
-BothCenterCrossType()
+BothCenterCrossType
 ```
 
-Enumeration, returns a signal type enum. Used with GetSuperSignal().
+Constant representing the signal type. Used with GetSuperSignal().
 
-**Returns:** `enum`
-
-Returns the BothCenterCrossType enum.
+**Type:** `enum`
 
 ---
 
 ## BothThresholdType
 
 ```lua
-BothThresholdType()
+BothThresholdType
 ```
 
-Enumeration, returns a signal type enum. Used with GetSuperSignal().
+Constant representing the signal type. Used with GetSuperSignal().
 
-**Returns:** `enum`
-
-Returns the BothThresholdType enum.
+**Type:** `enum`
 
 ---
 
 ## IndicatorCenterCrossType
 
 ```lua
-IndicatorCenterCrossType()
+IndicatorCenterCrossType
 ```
 
-Enumeration, returns a signal type enum. Used with GetSuperSignal().
+Constant representing the signal type. Used with GetSuperSignal().
 
-**Returns:** `enum`
-
-Returns the IndicatorCenterCrossType enum.
+**Type:** `enum`
 
 ---
 
 ## IndicatorSignalCrossType
 
 ```lua
-IndicatorSignalCrossType()
+IndicatorSignalCrossType
 ```
 
-Enumeration, returns a signal type enum. Used with GetSuperSignal().
+Constant representing the signal type. Used with GetSuperSignal().
 
-**Returns:** `enum`
-
-Returns the IndicatorSignalCrossType enum.
+**Type:** `enum`
 
 ---
 
 ## IndicatorThresholdType
 
 ```lua
-IndicatorThresholdType()
+IndicatorThresholdType
 ```
 
-Enumeration, returns a signal type enum. Used with GetSuperSignal().
+Constant representing the signal type. Used with GetSuperSignal().
 
-**Returns:** `enum`
-
-Returns the IndicatorThresholdType enum.
+**Type:** `enum`
 
 ---
 
 ## SignalCenterCrossType
 
 ```lua
-SignalCenterCrossType()
+SignalCenterCrossType
 ```
 
-Enumeration, returns a signal type enum. Used with GetSuperSignal().
+Constant representing the signal type. Used with GetSuperSignal().
 
-**Returns:** `enum`
-
-Returns the SignalCenterCrossType enum.
+**Type:** `enum`
 
 ---
 
 ## SignalThresholdType
 
 ```lua
-SignalThresholdType()
+SignalThresholdType
 ```
 
-Enumeration, returns a signal type enum. Used with GetSuperSignal().
+Constant representing the signal type. Used with GetSuperSignal().
 
-**Returns:** `enum`
-
-Returns the SignalThresholdType enum.
+**Type:** `enum`
 
 ---
 
@@ -2746,112 +2424,96 @@ Returns the SignalThresholdType enum.
 ## ClosePriceSource
 
 ```lua
-ClosePriceSource()
+ClosePriceSource
 ```
 
-Enumeration, returns an enum for Close Price Source type.
+Constant for the Close Price Source enumeration.
 
-**Returns:** `enum`
-
-Returns the Close Price Source type enum.
+**Type:** `enum`
 
 ---
 
 ## HighPriceSource
 
 ```lua
-HighPriceSource()
+HighPriceSource
 ```
 
-Enumeration, returns an enum for High Price Source type.
+Constant for the High Price Source enumeration.
 
-**Returns:** `enum`
-
-Returns the High Price Source type enum.
+**Type:** `enum`
 
 ---
 
 ## HLCPriceSource
 
 ```lua
-HLCPriceSource()
+HLCPriceSource
 ```
 
-Enumeration, returns an enum for HLC Price Source type.
+Constant for the HLC Price Source enumeration.
 
-**Returns:** `enum`
-
-Returns the HLC Price Source type enum.
+**Type:** `enum`
 
 ---
 
 ## HLPriceSource
 
 ```lua
-HLPriceSource()
+HLPriceSource
 ```
 
-Enumeration, returns an enum for HL Price Source type.
+Constant for the HL Price Source enumeration.
 
-**Returns:** `enum`
-
-Returns the HL Price Source type enum.
+**Type:** `enum`
 
 ---
 
 ## LowPriceSource
 
 ```lua
-LowPriceSource()
+LowPriceSource
 ```
 
-Enumeration, returns an enum for Low Price Source type.
+Constant for the Low Price Source enumeration.
 
-**Returns:** `enum`
-
-Returns the Low Price Source type enum.
+**Type:** `enum`
 
 ---
 
 ## OHLCPriceSource
 
 ```lua
-OHLCPriceSource()
+OHLCPriceSource
 ```
 
-Enumeration, returns an enum for OHLC Price Source type.
+Constant for the OHLC Price Source enumeration.
 
-**Returns:** `enum`
-
-Returns the OHLC Price Source type enum.
+**Type:** `enum`
 
 ---
 
 ## OpenPriceSource
 
 ```lua
-OpenPriceSource()
+OpenPriceSource
 ```
 
-Enumeration, returns an enum for Open Price Source type.
+Constant for the Open Price Source enumeration.
 
-**Returns:** `enum`
-
-Returns the Open Price Source type enum.
+**Type:** `enum`
 
 ---
 
 ## VolumePriceSource
 
 ```lua
-VolumePriceSource()
+VolumePriceSource
 ```
 
-Enumeration, returns an enum for Volume Source type.
+Constant for the Volume Source enumeration.
 
-**Returns:** `enum`
-
-Returns the Volume Source type enum.
+**Type:** `enum`
 
 ---
 
@@ -2861,42 +2523,36 @@ Returns the Volume Source type enum.
 ## LeverageTrading
 
 ```lua
-LeverageTrading()
+LeverageTrading
 ```
 
-Enumeration, returns a market type enum. Used by MarketType()
+Constant representing the market type. Used by MarketType()
 
-**Returns:** `enum`
-
-Returns the LeverageTrading enum.
+**Type:** `enum`
 
 ---
 
 ## MarginTrading
 
 ```lua
-MarginTrading()
+MarginTrading
 ```
 
-Enumeration, returns a market type enum. Used by MarketType()
+Constant representing the market type. Used by MarketType()
 
-**Returns:** `enum`
-
-Returns the MarginTrading enum.
+**Type:** `enum`
 
 ---
 
 ## SpotTrading
 
 ```lua
-SpotTrading()
+SpotTrading
 ```
 
-Enumeration, returns a market type enum. Used by MarketType()
+Constant representing the market type. Used by MarketType()
 
-**Returns:** `enum`
-
-Returns the SpotTrading enum.
+**Type:** `enum`
 
 ---
 
@@ -2906,56 +2562,48 @@ Returns the SpotTrading enum.
 ## LR_Angle
 
 ```lua
-LR_Angle()
+LR_Angle
 ```
 
-Enumeration, returns an enum for LINEARREG().
+Constant for the LINEARREG() enumeration.
 
-**Returns:** `enum`
-
-Returns the LR Angle enum.
+**Type:** `enum`
 
 ---
 
 ## LR_Default
 
 ```lua
-LR_Default()
+LR_Default
 ```
 
-Enumeration, returns an enum for LINEARREG().
+Constant for the LINEARREG() enumeration.
 
-**Returns:** `enum`
-
-Returns the LR Default enum.
+**Type:** `enum`
 
 ---
 
 ## LR_Intercept
 
 ```lua
-LR_Intercept()
+LR_Intercept
 ```
 
-Enumeration, returns an enum for LINEARREG().
+Constant for the LINEARREG() enumeration.
 
-**Returns:** `enum`
-
-Returns the LR Intercept enum.
+**Type:** `enum`
 
 ---
 
 ## LR_Slope
 
 ```lua
-LR_Slope()
+LR_Slope
 ```
 
-Enumeration, returns an enum for LINEARREG().
+Constant for the LINEARREG() enumeration.
 
-**Returns:** `enum`
-
-Returns the LR Slope enum.
+**Type:** `enum`
 
 ---
 

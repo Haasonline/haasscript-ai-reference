@@ -14,14 +14,14 @@ Documentation is organized into logical domains for easy navigation:
 
 | Domain | Commands | Documentation |
 |--------|----------|---------------|
-| Advanced Features | 97 | [View →](advanced.md) |
-| Data & Prices | 62 | [View →](data-and-prices.md) |
-| Enumerations | 197 | [View →](enumerations.md) |
+| Advanced Features | 98 | [View →](advanced.md) |
+| Data & Prices | 63 | [View →](data-and-prices.md) |
+| Constants | 197 | [View →](enumerations.md) |
 | Helpers & Utilities | 121 | [View →](helpers.md) |
 | Technical Analysis | 157 | [View →](technical-analysis.md) |
-| Trading & Positions | 139 | [View →](trading.md) |
+| Trading & Positions | 140 | [View →](trading.md) |
 
-**Total:** 773 commands across 6 domains
+**Total:** 776 commands across 6 domains
 
 ## File Count
 
