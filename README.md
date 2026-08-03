@@ -21,9 +21,15 @@ This repository contains **AI-optimized documentation** for HaasScript, specific
 ### Documentation Structure
 
 ```
-├── MCP.md                      # AI assistant guide for MCP-connected sessions (HTS live server)
-├── AGENTS.md                    # AI assistant guidance & best practices (non-MCP sessions)
-├── HAASSCRIPT.md              # Technical reference overview
+├── project-instructions/       # Drop-in system prompts for an MCP-connected assistant
+│   ├── cloud.md               #   HaasOnline Cloud (app.haasbot.com)
+│   └── self-hosted.md         #   Self-hosted / managed TradeServer
+├── skills/                     # Claude Skills — deeper, task-specific workflows
+│   ├── haasscript-development-cloud/
+│   ├── haasscript-performance-analysis-cloud/
+│   └── haasscript-export-instrumentation-cloud/
+├── AGENTS.md                   # AI assistant guidance & best practices (non-MCP sessions)
+├── HAASSCRIPT.md               # Technical reference overview
 └── haasscript/
     ├── technical-analysis.md  # 157 indicator commands
     ├── trading.md             # 139 trading & position commands
@@ -33,9 +39,70 @@ This repository contains **AI-optimized documentation** for HaasScript, specific
     └── advanced.md            # 97 advanced feature commands
 ```
 
+## 🔌 Using this with an MCP-connected assistant
+
+If you have connected Claude, Cursor, VS Code or another MCP client to your
+HaasOnline server ([setup guide](https://help.haasonline.com/cloud-edition/mcp-server/)),
+the files below turn a generic assistant into one that knows the platform's
+workflows, limits and failure modes.
+
+### Project instructions
+
+Pick **one** and paste it into your assistant's system prompt / custom
+instructions (in Claude, that's a Project's "Instructions" box):
+
+| File | Use when |
+|---|---|
+| [`project-instructions/cloud.md`](project-instructions/cloud.md) | You're on **HaasOnline Cloud** — Starter, Standard or Professional |
+| [`project-instructions/self-hosted.md`](project-instructions/self-hosted.md) | You run **TradeServer** on your own hardware or a managed host |
+
+The two editions differ in more than branding: the Cloud MCP exposes a
+different tool surface (no `clone_script`, no `compare_backtests`, no
+filesystem access to exported files) and enforces different execution caps.
+Using the wrong one produces tool calls that fail.
+
+### Skills
+
+Skills are loaded *on demand* — the assistant reads one only when the task calls
+for it, so they can go far deeper than a system prompt's budget allows. All
+three target **Cloud**.
+
+| Skill | What it covers |
+|---|---|
+| [`haasscript-development-cloud`](skills/haasscript-development-cloud/SKILL.md) | Writing, modifying and debugging scripts: the pre-compilation lint checklist, the blocking pre-flight, the compile→debug cycle, and diagnosing zero-trade backtests |
+| [`haasscript-performance-analysis-cloud`](skills/haasscript-performance-analysis-cloud/SKILL.md) | Interpreting backtest, lab and live-bot results: regime windows, fee drag, alpha vs ROI, and what to change next |
+| [`haasscript-export-instrumentation-cloud`](skills/haasscript-export-instrumentation-cloud/SKILL.md) | Capturing per-decision feature vectors from a backtest and joining them into a tuning dataset |
+
+**Installing them in Claude Code or Claude Desktop.** Skills live in a directory
+named after the skill, each containing a `SKILL.md` — which is exactly how this
+repo stores them, so you can link them straight in:
+
+```bash
+git clone https://github.com/Haasonline/haasscript-ai-reference.git
+ln -s "$PWD/haasscript-ai-reference/skills/"* ~/.claude/skills/
+```
+
+Or copy a single one:
+
+```bash
+cp -r haasscript-ai-reference/skills/haasscript-development-cloud ~/.claude/skills/
+```
+
+For project-scoped use instead, put them under `.claude/skills/` in your own
+repo. Other MCP clients that support skills use the same `SKILL.md` convention;
+for those that don't, the files are still readable as plain Markdown guides.
+
+> **Note on limits.** These documents quote plan limits (backtest windows, bot
+> counts, Labs availability) verified against a production Cloud server in July
+> 2026. Limits change — treat [haasonline.com/pricing](https://haasonline.com/pricing)
+> as authoritative, and note that the skills recommend *probing* your server's
+> real cap rather than assuming, since a rejected backtest errors instantly and
+> costs nothing.
+
 ### For AI Assistants
 
-If connected to a live HaasOnline Trade Server via MCP, start with **MCP.md** for:
+If connected to a live HaasOnline server via MCP, start with the matching file
+in **project-instructions/** for:
 - MCP tool workflows and verified parameter signatures
 - Backtesting, lab execution, and live bot monitoring patterns
 - All core HaasScript language guidance
@@ -112,4 +179,4 @@ This documentation is provided for reference purposes. For licensing information
 
 ---
 
-*For AI assistants: This repository is optimized for your consumption. If connected to a live HTS via MCP, start with MCP.md. Otherwise, start with AGENTS.md.*
+*For AI assistants: This repository is optimized for your consumption. If connected to a live HTS via MCP, start with `project-instructions/cloud.md` or `project-instructions/self-hosted.md` as appropriate. Otherwise, start with AGENTS.md.*
