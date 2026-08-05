@@ -25,7 +25,7 @@ This repository contains **AI-optimized documentation** for HaasScript, specific
 │   ├── cloud.md               #   HaasOnline Cloud (app.haasbot.com)
 │   └── self-hosted.md         #   Self-hosted / managed TradeServer
 ├── skills/                     # Claude Skills — deeper, task-specific workflows
-│   ├── haasscript-development-cloud/
+│   ├── haasscript-development/
 │   ├── haasscript-performance-analysis-cloud/
 │   └── haasscript-export-instrumentation-cloud/
 ├── AGENTS.md                   # AI assistant guidance & best practices (non-MCP sessions)
@@ -64,12 +64,13 @@ Using the wrong one produces tool calls that fail.
 ### Skills
 
 Skills are loaded *on demand* — the assistant reads one only when the task calls
-for it, so they can go far deeper than a system prompt's budget allows. All
-three target **Cloud**.
+for it, so they can go far deeper than a system prompt's budget allows. The two
+`-cloud` skills target **Cloud**; `haasscript-development` covers both Cloud and
+self-hosted TradeServer, flagging where the two differ.
 
 | Skill | What it covers |
 |---|---|
-| [`haasscript-development-cloud`](skills/haasscript-development-cloud/SKILL.md) | Writing, modifying and debugging scripts: the pre-compilation lint checklist, the blocking pre-flight, the compile→debug cycle, and diagnosing zero-trade backtests |
+| [`haasscript-development`](skills/haasscript-development/SKILL.md) | Writing, modifying and debugging scripts: the silent-failure list, the pre-compilation lint checklist, the compile→debug cycle, diagnosing zero-trade backtests, and verified patterns |
 | [`haasscript-performance-analysis-cloud`](skills/haasscript-performance-analysis-cloud/SKILL.md) | Interpreting backtest, lab and live-bot results: regime windows, fee drag, alpha vs ROI, and what to change next |
 | [`haasscript-export-instrumentation-cloud`](skills/haasscript-export-instrumentation-cloud/SKILL.md) | Capturing per-decision feature vectors from a backtest and joining them into a tuning dataset |
 
@@ -85,7 +86,7 @@ ln -s "$PWD/haasscript-ai-reference/skills/"* ~/.claude/skills/
 Or copy a single one:
 
 ```bash
-cp -r haasscript-ai-reference/skills/haasscript-development-cloud ~/.claude/skills/
+cp -r haasscript-ai-reference/skills/haasscript-development ~/.claude/skills/
 ```
 
 For project-scoped use instead, put them under `.claude/skills/` in your own
