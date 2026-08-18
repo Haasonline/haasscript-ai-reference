@@ -28,6 +28,9 @@ This repository contains **AI-optimized documentation** for HaasScript, specific
 │   ├── haasscript-development/
 │   ├── haasscript-performance-analysis-cloud/
 │   └── haasscript-export-instrumentation-cloud/
+├── platforms/                  # The same workflows, re-cut for other assistants
+│   ├── chatgpt/               #   ChatGPT Projects (~8K char budget)
+│   └── gemini/                #   Gemini Gems (tighter budget)
 ├── AGENTS.md                   # AI assistant guidance & best practices (non-MCP sessions)
 ├── HAASSCRIPT.md               # Technical reference overview
 └── haasscript/
@@ -99,6 +102,23 @@ for those that don't, the files are still readable as plain Markdown guides.
 > as authoritative, and note that the skills recommend *probing* your server's
 > real cap rather than assuming, since a rejected backtest errors instantly and
 > costs nothing.
+
+### Other assistants
+
+`skills/` and `project-instructions/` are written for Claude. If you work in
+ChatGPT Projects or a Gemini Gem, [`platforms/`](platforms/README.md) carries
+the same Cloud workflows compressed to those platforms' instruction budgets —
+ChatGPT to roughly 8 K characters per document, Gemini tighter still.
+
+| Directory | Contents |
+|---|---|
+| [`platforms/chatgpt/`](platforms/chatgpt/) | Project instructions, a source-authority map, shared core rules, and all three workflow skills |
+| [`platforms/gemini/`](platforms/gemini/) | Shared core rules plus all three workflow skills, as Markdown with `SKILL.md`-style frontmatter |
+
+The compression is lossy: the ports keep the decision rules, tool sequences and
+safety constraints but drop worked examples and code templates. `skills/`
+remains canonical — [`platforms/README.md`](platforms/README.md) explains what
+each tier keeps and where the three currently diverge.
 
 ### For AI Assistants
 
