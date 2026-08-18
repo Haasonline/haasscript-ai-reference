@@ -1,15 +1,15 @@
 # Helpers & Utilities
 
-121 functions across 7 categories.
+118 functions across 7 categories.
 
 ## Categories
 
-- [Array Helpers](#array-helpers) (22 commands)
+- [Array Helpers](#array-helpers) (21 commands)
 - [Equations](#equations) (15 commands)
-- [Flow Control](#flow-control) (5 commands)
+- [Flow Control](#flow-control) (4 commands)
 - [Mathematical](#mathematical) (49 commands)
 - [Memory Helpers](#memory-helpers) (11 commands)
-- [Miscellaneous](#miscellaneous) (9 commands)
+- [Miscellaneous](#miscellaneous) (8 commands)
 - [String Helpers](#string-helpers) (10 commands)
 
 ---
@@ -154,27 +154,6 @@ ArrayIndex(input, index)
 **Aliases:** `ArrayGet`
 
 Gets the value on a specific index. A negative index will take from the end of the array.
-
-**Parameters:**
-
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| `input` | `dynamic` | Yes | Source data. |
-| `index` | `number` | Yes | The index to get. |
-
-**Returns:** `dynamic`
-
-Return the value on that index.
-
----
-
-## ArrayIndexField
-
-```lua
-ArrayIndexField(input, index)
-```
-
-Gets the value on a specific index.
 
 **Parameters:**
 
@@ -838,27 +817,6 @@ Returns a list of boolean results.
 |-------|------|------|-------------|
 | 1 | `isTrue` | `boolean` | Set on true if the input is true. |
 | 2 | `isFalse` | `boolean` | Set on true if the input is false. |
-
----
-
-## DelayExecution
-
-```lua
-DelayExecution(timestamp, delay)
-```
-
-Delays an execution by x minutes
-
-**Parameters:**
-
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| `timestamp` | `number` | Yes | The start time of the delay. |
-| `delay` | `number` | Yes | The delay in minutes. |
-
-**Returns:** `boolean`
-
-Returns false when the delay is active. True when it is passed.
 
 ---
 
@@ -1957,7 +1915,7 @@ Deletes a value on a specific key.
 InitExportData(name, headers)
 ```
 
-Initialize a file that can be exported later.
+Initialize a file that can be exported later. Rows are written with WriteExportData, which only records during a backtest. Cloud servers allow up to 25 export files per script.
 
 **Parameters:**
 
@@ -2130,7 +2088,7 @@ Stores a value for this session only.
 WriteExportData(name, values)
 ```
 
-Write data to a file that can be exported later. File size is unlimited, use with caution.
+Write data to a file that can be exported later. Only records during a backtest. Self-hosted file size is unlimited, use with caution; cloud servers cap a file at 250,000 rows.
 
 **Parameters:**
 
@@ -2161,27 +2119,6 @@ Creates a text area block for comments.
 | `value` | `string` | Yes | The comment value. |
 
 **Returns:** `void`
-
----
-
-## ConvertNull
-
-```lua
-ConvertNull(input, [value])
-```
-
-Converts any null value(s) to a specified value. By default, all null values are converted to 0.
-
-**Parameters:**
-
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| `input` | `dynamic` | Yes | The input value. |
-| `value` | `dynamic` | No | The value to convert nulls to. Default is 0. |
-
-**Returns:** `dynamic`
-
-Returns the value/array without nulls.
 
 ---
 

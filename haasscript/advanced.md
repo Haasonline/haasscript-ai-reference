@@ -1,16 +1,16 @@
 # Advanced Features
 
-98 functions across 7 categories.
+95 functions across 7 categories.
 
 ## Categories
 
 - [Charting](#charting) (30 commands)
 - [Custom Commands Helpers](#custom-commands-helpers) (8 commands)
-- [Input Fields](#input-fields) (23 commands)
+- [Input Fields](#input-fields) (22 commands)
 - [Input Settings](#input-settings) (6 commands)
-- [MAchine Learning](#machine-learning) (2 commands)
+- [Machine Learning](#machine-learning) (2 commands)
 - [Settings](#settings) (24 commands)
-- [Social Media](#social-media) (5 commands)
+- [Social Media](#social-media) (3 commands)
 
 ---
 
@@ -1223,31 +1223,6 @@ Returns the selected signal type enum.
 
 ---
 
-## InputSlider
-
-```lua
-InputSlider(label, [min], [max], [steps], [tooltip], [group])
-```
-
-Creates a script input slider.
-
-**Parameters:**
-
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| `label` | `string` | Yes | The field label text. |
-| `min` | `number` | No | The minimum value of the slider. Default is zero. |
-| `max` | `number` | No | The maximum value of the slider. Default is one. |
-| `steps` | `number` | No | The step count of the slider. Default is 10. |
-| `tooltip` | `string` | No | The tooltip text for the field. |
-| `group` | `string` | No | The group of the input field. |
-
-**Returns:** `number`
-
-Returns the slider value.
-
----
-
 ## InputSourcePrice
 
 ```lua
@@ -1458,7 +1433,7 @@ Gets the trade amount.
 ---
 
 
-# MAchine Learning
+# Machine Learning
 
 ## IsAbnormal
 
@@ -1940,24 +1915,6 @@ Send a text message to Discord.
 
 ---
 
-## BroadcastToSlack
-
-```lua
-BroadcastToSlack(message)
-```
-
-Send a text message to Slack.
-
-**Parameters:**
-
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| `message` | `string` | Yes | The content of the message |
-
-**Returns:** `void`
-
----
-
 ## BroadcastToTelegram
 
 ```lua
@@ -1965,24 +1922,6 @@ BroadcastToTelegram(message)
 ```
 
 Send a text message to your Telegram.
-
-**Parameters:**
-
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| `message` | `string` | Yes | The content of the message |
-
-**Returns:** `void`
-
----
-
-## BroadcastToTwitter
-
-```lua
-BroadcastToTwitter(message)
-```
-
-Sends a new post to your twitter timeline.
 
 **Parameters:**
 

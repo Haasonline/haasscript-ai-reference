@@ -12,7 +12,7 @@ HaasScript is a powerful scripting language that enables traders to:
 - Implement risk management (stop loss, take profit, trailing stops)
 - Create custom visualizations and charts
 
-Built on Lua, HaasScript includes **600+ custom commands** specifically designed for cryptocurrency trading operations.
+Built on Lua, HaasScript includes **750+ built-in commands** specifically designed for cryptocurrency trading operations.
 
 ## 🎯 Purpose of This Repository
 
@@ -32,9 +32,9 @@ This repository contains **AI-optimized documentation** for HaasScript, specific
 ├── HAASSCRIPT.md               # Technical reference overview
 └── haasscript/
     ├── technical-analysis.md  # 157 indicator commands
-    ├── trading.md             # 139 trading & position commands
-    ├── helpers.md             # 121 utility commands
-    ├── enumerations.md        # 197 constant values
+    ├── trading.md             # 136 trading & position commands
+    ├── helpers.md             # 118 utility commands
+    ├── enumerations.md        # 198 constant values
     ├── data-and-prices.md     # 62 price & market data commands
     └── advanced.md            # 97 advanced feature commands
 ```
@@ -125,7 +125,7 @@ Then dive into domain-specific documentation in the `haasscript/` directory as n
 
 ## 🔑 Key Language Features
 
-- **Lua-based** with 600+ custom trading commands
+- **Lua-based** with 750+ built-in commands
 - **1-based array indexing** (not 0-based like most languages)
 - **Per-minute execution** by default (configurable to 5-10 seconds)
 - **Managed trading mode** for simplified position management

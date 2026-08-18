@@ -1,15 +1,15 @@
 # Trading & Positions
 
-140 functions across 11 categories.
+136 functions across 11 categories.
 
 ## Categories
 
-- [Easy Insurances](#easy-insurances) (14 commands)
-- [Easy Safeties](#easy-safeties) (19 commands)
+- [Easy Insurances](#easy-insurances) (13 commands)
+- [Easy Safeties](#easy-safeties) (18 commands)
 - [Order Handling](#order-handling) (8 commands)
 - [Order Information](#order-information) (8 commands)
 - [Position Information](#position-information) (14 commands)
-- [Position Prices](#position-prices) (11 commands)
+- [Position Prices](#position-prices) (9 commands)
 - [Signal Helpers](#signal-helpers) (24 commands)
 - [Trade Actions (Managed)](#trade-actions-managed) (5 commands)
 - [Trade Actions (Unmanaged)](#trade-actions-unmanaged) (8 commands)
@@ -39,28 +39,6 @@ Compares the average entry price to current price, absolute value-based.
 **Returns:** `boolean`
 
 Returns true if the minimum price change percentage is reached.
-
----
-
-## DisableOnLosses
-
-```lua
-DisableOnLosses(tradeCount, [acceptedLoss], [market])
-```
-
-Blocks new orders if total gain is negative after X trades .
-
-**Parameters:**
-
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| `tradeCount` | `number` | Yes | The trade count, after which the profits start to matter. |
-| `acceptedLoss` | `number` | No | The accepted loss percentage, 0 by default. |
-| `market` | `string` | No | The market returned by PriceMarket(), InputAccountMarket() or InputMarket() for example. |
-
-**Returns:** `boolean`
-
-Returns true if completed trades less than [tradeCount] or when gains are positive, otherwise false.
 
 ---
 
@@ -324,29 +302,6 @@ Returns true when the last trade is a certain number of minutes ago.
 
 
 # Easy Safeties
-
-## ChandelierStopLoss
-
-```lua
-ChandelierStopLoss([depth], [multiplier], [positionId], [direction])
-```
-
-Calculates the chandelier exit long/short price and compares it with the current price.
-
-**Parameters:**
-
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| `depth` | `number` | No | Depth length. Default is 20. |
-| `multiplier` | `number` | No | ATR multiplier. Default is 3. |
-| `positionId` | `string` | No | Optional unique identifier. Required when the bot is trading multiple position at once. |
-| `direction` | `enum` | No | The direction of the position. PositionLong or PositionShort. By default both. |
-
-**Returns:** `boolean`
-
-Returns true if the stop loss price have been breached.
-
----
 
 ## DeactivateAfterEnterOrder
 
@@ -1499,26 +1454,6 @@ Returns the profit.
 
 ---
 
-## LastLongROI
-
-```lua
-LastLongROI([positionId])
-```
-
-Gets the last long position ROI.
-
-**Parameters:**
-
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| `positionId` | `string` | No | Optional unique identifier. Required when the bot is trading multiple position at once. |
-
-**Returns:** `number`
-
-Returns the last long position ROI.
-
----
-
 ## LastShortPrice
 
 ```lua
@@ -1550,26 +1485,6 @@ Gets the profit of the last short exit or buy trade.
 **Returns:** `number`
 
 Returns the profit.
-
----
-
-## LastShortROI
-
-```lua
-LastShortROI([positionId])
-```
-
-Gets the last short position ROI.
-
-**Parameters:**
-
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| `positionId` | `string` | No | Optional unique identifier. Required when the bot is trading multiple position at once. |
-
-**Returns:** `number`
-
-Returns the last short position ROI.
 
 ---
 
@@ -1734,7 +1649,7 @@ Returns SignalLong when the a crossover occurs, SignalShort when a crossunder oc
 GetRemoteSignal(id)
 ```
 
-Gets the remote signal which is published by SaveRemoteSignal()
+Gets the remote signal which is published by SaveRemoteSignal() or the STORE_SIGNAL webhook. An incoming webhook signal triggers an immediate script execution, bypassing the normal tick interval.
 
 **Parameters:**
 

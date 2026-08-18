@@ -15,9 +15,9 @@ This folder contains comprehensive HaasScript documentation optimized for AI age
 - **HAASSCRIPT.md** - Technical command reference with type system, execution model, and command index
 - **haasscript/** - Detailed command references organized by domain:
   - `technical-analysis.md` - 157 commands (RSI, MACD, Bollinger Bands, etc.)
-  - `trading.md` - 139 commands (positions, orders, signals, safeties)
-  - `helpers.md` - 121 commands (arrays, math, strings, flow control)
-  - `enumerations.md` - 197 constant values
+  - `trading.md` - 136 commands (positions, orders, signals, safeties)
+  - `helpers.md` - 118 commands (arrays, math, strings, flow control)
+  - `enumerations.md` - 198 constant values
   - `data-and-prices.md` - 62 commands (price data, market info, wallet)
   - `advanced.md` - 97 commands (input fields, charting, ML)
 
@@ -33,7 +33,7 @@ This folder contains comprehensive HaasScript documentation optimized for AI age
 
 ### Language Foundation
 
-- HaasScript is built on top of Lua but includes 600+ custom commands specific to cryptocurrency trading
+- HaasScript is built on top of Lua but includes 750+ built-in commands specific to cryptocurrency trading
 - Case-sensitive language with indexing starting at 1 (not 0)
 - Executes on a per-minute basis by default (can run every 10 seconds on Cloud, 5 seconds on Enterprise with high-speed enabled)
 - Supports both script editor (code-based) and visual editor (node-based) development
@@ -384,7 +384,7 @@ DoSignal(consensusSignal)
 |----------|-----------------|
 | Official Documentation | https://help.haasonline.com/haasscript/general/ |
 | General Help | https://help.haasonline.com/ |
-| Command Reference | 600+ built-in commands |
+| Command Reference | 750+ built-in commands |
 | Community Scripts | [HaasScripts.com](https://haasscripts.com) |
 | Community Support | Discord |
 | Script Generation | Thomas chatbot for script generation and conversion |

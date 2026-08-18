@@ -1,6 +1,6 @@
 # Constants
 
-197 enumerations across 16 categories.
+198 enumerations across 17 categories.
 
 ## Categories
 
@@ -8,10 +8,11 @@
 - [Enumerations Candle Pattern](#enumerations-candle-pattern) (65 commands)
 - [Enumerations Charting](#enumerations-charting) (31 commands)
 - [Enumerations Color](#enumerations-color) (20 commands)
-- [Enumerations Data Types](#enumerations-data-types) (12 commands)
+- [Enumerations Contract Type](#enumerations-contract-type) (3 commands)
+- [Enumerations Data Types](#enumerations-data-types) (11 commands)
 - [Enumerations Margin Mode](#enumerations-margin-mode) (2 commands)
 - [Enumerations Moving Averages](#enumerations-moving-averages) (9 commands)
-- [Enumerations Order Types](#enumerations-order-types) (9 commands)
+- [Enumerations Order Types](#enumerations-order-types) (8 commands)
 - [Enumerations Parameter Type](#enumerations-parameter-type) (9 commands)
 - [Enumerations Position](#enumerations-position) (3 commands)
 - [Enumerations Position Mode](#enumerations-position-mode) (2 commands)
@@ -1237,6 +1238,7 @@ Constant representing the line style. Used by LineOptions() for example.
 ## Aqua
 
 ```lua
+Aqua
 Aqua([opacity])
 ```
 
@@ -1257,6 +1259,7 @@ Returns hex string of aqua (#00FFFF)
 ## Black
 
 ```lua
+Black
 Black([opacity])
 ```
 
@@ -1277,6 +1280,7 @@ Returns hex string of black (#000000)
 ## Blue
 
 ```lua
+Blue
 Blue([opacity])
 ```
 
@@ -1320,6 +1324,7 @@ Returns an RGBA color string.
 ## Cyan
 
 ```lua
+Cyan
 Cyan([opacity])
 ```
 
@@ -1340,6 +1345,7 @@ Returns hex string of cyan (#00CCCC)
 ## DarkGray
 
 ```lua
+DarkGray
 DarkGray([opacity])
 ```
 
@@ -1360,6 +1366,7 @@ Returns hex string of darkgray (#808080)
 ## DarkGreen
 
 ```lua
+DarkGreen
 DarkGreen([opacity])
 ```
 
@@ -1380,6 +1387,7 @@ Returns hex string of darkgreen (#008000)
 ## Fuchsia
 
 ```lua
+Fuchsia
 Fuchsia([opacity])
 ```
 
@@ -1400,6 +1408,7 @@ Returns hex string of fuchsia (#FF00FF)
 ## Gold
 
 ```lua
+Gold
 Gold([opacity])
 ```
 
@@ -1420,6 +1429,7 @@ Returns hex string of gold (#CC9900)
 ## Gray
 
 ```lua
+Gray
 Gray([opacity])
 ```
 
@@ -1440,6 +1450,7 @@ Returns hex string of gray (#C0C0C0)
 ## Green
 
 ```lua
+Green
 Green([opacity])
 ```
 
@@ -1460,6 +1471,7 @@ Returns hex string of green (#00FF00)
 ## Maroon
 
 ```lua
+Maroon
 Maroon([opacity])
 ```
 
@@ -1480,6 +1492,7 @@ Returns hex string of maroon (#800000)
 ## Olive
 
 ```lua
+Olive
 Olive([opacity])
 ```
 
@@ -1500,6 +1513,7 @@ Returns hex string of olive (#808000)
 ## Orange
 
 ```lua
+Orange
 Orange([opacity])
 ```
 
@@ -1520,6 +1534,7 @@ Returns hex string of orange (#FF8000)
 ## Purple
 
 ```lua
+Purple
 Purple([opacity])
 ```
 
@@ -1540,6 +1555,7 @@ Returns hex string of purple (#FF1a8c)
 ## Red
 
 ```lua
+Red
 Red([opacity])
 ```
 
@@ -1560,6 +1576,7 @@ Returns hex string of red (#FF0000)
 ## SkyBlue
 
 ```lua
+SkyBlue
 SkyBlue([opacity])
 ```
 
@@ -1580,6 +1597,7 @@ Returns hex string of skyblue (#33CCFF)
 ## Teal
 
 ```lua
+Teal
 Teal([opacity])
 ```
 
@@ -1600,6 +1618,7 @@ Returns hex string of teal (#008080)
 ## White
 
 ```lua
+White
 White([opacity])
 ```
 
@@ -1620,6 +1639,7 @@ Returns hex string of white (#FFFFFF)
 ## Yellow
 
 ```lua
+Yellow
 Yellow([opacity])
 ```
 
@@ -1634,6 +1654,45 @@ Enumeration, returns a color hex string. Can be used as Yellow, Yellow() or with
 **Returns:** `string`
 
 Returns hex string of yellow (#FFFF00)
+
+---
+
+
+# Enumerations Contract Type
+
+## InverseContract
+
+```lua
+InverseContract
+```
+
+Constant value: a contract type enum for Inverse contracts (non-linear, coin-margined). Used by ContractType()
+
+**Type:** `enum`
+
+---
+
+## QuantoContract
+
+```lua
+QuantoContract
+```
+
+Constant value: a contract type enum for Quanto contracts (fixed multiplier, cross-currency). Used by ContractType()
+
+**Type:** `enum`
+
+---
+
+## VanillaContract
+
+```lua
+VanillaContract
+```
+
+Constant value: a contract type enum for Vanilla contracts (linear, USDT-margined). Used by ContractType()
+
+**Type:** `enum`
 
 ---
 
@@ -1680,18 +1739,6 @@ Constant representing the data type.
 
 ```lua
 FunctionDataType
-```
-
-Constant representing the data type.
-
-**Type:** `enum`
-
----
-
-## HncDataType
-
-```lua
-HncDataType
 ```
 
 Constant representing the data type.
@@ -2018,18 +2065,6 @@ TakeProfitMarketOrderType
 ```
 
 Take-Profit-Market order type enum. When the exchange does not support this type, an error will be thrown and bot execution is stopped. Used by SetOrderType() or PlaceOrders commands.
-
-**Type:** `enum`
-
----
-
-## TrailingStopMarketOrderType
-
-```lua
-TrailingStopMarketOrderType
-```
-
-Trailing-Stop order type enum. When the exchange does not support this type, an error will be thrown and bot execution is stopped. Used by SetOrderType() or PlaceOrders commands.
 
 **Type:** `enum`
 

@@ -22,7 +22,7 @@ These are mandatory defaults. Deviate only with explicit user override.
 ## Core Knowledge Base
 
 ### Language Foundation
-- Built on top of Lua but includes 600+ custom commands specific to cryptocurrency trading.
+- Built on top of Lua but includes 750+ built-in commands specific to cryptocurrency trading.
 - Case-sensitive. Array indexing starts at 1 (not 0).
 - Executes on a per-minute basis by default (can run every 10 seconds on Cloud, 5 seconds on Enterprise with high-speed enabled).
 - Supports both script editor (code-based) and visual editor (node-based) development.
@@ -241,7 +241,7 @@ DoSignal(consensusSignal)
 
 ### Resources
 - Official documentation: https://help.haasonline.com/haasscript/general/ and https://help.haasonline.com/
-- Command reference for 600+ built-in commands
+- Command reference for 750+ built-in commands
 - HaasScript community: HaasScripts.com
 - Discord community for peer support
 

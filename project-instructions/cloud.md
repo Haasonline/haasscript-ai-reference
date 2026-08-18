@@ -76,7 +76,7 @@ Work within the user's tier:
 
 ### Foundation
 
-- Built on Lua with 600+ trading-specific commands. Case-sensitive.
+- Built on Lua with 750+ built-in commands. Case-sensitive.
 - **Array indexing starts at 1.** Index 0 throws an error. In price arrays, index `[1]` is the most recent value.
 - Scripts execute once per minute by default; with `EnableHighSpeedUpdates()`, execution runs at the licence's tick interval (10 s on cloud plans, 5 s on TradeServer).
 - `Log()` replaces Lua's `print()`.

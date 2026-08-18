@@ -155,7 +155,7 @@ local previousRsi = Load("myKey")
 
 ## Command Index
 
-HaasScript provides **579 functions** organized into **6 logical domains**:
+HaasScript provides **569 functions** organized into **6 logical domains**:
 
 ### [Advanced Features](haasscript/advanced.md)
 
@@ -163,13 +163,13 @@ HaasScript provides **579 functions** organized into **6 logical domains**:
 |----------|-----------|
 | Charting | 30 |
 | Custom Commands Helpers | 8 |
-| Input Fields | 23 |
+| Input Fields | 22 |
 | Input Settings | 6 |
-| MAchine Learning | 2 |
+| Machine Learning | 2 |
 | Settings | 24 |
-| Social Media | 5 |
+| Social Media | 3 |
 
-**98 functions total** — [View full documentation →](haasscript/advanced.md)
+**95 functions total** — [View full documentation →](haasscript/advanced.md)
 
 ### [Data & Prices](haasscript/data-and-prices.md)
 
@@ -191,10 +191,11 @@ HaasScript provides **579 functions** organized into **6 logical domains**:
 | Enumerations Candle Pattern | 65 |
 | Enumerations Charting | 31 |
 | Enumerations Color | 20 |
-| Enumerations Data Types | 12 |
+| Enumerations Contract Type | 3 |
+| Enumerations Data Types | 11 |
 | Enumerations Margin Mode | 2 |
 | Enumerations Moving Averages | 9 |
-| Enumerations Order Types | 9 |
+| Enumerations Order Types | 8 |
 | Enumerations Parameter Type | 9 |
 | Enumerations Position | 3 |
 | Enumerations Position Mode | 2 |
@@ -204,21 +205,21 @@ HaasScript provides **579 functions** organized into **6 logical domains**:
 | Enumerations Trading | 3 |
 | Enumerations Trading LR | 4 |
 
-**197 enumerations total** — [View full documentation →](haasscript/enumerations.md)
+**198 enumerations total** — [View full documentation →](haasscript/enumerations.md)
 
 ### [Helpers & Utilities](haasscript/helpers.md)
 
 | Category | Functions |
 |----------|-----------|
-| Array Helpers | 22 |
+| Array Helpers | 21 |
 | Equations | 15 |
-| Flow Control | 5 |
+| Flow Control | 4 |
 | Mathematical | 49 |
 | Memory Helpers | 11 |
-| Miscellaneous | 9 |
+| Miscellaneous | 8 |
 | String Helpers | 10 |
 
-**121 functions total** — [View full documentation →](haasscript/helpers.md)
+**118 functions total** — [View full documentation →](haasscript/helpers.md)
 
 ### [Technical Analysis](haasscript/technical-analysis.md)
 
@@ -234,19 +235,19 @@ HaasScript provides **579 functions** organized into **6 logical domains**:
 
 | Category | Functions |
 |----------|-----------|
-| Easy Insurances | 14 |
-| Easy Safeties | 19 |
+| Easy Insurances | 13 |
+| Easy Safeties | 18 |
 | Order Handling | 8 |
 | Order Information | 8 |
 | Position Information | 14 |
-| Position Prices | 11 |
+| Position Prices | 9 |
 | Signal Helpers | 24 |
 | Trade Actions (Managed) | 5 |
 | Trade Actions (Unmanaged) | 8 |
 | Trade Bot | 4 |
 | Trade Market Information | 25 |
 
-**140 functions total** — [View full documentation →](haasscript/trading.md)
+**136 functions total** — [View full documentation →](haasscript/trading.md)
 
 ## Best Practices
 
