@@ -1,6 +1,6 @@
 # Trading & Positions
 
-136 functions across 11 categories.
+135 functions across 11 categories.
 
 ## Categories
 
@@ -10,7 +10,7 @@
 - [Order Information](#order-information) (8 commands)
 - [Position Information](#position-information) (14 commands)
 - [Position Prices](#position-prices) (9 commands)
-- [Signal Helpers](#signal-helpers) (24 commands)
+- [Signal Helpers](#signal-helpers) (23 commands)
 - [Trade Actions (Managed)](#trade-actions-managed) (5 commands)
 - [Trade Actions (Unmanaged)](#trade-actions-unmanaged) (8 commands)
 - [Trade Bot](#trade-bot) (4 commands)
@@ -91,7 +91,7 @@ Returns true if the trade is allowed.
 OrderOncePerBar([interval], [positionId])
 ```
 
-Only allows a order to occur once per bar. Signals produced during a ordered bar are blocked.
+Only allows an order to occur once per bar. Signals produced during an ordered bar are blocked.
 
 **Parameters:**
 
@@ -264,7 +264,7 @@ Returns true if the trade is allowed.
 WaitAfterOrder(timeout, [positionId])
 ```
 
-Blocks any signal until a certain number of minutes have passed since the last placed order. This includes orders executed in an update cycle
+Blocks any signal until a certain number of minutes have passed since the last placed order. This includes orders executed in an update cycle.
 
 **Parameters:**
 
@@ -803,7 +803,7 @@ Checks if the given order is filled.
 
 **Returns:** `boolean`
 
-Returns true if the given order is filled.
+Returns true if the given order is filled. A market-type order (market, stop-market, take-profit-market or trailing-stop) that closes with only part of its amount filled also counts as filled, unless it was cancelled, timed out, failed or was rejected.
 
 ---
 
@@ -1015,11 +1015,11 @@ Returns an array with order information.
 | Index | Name | Type | Description |
 |-------|------|------|-------------|
 | 1 | `price` | `number` | The price on which the order is filled or executed. |
-| 2 | `executedAmount` | `number` | The executed amount. |
-| 3 | `filledAmount` | `number` | The filled amount. |
+| 2 | `executedAmount` | `number` | The requested amount of the order. Despite the name, not the filled quantity; use filledAmount for that. |
+| 3 | `filledAmount` | `number` | The filled quantity of the order. |
 | 4 | `isOpen` | `boolean` | If true, the order is open. |
-| 5 | `isFilled` | `boolean` | If true, the order is filled 100%. |
-| 6 | `isCancelled` | `boolean` | If true, the order is cancelled but might be filled partially. |
+| 5 | `isFilled` | `boolean` | If true, the order is filled. A market-type order (market, stop-market, take-profit-market or trailing-stop) that closes with only part of its amount filled also counts as filled, unless it was cancelled, timed out, failed or was rejected. Use filledAmount for the filled quantity; executedAmount is the requested amount. |
+| 6 | `isCancelled` | `boolean` | If true, the order closed without counting as filled (see isFilled): it was cancelled or failed, or it closed after filling only partially. |
 | 7 | `feeCosts` | `number` | The total fee costs. |
 | 8 | `feeCurrency` | `number` | The currency of the fee costs. |
 | 9 | `openTime` | `number` | The time the order is or has been open for in minutes. |
@@ -1042,7 +1042,7 @@ Returns an array with order information.
 AdjustVPosition(price, amount, [positionId])
 ```
 
-Adjusts a virtual bot position by processing a simulated order using the defined specifications. Works similarly to PlaceExitLongOrder/PlaceExitShortOrder, but will NOT create a real order; only simulated!
+Adjusts a virtual bot position by processing a simulated order using the defined specifications. Works similarly to PlaceExitLongOrder/PlaceExitShortOrder, but will NOT create a real order; it is only simulated.
 
 **Parameters:**
 
@@ -1301,16 +1301,17 @@ Returns an array with position information.
 | Index | Name | Type | Description |
 |-------|------|------|-------------|
 | 1 | `positionId` | `string` | The position identifier. |
-| 2 | `market` | `string` | The market of the position. |
+| 2 | `market` | `string` | The market of the position, as a composite `<accountId>_<market>_<leverage>` string. Not comparable to PriceMarket(). |
 | 3 | `isLong` | `boolean` | Set on true when the direction is long. |
 | 4 | `isShort` | `boolean` | Set on true when the direction is short. |
 | 5 | `enterPrice` | `number` | The average enter price. |
 | 6 | `amount` | `number` | The amount open in the position. |
-| 7 | `profit` | `number` | The realized + unrealized profits. |
+| 7 | `profit` | `number` | The realized + unrealized profits of this bot position. Note UserPositionContainer.profit and GetAllUserPositions.profit are unrealized only; the fields share a name but not a meaning. |
 | 8 | `roi` | `number` | The ROI based on the used margin and realized + unrealized profits. |
 | 9 | `openTime` | `number` | Timestamp (in unix) when the position was opened. |
 | 10 | `updatedTime` | `number` | Timestamp (in unix) when the position was last updated. |
-| 11 | `closeTime` | `number` | Timestamp (in unix) when the position was closed. If position is still open, value will be 0 |
+| 11 | `closeTime` | `number` | Timestamp (in unix) when the position was closed. If the position is still open, the value is 0. |
+| 12 | `direction` | `enum` | The direction of the position. Returns PositionLong, PositionShort or NoPosition. |
 
 ---
 
@@ -1614,7 +1615,7 @@ Counts the number of signals. When the majority agrees it will return the signal
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `signals[]` | `EnumParams` | Yes | Indicator signals collection. Takes a variable number of arguments. |
+| `signals[]` | `...enum` | Yes | Indicator signals collection. Takes a variable number of arguments. |
 
 **Returns:** `enum`
 
@@ -1722,7 +1723,7 @@ Validates if all signals are the same.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `signals[]` | `EnumParams` | Yes | Indicator signals collection. Takes a variable number of arguments. |
+| `signals[]` | `...enum` | Yes | Indicator signals collection. Takes a variable number of arguments. |
 
 **Returns:** `enum`
 
@@ -1778,31 +1779,11 @@ Calculates and determines the weighted consensus signal.
 | `longWeight` | `number` | Yes | The required sum of the long signals weight before the signal is valid. |
 | `shortWeight` | `number` | Yes | The required sum of the short signals weight before the signal is valid. |
 | `exitWeight` | `number` | Yes | The required sum of the exit signals weight before the signal is valid. |
-| `signals[]` | `EnumParams` | Yes | Indicator signals collection. Takes a variable number of arguments. |
+| `signals[]` | `...enum` | Yes | Indicator signals collection. Takes a variable number of arguments. |
 
 **Returns:** `enum`
 
 Returns SignalLong, SignalShort, SignalExitPosition or SignalNone when there is a consensus or SignalNone when there is not.
-
----
-
-## HindSightSignal
-
-```lua
-HindSightSignal(period)
-```
-
-Uses hindsight to tell if its the best moment to long or short
-
-**Parameters:**
-
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| `period` | `number` | Yes | Hindsight view period length. |
-
-**Returns:** `enum`
-
-Returns a trading signal
 
 ---
 
@@ -1986,7 +1967,7 @@ Logs the given signals.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `signals` | `EnumParams` | Yes | The signals to log. |
+| `signals` | `...enum` | Yes | The signals to log. |
 
 **Returns:** `void`
 
@@ -2372,7 +2353,7 @@ Merges multiple signals into a single list and determines the unanimous and cons
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `signals[]` | `EnumParams` | No | Indicator signals. Takes a variable number of arguments. |
+| `signals[]` | `...enum` | No | Indicator signals. Takes a variable number of arguments. |
 
 **Returns:** `dynamic`
 
@@ -2463,7 +2444,7 @@ Returns a number of how many decimals is allowed for order amounts.
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | `market` | `string` | No | The market returned by PriceMarket(), InputAccountMarket() or InputMarket() for example. |
-| `amount` | `number` | No |  |
+| `amount` | `number` | No | Optional amount. When above 0, returns the decimals the market allows for this amount. |
 
 **Returns:** `number`
 
@@ -2636,7 +2617,7 @@ Returns an array with all the markets as a string.
 ## IsTradeAmountEnough
 
 ```lua
-IsTradeAmountEnough(market, price, amount, [logWarning])
+IsTradeAmountEnough(market, price, amount, [logWarning], [reduceOnlyExit])
 ```
 
 Gets whether or not the trade amount is high enough for exchange limits.
@@ -2649,6 +2630,7 @@ Gets whether or not the trade amount is high enough for exchange limits.
 | `price` | `number` | Yes | The price on which to check the trade amount. |
 | `amount` | `number` | Yes | The amount to check. |
 | `logWarning` | `boolean` | No | If true, a warning is logged. |
+| `reduceOnlyExit` | `boolean` | No | If true, the amount is checked as a reduce-only exit. On markets where the exchange waives the minimum notional for reduce-only orders (e.g. Binance futures), only the minimum trade amount applies. |
 
 **Returns:** `boolean`
 

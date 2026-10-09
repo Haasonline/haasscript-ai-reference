@@ -1,6 +1,6 @@
 # Data & Prices
 
-63 functions across 5 categories.
+64 functions across 5 categories.
 
 ## Categories
 
@@ -8,7 +8,7 @@
 - [Price Market Information](#price-market-information) (12 commands)
 - [Profit Information](#profit-information) (6 commands)
 - [Time Information](#time-information) (19 commands)
-- [Wallet](#wallet) (10 commands)
+- [Wallet](#wallet) (11 commands)
 
 ---
 
@@ -565,42 +565,42 @@ Returns an array of bid prices and order sizes. Output format: [[price, amount],
 ## LastBuyTradesCommand
 
 ```lua
-LastBuyTradesCommand([Seconds back], [market])
+LastBuyTradesCommand([secondsBack], [market])
 ```
 
-Returns all last selling orders
+Returns the volume of the last buy trades.
 
 **Parameters:**
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `Seconds back` | `number` | No |  |
+| `secondsBack` | `number` | No | How many seconds to look back. 0 looks back 9999 seconds. |
 | `market` | `string` | No | The market returned by PriceMarket(), InputAccountMarket() or InputMarket() for example. |
 
 **Returns:** `number`
 
-Returns the buying trading volume
+Returns the buying trading volume.
 
 ---
 
 ## LastSellTradesCommand
 
 ```lua
-LastSellTradesCommand([Seconds back], [market])
+LastSellTradesCommand([secondsBack], [market])
 ```
 
-Returns all last selling orders
+Returns the volume of the last sell trades.
 
 **Parameters:**
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `Seconds back` | `number` | No |  |
+| `secondsBack` | `number` | No | How many seconds to look back. 0 looks back 9999 seconds. |
 | `market` | `string` | No | The market returned by PriceMarket(), InputAccountMarket() or InputMarket() for example. |
 
 **Returns:** `number`
 
-Returns the selling trading volume
+Returns the selling trading volume.
 
 ---
 
@@ -812,7 +812,7 @@ Sets a custom base value used in the ROI calculation (realized profits / baseVal
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `baseValue` | `number` | Yes | The base value for the ROI calculation |
+| `baseValue` | `number` | Yes | The base value for the ROI calculation. |
 | `market` | `string` | No | The guid returned by AccountGuid(), InputAccount or InputAccountMarket for example. |
 
 **Returns:** `void`
@@ -1126,14 +1126,14 @@ Returns the number of minutes before a new candle opens.
 OpenTime(unix, interval)
 ```
 
-Converts a timestamps to the open timestamp of the candle
+Converts a timestamp to the open timestamp of its candle.
 
 **Parameters:**
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `unix` | `number` | Yes | The timestamp to round. Set on 0 for current |
-| `interval` | `number` | Yes | The interval on which the candle is build |
+| `unix` | `number` | Yes | The timestamp to round. Set to 0 for the current timestamp. |
+| `interval` | `number` | Yes | The interval on which the candle is built. |
 
 **Returns:** `number`
 
@@ -1284,6 +1284,49 @@ Returns the total balance value.
 
 ---
 
+## GetAllUserPositions
+
+```lua
+GetAllUserPositions([accountId], [market])
+```
+
+Gets the positions the exchange reports for the account, independent of the bot position ledger. Use it to detect positions the bot did not open itself. On a managed bot the account snapshot only covers the bot's own market; unmanaged bots see every market on the account.
+
+**Parameters:**
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| `accountId` | `string` | No | The guid returned by AccountGuid(), InputAccount or InputAccountMarket for example. |
+| `market` | `string` | No | Optional market filter. Empty for every market in the account snapshot. |
+
+**Returns:** `dynamic`
+
+Returns an array with position information per open exchange position.
+
+**Element fields**: `GetAllUserPositions()` returns a Lua array (possibly empty) with one container per item. Each element has these fields, accessible by name or 1-based index. The array itself has no fields: `GetAllUserPositions().positionId` is `nil`.
+
+```lua
+for i, item in ipairs(GetAllUserPositions()) do
+    Log(item.positionId)
+end
+```
+
+| Index | Name | Type | Description |
+|-------|------|------|-------------|
+| 1 | `positionId` | `string` | Stable identifier for this exchange position leg, for referencing a specific leg in hedge mode. Opaque: it is NOT a bot position id, so GetPositionAmount() and similar commands find nothing for it. |
+| 2 | `accountId` | `string` | The account the position is held on. |
+| 3 | `market` | `string` | The market of the position, as a bare market tag directly comparable to PriceMarket(). Both PositionContainer.market and UserPositionContainer.market return the composite `<accountId>_<market>_<leverage>` form instead. |
+| 4 | `isLong` | `boolean` | Set on true when the direction is long. |
+| 5 | `isShort` | `boolean` | Set on true when the direction is short. |
+| 6 | `enterPrice` | `number` | The average enter price. |
+| 7 | `amount` | `number` | The amount open in the position. |
+| 8 | `profit` | `number` | The unrealized profit of this position, as reported by the exchange or calculated by HaasOnline from the enter price and the last price, depending on the exchange. Note PositionContainer.profit is realized + unrealized; the two fields share a name but not a meaning. |
+| 9 | `roi` | `number` | The unrealized profit as a percentage of the position's margin. |
+| 10 | `leverage` | `number` | The leverage of the position. |
+| 11 | `direction` | `enum` | The direction of the position. Returns PositionLong or PositionShort. |
+
+---
+
 ## MarginToTradeAmount
 
 ```lua
@@ -1297,7 +1340,7 @@ Convert margin to a trade amount. In spot markets, the margin is anticipated to 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | `price` | `number` | Yes | The price used in the conversion from margin to trade amount. |
-| `margin` | `number` | Yes | The margin used to calculate the trade amount |
+| `margin` | `number` | Yes | The margin used to calculate the trade amount. |
 | `leverage` | `number` | Yes | Leverage ratio. Use 0 for cross-margin. |
 | `market` | `string` | No | The market returned by PriceMarket(), InputAccountMarket() or InputMarket() for example. |
 
@@ -1412,13 +1455,14 @@ Returns an array with position information.
 
 | Index | Name | Type | Description |
 |-------|------|------|-------------|
-| 1 | `market` | `string` | The market of the position. |
-| 2 | `isLong` | `boolean` | Set on true when the direction is long. |
-| 3 | `isShort` | `boolean` | Set on true when the direction is short. |
+| 1 | `market` | `string` | The market of the position, as a composite `<accountId>_<market>_<leverage>` string built from the arguments passed in, where leverage is the leverage argument (-1 by default), not the position's own leverage. Not comparable to PriceMarket(). |
+| 2 | `isLong` | `boolean` | Set on true when the direction is long. False when the account holds no position on this market. |
+| 3 | `isShort` | `boolean` | Set on true when the direction is short. False when the account holds no position on this market. |
 | 4 | `enterPrice` | `number` | The average enter price. |
 | 5 | `amount` | `number` | The amount open in the position. |
-| 6 | `profit` | `number` | The realized + unrealized profits. |
-| 7 | `roi` | `number` | The ROI based on the used margin and realized + unrealized profits. |
+| 6 | `profit` | `number` | The unrealized profit of this position, as reported by the exchange or calculated by HaasOnline from the enter price and the last price, depending on the exchange. Note PositionContainer.profit is realized + unrealized; the two fields share a name but not a meaning. |
+| 7 | `roi` | `number` | The unrealized profit as a percentage of the position's margin. |
+| 8 | `direction` | `enum` | The direction of the position. Returns PositionLong, PositionShort or NoPosition. |
 
 ---
 

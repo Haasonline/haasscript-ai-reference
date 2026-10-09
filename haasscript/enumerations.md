@@ -1840,7 +1840,7 @@ Constant representing the data type.
 CrossMarginMode
 ```
 
-Constant representing the cross-margin mode. Used with Get-/SetMarginMode() and IsMarginModeSupported()
+Constant representing the cross margin mode. Used with GetMarginMode(), SetMarginMode() and IsMarginModeSupported().
 
 **Type:** `enum`
 
@@ -1852,7 +1852,7 @@ Constant representing the cross-margin mode. Used with Get-/SetMarginMode() and 
 IsolatedMarginMode
 ```
 
-Constant representing the isolated margin mode. Used with Get-/SetMarginMode() and IsMarginModeSupported()
+Constant representing the isolated margin mode. Used with GetMarginMode(), SetMarginMode() and IsMarginModeSupported().
 
 **Type:** `enum`
 
@@ -2028,7 +2028,7 @@ Constant representing the order type. Used by SetOrderType() or PlaceOrders comm
 StopLimitOrderType
 ```
 
-Stop-Limit order type enum with a standard timeout of 10 minutes. When the exchange does not support this type, an error will be thrown and bot execution is stopped. Used by SetOrderType() or PlaceOrders commands.
+Stop-Limit order type enum with a standard timeout of 10 minutes. In live trading, when the exchange does not declare this type, the order is refused before it is sent: it fails with "Requested order type '...' is not supported by ..." and the bot keeps running. Backtests do not check this and simulate the order anyway. Used by SetOrderType() or PlaceOrders commands.
 
 **Type:** `enum`
 
@@ -2040,7 +2040,7 @@ Stop-Limit order type enum with a standard timeout of 10 minutes. When the excha
 StopMarketOrderType
 ```
 
-Stop-Market order type enum. When the exchange does not support this type, an error will be thrown and bot execution is stopped. Used by SetOrderType() or PlaceOrders commands.
+Stop-Market order type enum. In live trading, when the exchange does not declare this type, the order is refused before it is sent: it fails with "Requested order type '...' is not supported by ..." and the bot keeps running. Backtests do not check this and simulate the order anyway. Used by SetOrderType() or PlaceOrders commands.
 
 **Type:** `enum`
 
@@ -2052,7 +2052,7 @@ Stop-Market order type enum. When the exchange does not support this type, an er
 TakeProfitLimitOrderType
 ```
 
-Take-profit limit order type enum with a standard timeout of 10 minutes. When the exchange does not support this type, an error will be thrown and bot execution is stopped. Used by SetOrderType() or PlaceOrders commands.
+Take-profit limit order type enum with a standard timeout of 10 minutes. In live trading, when the exchange does not declare this type, the order is refused before it is sent: it fails with "Requested order type '...' is not supported by ..." and the bot keeps running. Backtests do not check this and simulate the order anyway. Used by SetOrderType() or PlaceOrders commands.
 
 **Type:** `enum`
 
@@ -2064,7 +2064,7 @@ Take-profit limit order type enum with a standard timeout of 10 minutes. When th
 TakeProfitMarketOrderType
 ```
 
-Take-Profit-Market order type enum. When the exchange does not support this type, an error will be thrown and bot execution is stopped. Used by SetOrderType() or PlaceOrders commands.
+Take-Profit-Market order type enum. In live trading, when the exchange does not declare this type, the order is refused before it is sent: it fails with "Requested order type '...' is not supported by ..." and the bot keeps running. Backtests do not check this and simulate the order anyway. Used by SetOrderType() or PlaceOrders commands.
 
 **Type:** `enum`
 
@@ -2233,7 +2233,7 @@ Constant representing the bot position. Used by GetPositionDirection() for examp
 HedgePositionMode
 ```
 
-Constant representing the hedge position mode. Used with Get-/SetPositionMode() and IsPositionModeSupported()
+Constant representing the hedge position mode. Used with GetPositionMode(), SetPositionMode() and IsPositionModeSupported().
 
 **Type:** `enum`
 
@@ -2245,7 +2245,7 @@ Constant representing the hedge position mode. Used with Get-/SetPositionMode() 
 OneWayPositionMode
 ```
 
-Constant representing the one-way position mode. Used with Get-/SetPositionMode() and IsPositionModeSupported()
+Constant representing the one-way position mode. Used with GetPositionMode(), SetPositionMode() and IsPositionModeSupported().
 
 **Type:** `enum`
 

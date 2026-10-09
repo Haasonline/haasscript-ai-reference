@@ -22,17 +22,41 @@ HaasScript is a Lua-based scripting language that enables you to create custom t
 
 **HaasNumberCollection**
 
-The primary data type for numeric operations in HaasScript. Represents both single numbers and arrays of numbers (time series data).
+The primary data type for numeric operations in HaasScript: a series of numbers, **newest value first**. Every command whose return type is documented as `HaasNumberCollection` returns one: price data, indicators and most Mathematical commands (`Abs`, `Add`, `Max`, `Round`, …), even for a single number: `Abs(-5)` is a one-value collection, not a Lua number. Commands documented as returning `number` (e.g. `GetHigh`, `GetLow`, `Sd`) already return a plain Lua number.
 
 ```lua
-local prices = ClosePrices()  -- Returns HaasNumberCollection
-local rsi = RSI(prices, 14)   -- Returns HaasNumberCollection
+local prices = ClosePrices()  -- HaasNumberCollection
+local rsi = RSI(prices, 14)   -- HaasNumberCollection
 
--- Access first value
-local currentRsi = rsi.Value
+-- Comparisons, arithmetic and string concatenation work directly,
+-- using the newest value
+if rsi < 30 then DoLong() end
+Log('RSI: ' .. rsi)
 
--- Access array of values
-local rsiHistory = rsi.Values
+-- A plain Lua number: ArrayIndex (alias ArrayGet), 1-based, 1 = newest
+local currentRsi = ArrayIndex(rsi, 1)
+local previousRsi = ArrayIndex(rsi, 2)
+
+-- rsi[2] is NOT a number: it is the series shifted one bar back
+local previousSeries = rsi[2]
+```
+
+A collection is Lua *userdata*, so it does not work where Lua requires a real number: `tonumber(rsi)` returns `nil` and `math.floor(rsi)` raises "number expected, got userdata". Take the value out with `ArrayIndex(x, 1)` first. Only use it on a collection: given a plain number (e.g. the result of `Sd`) it returns `nil`. There are no `.Value` / `.Values` fields.
+
+**Parameter types and conversion**
+
+- `number|table` and `HaasNumberCollection` parameters accept a number, a Lua array or a HaasNumberCollection. A Lua array is read like a collection: index 1 is the newest value.
+- A `number` parameter given a collection uses its newest value.
+- When two collections of different lengths are combined (`Add(a, b)`, `a - b`), the result has the length of the shorter one.
+- `...number|table` (and the other `...` types) means the parameter takes any number of arguments: `Max(1, 5, 9)`.
+
+**Containers**
+
+Commands documented as returning `dynamic` with a **Container fields** table return named fields, readable by name or 1-based index. Field names are case-sensitive. An **Element fields** table instead means the command returns a Lua array of containers: read the fields on each element (`list[1].market`), not on the array.
+
+```lua
+local macd = MACD(ClosePrices(), 12, 26, 9)
+local signalLine = macd.signal  -- same as macd[2]; macd.Signal is nil
 ```
 
 **HaasSignal**
@@ -48,6 +72,9 @@ Enumeration type for constants (MA types, signal types, order types, etc.).
 - `number` - Lua number (floating point)
 - `string` - Text data
 - `boolean` - true/false values
+- `table` - Lua table (e.g. `StringExplode` returns an array of strings)
+- `function` - Lua function (callback)
+- `dynamic` - depends on the input or on what was stored; see the command's description
 
 ## Execution Model
 
@@ -77,9 +104,9 @@ local period = Input("period", 14)  -- Initialization
 local prices = ClosePrices()         -- Update phase
 local rsi = RSI(prices, period)
 
-if rsi.Value < 30 then
+if rsi < 30 then
     DoLong()  -- Buy signal
-elseif rsi.Value > 70 then
+elseif rsi > 70 then
     DoShort()  -- Sell signal
 end
 ```
@@ -103,8 +130,9 @@ local rsi = RSI(ClosePrices(), 14)
 
 -- MACD
 local macd = MACD(ClosePrices(), 12, 26, 9)
-local macdValue = macd.Value
-local signalLine = macd.Signal
+local macdLine = macd.macd
+local signalLine = macd.signal
+local histogram = macd.hist
 
 -- Moving Averages
 local sma = SMA(ClosePrices(), 20)
@@ -137,9 +165,9 @@ TrailingStopLoss(3.0)  -- 3% trailing stop
 ```lua
 local prices = ClosePrices()
 
--- Get specific index (0 = most recent)
-local currentPrice = ArrayIndex(prices, 0)
-local previousPrice = ArrayIndex(prices, 1)
+-- Get specific index (1-based, 1 = most recent; 0 is an error)
+local currentPrice = ArrayIndex(prices, 1)
+local previousPrice = ArrayIndex(prices, 2)
 
 -- Filter
 local highPrices = FilterAbove(prices, 100)
@@ -149,13 +177,13 @@ local highPrices = FilterAbove(prices, 100)
 
 ```lua
 -- Save values between executions
-Save("myKey", rsi.Value)
+Save("myKey", ArrayIndex(rsi, 1))
 local previousRsi = Load("myKey")
 ```
 
 ## Command Index
 
-HaasScript provides **569 functions** organized into **6 logical domains**:
+HaasScript provides **570 functions** organized into **6 logical domains**:
 
 ### [Advanced Features](haasscript/advanced.md)
 
@@ -165,11 +193,11 @@ HaasScript provides **569 functions** organized into **6 logical domains**:
 | Custom Commands Helpers | 8 |
 | Input Fields | 22 |
 | Input Settings | 6 |
-| Machine Learning | 2 |
+| Machine Learning | 3 |
 | Settings | 24 |
 | Social Media | 3 |
 
-**95 functions total** — [View full documentation →](haasscript/advanced.md)
+**96 functions total** — [View full documentation →](haasscript/advanced.md)
 
 ### [Data & Prices](haasscript/data-and-prices.md)
 
@@ -179,9 +207,9 @@ HaasScript provides **569 functions** organized into **6 logical domains**:
 | Price Market Information | 12 |
 | Profit Information | 6 |
 | Time Information | 19 |
-| Wallet | 10 |
+| Wallet | 11 |
 
-**63 functions total** — [View full documentation →](haasscript/data-and-prices.md)
+**64 functions total** — [View full documentation →](haasscript/data-and-prices.md)
 
 ### [Constants](haasscript/enumerations.md)
 
@@ -241,13 +269,13 @@ HaasScript provides **569 functions** organized into **6 logical domains**:
 | Order Information | 8 |
 | Position Information | 14 |
 | Position Prices | 9 |
-| Signal Helpers | 24 |
+| Signal Helpers | 23 |
 | Trade Actions (Managed) | 5 |
 | Trade Actions (Unmanaged) | 8 |
 | Trade Bot | 4 |
 | Trade Market Information | 25 |
 
-**136 functions total** — [View full documentation →](haasscript/trading.md)
+**135 functions total** — [View full documentation →](haasscript/trading.md)
 
 ## Best Practices
 

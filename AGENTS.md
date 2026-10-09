@@ -15,11 +15,11 @@ This folder contains comprehensive HaasScript documentation optimized for AI age
 - **HAASSCRIPT.md** - Technical command reference with type system, execution model, and command index
 - **haasscript/** - Detailed command references organized by domain:
   - `technical-analysis.md` - 157 commands (RSI, MACD, Bollinger Bands, etc.)
-  - `trading.md` - 136 commands (positions, orders, signals, safeties)
+  - `trading.md` - 135 commands (positions, orders, signals, safeties)
   - `helpers.md` - 118 commands (arrays, math, strings, flow control)
   - `enumerations.md` - 198 constant values
-  - `data-and-prices.md` - 62 commands (price data, market info, wallet)
-  - `advanced.md` - 97 commands (input fields, charting, ML)
+  - `data-and-prices.md` - 64 commands (price data, market info, wallet)
+  - `advanced.md` - 96 commands (input fields, charting, ML)
 
 **How to use these docs:**
 1. If HTS MCP tools are available, use MCP.md instead of this file
@@ -290,6 +290,53 @@ if GetPositionDirection() ~= PositionLong and not IsAnyOrderOpen() then
     DoLong("Enter Long")
 end
 ```
+
+### Bot positions vs exchange positions
+
+HaasScript position state is a **bot-local ledger keyed by script-owned position IDs**, not a
+mirror of the exchange. Every `GetPosition*` command, `IsPositionClosed()` and
+`GetAllOpenPositions()` read that ledger, so they only ever see positions **the bot opened
+itself**. A position opened manually, by another bot, or before the bot was rebuilt is
+invisible to them: `GetPositionAmount()` returns `0` and `GetPositionDirection()` returns
+`NoPosition`, which is indistinguishable from being flat. This is not a connector sync bug.
+
+To see what the **exchange** actually holds, read the user/wallet side instead:
+
+```lua
+-- Every exchange position on the account, ledger-independent.
+-- Both hedge legs appear as separate entries.
+for _, pos in pairs(GetAllUserPositions()) do
+    Log(pos.market .. " " .. pos.direction .. " " .. pos.amount)
+end
+
+-- Single market/direction lookup
+local userPos = UserPositionContainer(AccountGuid(), PriceMarket(), -1, PositionLong)
+
+-- Scalar helpers, also exchange-side
+local long, short = LongAmount(), ShortAmount()
+```
+
+A script that trades on an account which may hold positions it did not open should compare the
+two and refuse to trade (or deactivate) on divergence, rather than trading blind alongside an
+invisible position. There is currently **no** command that adopts an existing exchange position
+into the bot ledger — it must be closed manually.
+
+### Gotchas that produce silent empty results
+
+- **`PositionContainer.direction` does not exist on 4.0.7.131 or earlier** (it was added in
+  August 2026). The container exposes `positionId, market, isLong, isShort, enterPrice, amount,
+  profit, roi, openTime, updatedTime, closeTime`, plus `direction` on newer builds. On older
+  builds `container.direction` reads `nil` forever; use `isLong`/`isShort` or
+  `GetPositionDirection(positionId)` there. `direction` is an *input* parameter name on several
+  other commands (`CreatePosition`, `GetCurrentProfit`, …), which is where the wrong assumption
+  usually comes from.
+- **`PositionContainer.market` and `UserPositionContainer.market` are composite strings** of the
+  form `<accountId>_<MARKET_TAG>_<leverage>` (e.g.
+  `ca126047-…_BYBITUSDT_BTC_USDT_PERPETUAL_100.0`). Comparing one to `PriceMarket()` matches
+  nothing. `GetAllUserPositions()` returns the bare market tag instead, which does compare.
+- **On an unmanaged bot (`IsManagedTrading: false`), `ManagedLongPosition` and
+  `ManagedShortPosition` are always all-zero** and the real position lives in
+  `UnmanagedPositions`. Empty managed containers are not a missing position.
 
 ---
 

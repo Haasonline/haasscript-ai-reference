@@ -268,7 +268,7 @@ Remove an item from the beginning of an array.
 
 **Returns:** `dynamic`
 
-The input without the first value
+The input without the first value.
 
 ---
 
@@ -331,7 +331,7 @@ Adds an element to the beginning of an array.
 
 **Returns:** `dynamic`
 
-The input with the element added in front of the array
+The input with the element added in front of the array.
 
 ---
 
@@ -469,7 +469,7 @@ Stores numeric values in a collection. Only adds the new value when the candle o
 | `newValue` | `number` | Yes | This value will be added in front of the collection when the candle closed. |
 | `interval` | `number` | No | The interval on which the data is based. Default is the selected main interval. |
 | `cap` | `number` | No | Maximum size of the collection. |
-| `initialValues` | `HaasNumberCollection` | No | The initial values when source in initialized |
+| `initialValues` | `HaasNumberCollection` | No | The initial values when the source is initialized. |
 
 **Returns:** `HaasNumberCollection`
 
@@ -495,7 +495,7 @@ Checks if input1 is below, equal to or above input2.
 | `input1` | `number|table` | Yes | Source value(s) 1. |
 | `input2` | `number|table` | Yes | Source value(s) 2. |
 
-**Returns:** `unknown`
+**Returns:** `dynamic`
 
 Returns a list with booleans.
 
@@ -905,7 +905,7 @@ Calculates an absolute/positive number.
 |------|------|----------|-------------|
 | `input` | `number|table` | Yes | Source value. |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns an absolute/positive number.
 
@@ -925,7 +925,7 @@ Calculates the angle whose cosine is the specified number.
 |------|------|----------|-------------|
 | `input` | `number|table` | Yes | A number representing a cosine, that must be greater than or equal to -1, but less than or equal to 1. |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns the angle whose cosine is the specified number.
 
@@ -948,7 +948,7 @@ Adds numbers/tables and returns the result number/table.
 | `input1` | `number|table` | Yes | Source value(s) 1. |
 | `input2` | `number|table` | No | Source value(s) 2. |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns the total sum of a single value is provide, adds the 2 values if there are 2 provided.
 
@@ -991,7 +991,7 @@ Calculates the angle whose sine is the specified number.
 |------|------|----------|-------------|
 | `input` | `number|table` | Yes | Source value(s). |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns the angle whose sine is the specified number.
 
@@ -1011,7 +1011,7 @@ Calculates the angle whose tangent is the specified number.
 |------|------|----------|-------------|
 | `input` | `number|table` | Yes | A number representing a tangent. |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns the angle whose tangent is the specified number.
 
@@ -1032,7 +1032,7 @@ Calculates the angle whose tangent is the quotient of two specified numbers.
 | `input1` | `number|table` | Yes | The y coordinate of a point. |
 | `input2` | `number|table` | Yes | The x coordinate of a point. |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns the angle whose tangent is the quotient of two specified numbers.
 
@@ -1053,7 +1053,7 @@ Calculates the average value of the array, two numbers or averages between 2 arr
 | `input1` | `number|table` | Yes | Source value(s) 1. |
 | `input2` | `number|table` | No | Source value(s) 2. |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns the average value of the array, two numbers or averages between 2 arrays.
 
@@ -1074,7 +1074,7 @@ Calculates the average value of the array for a certain period.
 | `input` | `HaasNumberCollection` | Yes | Source values. |
 | `period` | `number` | No | Period length. |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns the average value of the array for a certain period.
 
@@ -1094,7 +1094,7 @@ Calculates the smallest integral value greater than or equal to the specified nu
 |------|------|----------|-------------|
 | `input` | `number|table` | Yes | Source value(s). |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns the smallest integral value greater than or equal to the specified number.
 
@@ -1136,7 +1136,7 @@ Calculates the number or table of numbers clamped between the specified minimum 
 | `min` | `number` | Yes | Minimum value. |
 | `max` | `number` | Yes | Maximum value. |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns number or table of numbers clamped between the specified minimum and maximum.
 
@@ -1176,7 +1176,7 @@ Calculates the cosine of the specified angle.
 |------|------|----------|-------------|
 | `input` | `number|table` | Yes | Source value(s). |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns the cosine of the specified angle.
 
@@ -1196,7 +1196,7 @@ Calculates the hyperbolic cosine of the specified angle.
 |------|------|----------|-------------|
 | `input` | `number|table` | Yes | Source value(s). |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns the hyperbolic cosine of the specified angle.
 
@@ -1219,7 +1219,7 @@ Calculates the percentage between input1 and input2 or the percentage change bet
 | `input1` | `number|table` | Yes | Source value(s) 1. |
 | `input2` | `number|table` | No | Source value(s) 2. |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns the percentage between input1 and input2. When for example input1 is 5 and input2 is 6, 20 is returned.
 
@@ -1240,7 +1240,7 @@ Divides input1 with input2. If one of the parameters is a single value, the othe
 | `input1` | `number|table` | Yes | Source value(s) 1. |
 | `input2` | `number|table` | Yes | Source value(s) 2. |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns the divided numbers/tables.
 
@@ -1260,7 +1260,7 @@ Calculates 'e' raised to the specified power.
 |------|------|----------|-------------|
 | `input` | `number|table` | Yes | Source value(s). |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns 'e' raised to the specified power.
 
@@ -1322,7 +1322,7 @@ Calculates the largest integral value less than or equal to the specified number
 |------|------|----------|-------------|
 | `input` | `number|table` | Yes | Source value(s). |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns the largest integral value less than or equal to the specified number.
 
@@ -1429,7 +1429,7 @@ Calculates the logarithm of a specified number.
 | `input1` | `number|table` | Yes | Source value(s) 1. |
 | `input2` | `number|table` | No | Source value(s) 2. |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns the logarithm of a specified number.
 
@@ -1449,7 +1449,7 @@ Calculates the base 10 logarithm of a specified number.
 |------|------|----------|-------------|
 | `input` | `number|table` | Yes | Source value(s). |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns the base 10 logarithm of a specified number.
 
@@ -1467,9 +1467,9 @@ Returns the maximum value. If the input is a single array, it returns the bigges
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `values[]` | `NumberOrTableParams` | Yes | Source value(s). |
+| `values[]` | `...number|table` | Yes | Source value(s). |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns the biggest number or an array of biggest numbers per cell.
 
@@ -1487,9 +1487,9 @@ Returns the minimum value. If the input is a single array, it returns the minimu
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `values[]` | `NumberOrTableParams` | Yes | Source value(s). |
+| `values[]` | `...number|table` | Yes | Source value(s). |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns the smallest number or an array of smallest numbers per cell.
 
@@ -1512,7 +1512,7 @@ Multiplies input1 with input2. If one of the parameters is a single value, the o
 | `input1` | `number|table` | Yes | Source value(s) 1. |
 | `input2` | `number|table` | Yes | Source value(s) 2. |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns the multiplied numbers/tables.
 
@@ -1572,10 +1572,10 @@ Calculates a specified number/table raised to the specified power number/table.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `value` | `number|table` | Yes | The base value |
-| `power` | `number|table` | Yes | The power value |
+| `value` | `number|table` | Yes | The base value. |
+| `power` | `number|table` | Yes | The power value. |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns a specified number/table raised to the specified power number/table.
 
@@ -1661,7 +1661,7 @@ Rounds a value (or values if table) to the nearest integer or to the specified n
 | `input` | `number|table` | Yes | Source value(s). |
 | `digits` | `number` | Yes | Number of digits after decimal point. |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns the rounded number.
 
@@ -1717,7 +1717,7 @@ Calculates an integer that indicates the sign of a number.
 |------|------|----------|-------------|
 | `input` | `number|table` | Yes | Source value(s). |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns an integer that indicates the sign of a number.
 
@@ -1737,7 +1737,7 @@ Calculates the sine of the specified angle.
 |------|------|----------|-------------|
 | `input` | `number|table` | Yes | Source value(s). |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns the sine of the specified angle.
 
@@ -1757,7 +1757,7 @@ Calculates the hyperbolic sine of the specified angle.
 |------|------|----------|-------------|
 | `input` | `number|table` | Yes | Source value(s). |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns the hyperbolic sine of the specified angle.
 
@@ -1777,7 +1777,7 @@ Calculates the square root of a specified number.
 |------|------|----------|-------------|
 | `input` | `number|table` | Yes | Source value(s). |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns the square root of a specified number.
 
@@ -1798,7 +1798,7 @@ Subtracts numbers/tables and returns the result number/table.
 | `input1` | `number|table` | Yes | Source value(s) 1. |
 | `input2` | `number|table` | Yes | Source value(s) 2. |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Calculates the subtracted numbers/tables.
 
@@ -1841,7 +1841,7 @@ Calculates the tangent of the specified angle.
 |------|------|----------|-------------|
 | `input` | `number|table` | Yes | Source value(s). |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns the tangent of the specified angle.
 
@@ -1861,7 +1861,7 @@ Calculates the hyperbolic tangent of the specified angle.
 |------|------|----------|-------------|
 | `input` | `number|table` | Yes | Source value(s). |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns the hyperbolic tangent of the specified angle.
 
@@ -1882,7 +1882,7 @@ Truncates a value (or values if table) to the nearest integer or to the specifie
 | `input` | `number|table` | Yes | Source value(s). |
 | `digits` | `number` | Yes | Number of digits after decimal point. |
 
-**Returns:** `unknown`
+**Returns:** `HaasNumberCollection`
 
 Returns the truncated number.
 
@@ -1921,8 +1921,8 @@ Initialize a file that can be exported later. Rows are written with WriteExportD
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `name` | `string` | Yes | Unique name of the file |
-| `headers` | `...string` | Yes | Header definition |
+| `name` | `string` | Yes | Unique name of the file. |
+| `headers` | `...string` | Yes | Header definition. |
 
 **Returns:** `void`
 
@@ -1963,8 +1963,8 @@ Create a message in the log.
 |------|------|----------|-------------|
 | `message` | `dynamic` | Yes | Message to log. |
 | `color` | `string` | No | The color of the log message. |
-| `prefix` | `string` | No | Optional prefix for the log message |
-| `suffix` | `string` | No | Optional suffix for the log message |
+| `prefix` | `string` | No | Optional prefix for the log message. |
+| `suffix` | `string` | No | Optional suffix for the log message. |
 
 **Returns:** `void`
 
@@ -2095,7 +2095,7 @@ Write data to a file that can be exported later. Only records during a backtest.
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | `name` | `string` | Yes | Name of the file to write the data to. |
-| `values` | `...string` | Yes | The values to write to the file. Needs to match the number of headers defined in InitExportData. |
+| `values` | `...dynamic` | Yes | The values to write to the file, converted to text. Needs to match the number of headers defined in InitExportData. |
 
 **Returns:** `void`
 
@@ -2137,7 +2137,7 @@ Creates an item in the bot's custom reports. Use group="Override" to override st
 | `key` | `string` | Yes | The name of the item. |
 | `value` | `dynamic` | Yes | The value of the item. |
 | `group` | `string` | No | The report group name. Defaults to 'Custom Report'. Use 'Override' to override a standard bot report field (e.g. CustomReport("RealizedProfit", myValue, "Override")). |
-| `displayValue` | `boolean` | No | When set on true, this value will be visible on the bot list in the UI.'. |
+| `displayValue` | `boolean` | No | When set to true, this value will be visible on the bot list in the UI. |
 
 **Returns:** `void`
 
@@ -2316,13 +2316,13 @@ Returns the converted value or nil if parsing fails.
 ParseCsv(csv, [hasHeaders], [columnDelimiter], [rowDelimiter])
 ```
 
-Parses CSV data string and returns it as an object. URLs are also supported.
+Parses CSV data string and returns it as an object. Downloading from a URL is only supported on self-hosted servers.
 
 **Parameters:**
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `csv` | `string` | Yes | The CSV data string or URL to download CSV data from. |
+| `csv` | `string` | Yes | The CSV data string. On self-hosted servers this can also be an http(s) URL to download CSV data from; on HaasOnline Cloud a URL logs an error and returns nil. |
 | `hasHeaders` | `boolean` | No | Whether or not data contains headers (default: false) |
 | `columnDelimiter` | `string` | No | Delimiter for columns (default: ';') |
 | `rowDelimiter` | `string` | No | Delimiter for rows (default: '\n') |
@@ -2392,7 +2392,7 @@ Splits a string into substrings that are based on the characters in an array.
 | `value` | `string` | Yes | The main string. |
 | `delimiter` | `string` | Yes | The delimiter value. |
 
-**Returns:** `unknown`
+**Returns:** `table`
 
 Returns an array of strings.
 
@@ -2412,7 +2412,7 @@ Split a string on '&' and '='.
 |------|------|----------|-------------|
 | `value` | `string` | Yes | The main string. |
 
-**Returns:** `unknown`
+**Returns:** `table`
 
 Returns an key-value based table.
 

@@ -1,6 +1,6 @@
 # Advanced Features
 
-95 functions across 7 categories.
+96 functions across 7 categories.
 
 ## Categories
 
@@ -8,7 +8,7 @@
 - [Custom Commands Helpers](#custom-commands-helpers) (8 commands)
 - [Input Fields](#input-fields) (22 commands)
 - [Input Settings](#input-settings) (6 commands)
-- [Machine Learning](#machine-learning) (2 commands)
+- [Machine Learning](#machine-learning) (3 commands)
 - [Settings](#settings) (24 commands)
 - [Social Media](#social-media) (3 commands)
 
@@ -650,7 +650,7 @@ Creates volume bars. The bars can be styles accordingly. A positive chartId will
 SetStackedAreaOpacity(chartId, opacity)
 ```
 
-Configures the opacity for stacked area chart. A values between
+Configures the opacity for the stacked areas of a chart, as a value between 0 and 100.
 
 **Parameters:**
 
@@ -919,7 +919,7 @@ Creates a button in the input field. When press in the UI, the bot will receive 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | `label` | `string` | Yes | The field label text. |
-| `callback` | `Function` | Yes | The callback which will be executed when the button is pressed. |
+| `callback` | `function` | Yes | The callback which will be executed when the button is pressed. |
 | `tooltip` | `string` | No | The tooltip text for the field. |
 | `group` | `string` | No | The group of the input field. |
 
@@ -1294,14 +1294,14 @@ Returns the options objects.
 InputTableColumnDropdown(name, options, [values[]])
 ```
 
-Creates an table column options object for InputTable() with a dropdown
+Creates a table column options object for InputTable() with a dropdown.
 
 **Parameters:**
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | `name` | `string` | Yes | Column name. |
-| `options` | `dynamic` | Yes | Dropdown options. For example { "options-A", "options-B" } |
+| `options` | `dynamic` | Yes | Dropdown options. For example { "options-A", "options-B" }. |
 | `values[]` | `...dynamic` | No | Default values. |
 
 **Returns:** `dynamic`
@@ -1435,22 +1435,44 @@ Gets the trade amount.
 
 # Machine Learning
 
+## HindSightSignal
+
+```lua
+HindSightSignal(period)
+```
+
+Uses hindsight to tell if it is the best moment to go long or short. Not available in the cloud version.
+
+**Parameters:**
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| `period` | `number` | Yes | Hindsight view period length. |
+
+**Returns:** `enum`
+
+Returns a trading signal.
+
+---
+
 ## IsAbnormal
 
 ```lua
 IsAbnormal(dataset, multiplier)
 ```
 
-Looks to a numberic array and tells if the last value is abnormal
+Looks at a numeric array and checks whether its newest (first) value lies within multiplier standard deviations of the average. Not available in the cloud version.
 
 **Parameters:**
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `dataset` | `HaasNumberCollection` | Yes | Dataset |
-| `multiplier` | `number` | Yes | Multiplier to control the sensitivity (1-3) |
+| `dataset` | `HaasNumberCollection` | Yes | The dataset to check. The first value is the newest one. |
+| `multiplier` | `number` | Yes | Multiplier to control the sensitivity (1-3). |
 
 **Returns:** `boolean`
+
+True when the newest value is inside that band (normal), false when it is outside it (abnormal).
 
 ---
 
@@ -1460,18 +1482,20 @@ Looks to a numberic array and tells if the last value is abnormal
 SimpleForecastBySsa(dataset, L, N, forecastCount)
 ```
 
-Reads the given data and tries to give a forecast
+Reads the given data and tries to give a forecast.
 
 **Parameters:**
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `dataset` | `HaasNumberCollection` | Yes | Dataset |
-| `L` | `number` | Yes | Length of the window on the series for building the trajectory matrix (L) |
-| `N` | `number` | Yes | Length of series that is kept in buffer for modeling (N) |
-| `forecastCount` | `number` | Yes | Amount of future data points |
+| `dataset` | `HaasNumberCollection` | Yes | The dataset to forecast. |
+| `L` | `number` | Yes | Length of the window on the series for building the trajectory matrix (L). |
+| `N` | `number` | Yes | Length of series that is kept in buffer for modeling (N). |
+| `forecastCount` | `number` | Yes | Amount of future data points. |
 
 **Returns:** `HaasNumberCollection`
+
+The forecasted values.
 
 ---
 
@@ -1735,7 +1759,7 @@ Checks if the specified margin mode is supported on current or specified market.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `marginMode` | `enum` | Yes | Request margin mode. CrossMarginMode or IsolatedMarginMode |
+| `marginMode` | `enum` | Yes | Requested margin mode: CrossMarginMode or IsolatedMarginMode. |
 | `accountId` | `string` | No | The guid returned by AccountGuid(), InputAccount or InputAccountMarket for example. |
 
 **Returns:** `boolean`
@@ -1756,7 +1780,7 @@ Checks if specified position mode is supported on current or specified market.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `positionMode` | `enum` | Yes | Request position mode. OneWayPositionMode or HedgePositionMode |
+| `positionMode` | `enum` | Yes | Requested position mode: OneWayPositionMode or HedgePositionMode. |
 | `accountId` | `string` | No | The guid returned by AccountGuid(), InputAccount or InputAccountMarket for example. |
 
 **Returns:** `boolean`
@@ -1804,7 +1828,7 @@ Enables the paused flag. Use in combination with IsBotPaused() to read the value
 ResumeBot()
 ```
 
-Disables the pause flag. Use in combination with IsBotPaused() to read the value
+Disables the pause flag. Use in combination with IsBotPaused() to read the value.
 
 **Returns:** `void`
 
@@ -1844,7 +1868,7 @@ Sets the margin mode for current or specific market. It is NOT possible to chang
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `marginMode` | `enum` | Yes | Request margin mode. CrossMarginMode or IsolatedMarginMode |
+| `marginMode` | `enum` | Yes | Requested margin mode: CrossMarginMode or IsolatedMarginMode. |
 | `market` | `string` | No | The market returned by PriceMarket(), InputAccountMarket() or InputMarket() for example. |
 | `accountId` | `string` | No | The guid returned by AccountGuid(), InputAccount or InputAccountMarket for example. |
 
@@ -1884,7 +1908,7 @@ Sets the position mode for current or specified market. It is NOT possible to ch
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `positionMode` | `enum` | Yes | Request position mode. OneWayPositionMode or HedgePositionMode |
+| `positionMode` | `enum` | Yes | Requested position mode: OneWayPositionMode or HedgePositionMode. |
 | `accountId` | `string` | No | The guid returned by AccountGuid(), InputAccount or InputAccountMarket for example. |
 | `market` | `string` | No | The market returned by PriceMarket(), InputAccountMarket() or InputMarket() for example. |
 
@@ -1909,7 +1933,7 @@ Send a text message to Discord.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `message` | `string` | Yes | The content of the message |
+| `message` | `string` | Yes | The content of the message. |
 
 **Returns:** `void`
 
@@ -1927,7 +1951,7 @@ Send a text message to your Telegram.
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `message` | `string` | Yes | The content of the message |
+| `message` | `string` | Yes | The content of the message. |
 
 **Returns:** `void`
 
@@ -1945,8 +1969,8 @@ Sends a notification to your browser and configured push channels (Discord, Tele
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `title` | `string` | Yes | The notification title |
-| `message` | `string` | Yes | The notification message |
+| `title` | `string` | Yes | The notification title. |
+| `message` | `string` | Yes | The notification message. |
 
 **Returns:** `void`
 
